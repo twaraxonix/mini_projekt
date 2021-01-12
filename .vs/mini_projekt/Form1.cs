@@ -51,19 +51,30 @@ namespace mini_projekt
 
         private void RegistracijaButton_Click(object sender, EventArgs e)
         {
+
             string MD5 = CreateMD5(Geslo2textBox.Text);
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT add_uporabnik1('"+ImeTextBox.Text+"','"+PriimekTextBox.Text+"','"+Email2TextBox.Text+"','"+MD5+"')", con);
-                NpgsqlDataReader reader = com.ExecuteReader(); 
+                NpgsqlCommand com = new NpgsqlCommand("SELECT add_uporabnik1('" + ImeTextBox.Text + "','" + PriimekTextBox.Text + "','" + Email2TextBox.Text + "','" + MD5 + "')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    int a = reader.GetInt32(0);
+                    Public.Change(reader.GetInt32(0));
                     //comboBox1.Items.Add(ime);
-                    comboBox1.Items.Add(a);
+                    //comboBox1.Items.Add(a);
                 }
                 con.Close();
+            }
+            if (Public.id != 0) {
+                this.Hide();
+                var MainForm = new MainForm();
+                MainForm.Closed += (s, args) => this.Close();
+                MainForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Registracija ni uspela");
             }
         }
         public static string CreateMD5(string input)
@@ -94,11 +105,22 @@ namespace mini_projekt
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read()) 
                 {
-                    int a = reader.GetInt32(0);
+                    Public.Change(reader.GetInt32(0));
                     //comboBox1.Items.Add(ime);
-                    comboBox1.Items.Add(a);
+                    //comboBox1.Items.Add(a);
                 }
                 con.Close();
+            }
+            if (Public.id != 0)
+            {
+                this.Hide();
+                var MainForm = new MainForm();
+                MainForm.Closed += (s, args) => this.Close();
+                MainForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Email ali geslo ni pravilno");
             }
         }
     }
