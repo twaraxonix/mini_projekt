@@ -20,9 +20,9 @@ namespace mini_projekt
         private void DodajButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var MainForm = new MainForm();
-            MainForm.Closed += (s, args) => this.Close();
-            MainForm.Show();
+            var InsertForm = new InsertForm();
+            InsertForm.Closed += (s, args) => this.Close();
+            InsertForm.Show();
         }
     }
 }
