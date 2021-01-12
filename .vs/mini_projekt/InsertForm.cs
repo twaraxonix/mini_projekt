@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace mini_projekt
 {
-    public partial class MainForm : Form
+    public partial class InsertForm : Form
     {
-        public MainForm()
+        public InsertForm()
         {
             InitializeComponent();
-        }
-
-        private void DodajButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var MainForm = new MainForm();
-            MainForm.Closed += (s, args) => this.Close();
-            MainForm.Show();
         }
     }
 }
