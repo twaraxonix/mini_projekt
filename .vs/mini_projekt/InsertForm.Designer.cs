@@ -36,6 +36,7 @@
             this.LokacijaComboBox = new System.Windows.Forms.ComboBox();
             this.ZnesekTextBox = new System.Windows.Forms.TextBox();
             this.DodajButton = new System.Windows.Forms.Button();
+            this.NazajButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -108,12 +109,23 @@
             this.DodajButton.TabIndex = 7;
             this.DodajButton.Text = "Dodaj";
             this.DodajButton.UseVisualStyleBackColor = true;
+            this.DodajButton.Click += new System.EventHandler(this.DodajButton_Click);
+            // 
+            // NazajButton
+            // 
+            this.NazajButton.Location = new System.Drawing.Point(517, 370);
+            this.NazajButton.Name = "NazajButton";
+            this.NazajButton.Size = new System.Drawing.Size(92, 31);
+            this.NazajButton.TabIndex = 8;
+            this.NazajButton.Text = "Nazaj";
+            this.NazajButton.UseVisualStyleBackColor = true;
             // 
             // InsertForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.NazajButton);
             this.Controls.Add(this.DodajButton);
             this.Controls.Add(this.ZnesekTextBox);
             this.Controls.Add(this.LokacijaComboBox);
@@ -139,5 +151,6 @@
         private System.Windows.Forms.ComboBox LokacijaComboBox;
         private System.Windows.Forms.TextBox ZnesekTextBox;
         private System.Windows.Forms.Button DodajButton;
+        private System.Windows.Forms.Button NazajButton;
     }
 }
