@@ -83,6 +83,23 @@ namespace mini_projekt
                 return sb.ToString();
             }
         }
+
+        private void PrijavaButton_Click(object sender, EventArgs e)
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT prijava('" + EmailTextBox.Text + "','" + CreateMD5(GesloTextBox.Text) + "')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read()) 
+                {
+                    bool a = reader.GetBoolean(0);
+                    //comboBox1.Items.Add(ime);
+                    comboBox1.Items.Add(a);
+                }
+                con.Close();
+            }
+        }
     }
     
 }
