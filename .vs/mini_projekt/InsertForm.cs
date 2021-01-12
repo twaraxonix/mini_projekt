@@ -16,20 +16,27 @@ namespace mini_projekt
         public InsertForm()
         {
             InitializeComponent();
+            Lokacije();
         }
 
         private void DodajButton_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void Lokacije()
+        {
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT prijava1('" + EmailTextBox.Text + "','" + MD5 + "')", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_obstojece_lokacije()", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    Public.Change(reader.GetInt32(0));
-                    //comboBox1.Items.Add(ime);
-                    //comboBox1.Items.Add(a);
+                    string ime = reader.GetString(0);
+                    string ime_l = reader.GetString(1);
+                    string skupaj = ime +", "+ ime_l;
+                    LokacijaComboBox.Items.Add(ime);
                 }
                 con.Close();
             }
