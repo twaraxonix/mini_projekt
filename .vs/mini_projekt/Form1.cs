@@ -86,10 +86,11 @@ namespace mini_projekt
 
         private void PrijavaButton_Click(object sender, EventArgs e)
         {
+            string MD5 = CreateMD5(Geslo2textBox.Text);
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT prijava('" + EmailTextBox.Text + "','" + CreateMD5(GesloTextBox.Text) + "')", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT prijava('" + EmailTextBox.Text + "','" + MD5 + "')", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read()) 
                 {

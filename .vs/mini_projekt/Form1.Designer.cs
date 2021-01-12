@@ -93,6 +93,7 @@
             this.PrijavaButton.TabIndex = 5;
             this.PrijavaButton.Text = "Prijavi se";
             this.PrijavaButton.UseVisualStyleBackColor = true;
+            this.PrijavaButton.Click += new System.EventHandler(this.PrijavaButton_Click);
             // 
             // Registracija1Button
             // 
