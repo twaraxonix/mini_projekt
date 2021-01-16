@@ -16,8 +16,8 @@ namespace mini_projekt
         public InsertForm()
         {
             InitializeComponent();
-            Lokacije();
-            LokacijaComboBox.Visible = false;
+            //Lokacije();
+            groupBox1.Visible = false;
         }
 
         private void DodajButton_Click(object sender, EventArgs e)
@@ -68,8 +68,8 @@ namespace mini_projekt
 
         private void DodadLokacijoButton_Click(object sender, EventArgs e)
         {
-            LokacijaComboBox.Visible = true;
-
+            groupBox1.Visible = true;
+            Kraji();
         }
     }
 }
