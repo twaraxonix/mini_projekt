@@ -24,9 +24,9 @@ namespace mini_projekt
 
         private void DodajButton_Click(object sender, EventArgs e)
         {
-            DateTime dt = DatumDateTimePicker.Value;
-            TimeSpan st = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
-            MessageBox.Show(Convert.ToString(st));
+            DateTime d = DateTime.Now;
+            TimeSpan ts = d.Subtract(DatumDateTimePicker.Value);
+            MessageBox.Show(Convert.ToString(ts));
         }
 
         private void Lokacije()
