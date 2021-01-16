@@ -87,9 +87,10 @@ namespace mini_projekt
             Kraji();
         }
 
-        private void ImeKrajaConboBox_TextUpdate(object sender, EventArgs e)
-        {
 
+        private void ImeKrajaConboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Posta();
         }
     }
 }

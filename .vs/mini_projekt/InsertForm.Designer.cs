@@ -240,7 +240,7 @@
             this.ImeKrajaConboBox.Name = "ImeKrajaConboBox";
             this.ImeKrajaConboBox.Size = new System.Drawing.Size(220, 24);
             this.ImeKrajaConboBox.TabIndex = 13;
-            this.ImeKrajaConboBox.TextUpdate += new System.EventHandler(this.ImeKrajaConboBox_TextUpdate);
+            this.ImeKrajaConboBox.SelectedIndexChanged += new System.EventHandler(this.ImeKrajaConboBox_SelectedIndexChanged);
             // 
             // DodajLokacijo2
             // 
