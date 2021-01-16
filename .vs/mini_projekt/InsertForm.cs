@@ -58,12 +58,12 @@ namespace mini_projekt
             }
         }
 
-        private void Posta()
+       private void Posta()
         {
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_posto_krajev("+ ImeKrajaConboBox.Text +")", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_posto_krajev('"+ ImeKrajaConboBox.Text +"')", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
@@ -87,10 +87,24 @@ namespace mini_projekt
             Kraji();
         }
 
-
         private void ImeKrajaConboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Posta();
+        }
+
+        private void DodajLokacijo2_Click(object sender, EventArgs e)
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT add_lokacija('" + ImeKrajaConboBox.Text + "','"+ PostnaStevilkaGroupBox.Text+"','"+ImeLokacijeTextBox.Text+"','"+NaslovLokacijeTextBox.Text+"')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    PostnaStevilkaGroupBox.Items.Add(reader.GetString(0));
+                }
+                con.Close();
+            }
         }
     }
 }

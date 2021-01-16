@@ -250,6 +250,7 @@
             this.DodajLokacijo2.TabIndex = 14;
             this.DodajLokacijo2.Text = "Dodaj";
             this.DodajLokacijo2.UseVisualStyleBackColor = true;
+            this.DodajLokacijo2.Click += new System.EventHandler(this.DodajLokacijo2_Click);
             // 
             // NazajButton2
             // 
