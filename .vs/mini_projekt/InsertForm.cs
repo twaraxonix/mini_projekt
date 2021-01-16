@@ -31,7 +31,7 @@ namespace mini_projekt
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vse_lokacije()", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vse_lokacije('"+comboBox1.Text+"')", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
@@ -92,6 +92,7 @@ namespace mini_projekt
 
         private void ImeKrajaConboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            PostnaStevilkaGroupBox.Items.Clear();
             Posta();
         }
 
@@ -111,7 +112,8 @@ namespace mini_projekt
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            comboBox1.Items.Clear();
+            Lokacije();
         }
     }
 }
