@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using System.Runtime;
 
 namespace mini_projekt
 {
@@ -23,7 +24,9 @@ namespace mini_projekt
 
         private void DodajButton_Click(object sender, EventArgs e)
         {
-            
+            DateTime dt = DatumDateTimePicker.Value;
+            TimeSpan st = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
+            MessageBox.Show(Convert.ToString(st));
         }
 
         private void Lokacije()
