@@ -24,9 +24,15 @@ namespace mini_projekt
 
         private void DodajButton_Click(object sender, EventArgs e)
         {
-            DateTime d = DateTime.Now;
-            TimeSpan ts = d.Subtract(DatumDateTimePicker.Value);
-            MessageBox.Show(Convert.ToString(ts));
+
+            DatumDateTimePicker.Format = DateTimePickerFormat.Custom;
+            DatumDateTimePicker.CustomFormat = "yyyy-MM-dd";
+            DatumDateTimePicker.ShowUpDown = true;
+            string dt = DatumDateTimePicker.Value.ToString("yyyy-MM-dd");
+
+            //DateTime d = DateTime.Now;
+            //TimeSpan ts = d.Subtract(DatumDateTimePicker.Value);
+            MessageBox.Show(Convert.ToString(dt));
         }
 
         private void Lokacije()
