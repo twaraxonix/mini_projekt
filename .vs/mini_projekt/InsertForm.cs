@@ -41,5 +41,13 @@ namespace mini_projekt
                 con.Close();
             }
         }
+
+        private void NazajButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var MainForm = new MainForm();
+            MainForm.Closed += (s, args) => this.Close();
+            MainForm.Show();
+        }
     }
 }

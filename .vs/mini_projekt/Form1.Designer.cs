@@ -127,6 +127,7 @@
             // 
             this.GesloTextBox.Location = new System.Drawing.Point(32, 145);
             this.GesloTextBox.Name = "GesloTextBox";
+            this.GesloTextBox.PasswordChar = '*';
             this.GesloTextBox.Size = new System.Drawing.Size(228, 22);
             this.GesloTextBox.TabIndex = 1;
             // 
@@ -230,6 +231,7 @@
             // 
             this.Geslo2textBox.Location = new System.Drawing.Point(96, 268);
             this.Geslo2textBox.Name = "Geslo2textBox";
+            this.Geslo2textBox.PasswordChar = '*';
             this.Geslo2textBox.Size = new System.Drawing.Size(228, 22);
             this.Geslo2textBox.TabIndex = 5;
             // 
