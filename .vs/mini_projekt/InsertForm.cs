@@ -30,9 +30,16 @@ namespace mini_projekt
             DatumDateTimePicker.ShowUpDown = true;
             string dt = DatumDateTimePicker.Value.ToString("yyyy-MM-dd");
 
-            //DateTime d = DateTime.Now;
-            //TimeSpan ts = d.Subtract(DatumDateTimePicker.Value);
-            MessageBox.Show(Convert.ToString(dt));
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT add_poraba_denarja("+Public.id+",'" + groupBox1.Text + "','" + Convert.ToDouble(ZnesekTextBox.Text) + "','" + dt + "')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                }
+                con.Close();
+            }
         }
 
         private void Lokacije()
