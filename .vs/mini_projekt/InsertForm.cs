@@ -58,6 +58,21 @@ namespace mini_projekt
             }
         }
 
+        private void Posta()
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_posto_krajev("+ ImeKrajaConboBox.Text +")", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    PostnaStevilkaGroupBox.Items.Add(reader.GetString(0));
+                }
+                con.Close();
+            }
+        }
+
         private void NazajButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -70,6 +85,11 @@ namespace mini_projekt
         {
             groupBox1.Visible = true;
             Kraji();
+        }
+
+        private void ImeKrajaConboBox_TextUpdate(object sender, EventArgs e)
+        {
+
         }
     }
 }

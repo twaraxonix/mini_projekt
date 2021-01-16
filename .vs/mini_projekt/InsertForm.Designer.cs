@@ -46,7 +46,7 @@
             this.NaslovLokacije = new System.Windows.Forms.Label();
             this.ImeLokacijeTextBox = new System.Windows.Forms.TextBox();
             this.NaslovLokacijeTextBox = new System.Windows.Forms.TextBox();
-            this.PostnaStevilkaTextBox = new System.Windows.Forms.ComboBox();
+            this.PostnaStevilkaGroupBox = new System.Windows.Forms.ComboBox();
             this.ImeKrajaConboBox = new System.Windows.Forms.ComboBox();
             this.DodajLokacijo2 = new System.Windows.Forms.Button();
             this.NazajButton2 = new System.Windows.Forms.Button();
@@ -150,7 +150,7 @@
             this.groupBox1.Controls.Add(this.NazajButton2);
             this.groupBox1.Controls.Add(this.DodajLokacijo2);
             this.groupBox1.Controls.Add(this.ImeKrajaConboBox);
-            this.groupBox1.Controls.Add(this.PostnaStevilkaTextBox);
+            this.groupBox1.Controls.Add(this.PostnaStevilkaGroupBox);
             this.groupBox1.Controls.Add(this.NaslovLokacijeTextBox);
             this.groupBox1.Controls.Add(this.ImeLokacijeTextBox);
             this.groupBox1.Controls.Add(this.NaslovLokacije);
@@ -225,13 +225,13 @@
             this.NaslovLokacijeTextBox.Size = new System.Drawing.Size(220, 22);
             this.NaslovLokacijeTextBox.TabIndex = 11;
             // 
-            // PostnaStevilkaTextBox
+            // PostnaStevilkaGroupBox
             // 
-            this.PostnaStevilkaTextBox.FormattingEnabled = true;
-            this.PostnaStevilkaTextBox.Location = new System.Drawing.Point(51, 141);
-            this.PostnaStevilkaTextBox.Name = "PostnaStevilkaTextBox";
-            this.PostnaStevilkaTextBox.Size = new System.Drawing.Size(220, 24);
-            this.PostnaStevilkaTextBox.TabIndex = 12;
+            this.PostnaStevilkaGroupBox.FormattingEnabled = true;
+            this.PostnaStevilkaGroupBox.Location = new System.Drawing.Point(51, 141);
+            this.PostnaStevilkaGroupBox.Name = "PostnaStevilkaGroupBox";
+            this.PostnaStevilkaGroupBox.Size = new System.Drawing.Size(220, 24);
+            this.PostnaStevilkaGroupBox.TabIndex = 12;
             // 
             // ImeKrajaConboBox
             // 
@@ -240,6 +240,7 @@
             this.ImeKrajaConboBox.Name = "ImeKrajaConboBox";
             this.ImeKrajaConboBox.Size = new System.Drawing.Size(220, 24);
             this.ImeKrajaConboBox.TabIndex = 13;
+            this.ImeKrajaConboBox.TextUpdate += new System.EventHandler(this.ImeKrajaConboBox_TextUpdate);
             // 
             // DodajLokacijo2
             // 
@@ -300,7 +301,7 @@
         private System.Windows.Forms.Button NazajButton2;
         private System.Windows.Forms.Button DodajLokacijo2;
         private System.Windows.Forms.ComboBox ImeKrajaConboBox;
-        private System.Windows.Forms.ComboBox PostnaStevilkaTextBox;
+        private System.Windows.Forms.ComboBox PostnaStevilkaGroupBox;
         private System.Windows.Forms.TextBox NaslovLokacijeTextBox;
         private System.Windows.Forms.TextBox ImeLokacijeTextBox;
         private System.Windows.Forms.Label NaslovLokacije;
