@@ -18,6 +18,7 @@ namespace mini_projekt
             InitializeComponent();
             //Lokacije();
             groupBox1.Visible = false;
+            Kraji();
         }
 
         private void DodajButton_Click(object sender, EventArgs e)
@@ -30,13 +31,13 @@ namespace mini_projekt
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_obstojece_lokacije()", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vse_lokacije()", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
                     string ime = reader.GetString(0);
-                    string ime_l = reader.GetString(1);
-                    string skupaj = ime +", "+ ime_l;
+                    //string ime_l = reader.GetString(1);
+                    //string skupaj = ime +", "+ ime_l;
                     LokacijaComboBox.Items.Add(ime);
                 }
                 con.Close();
@@ -53,6 +54,7 @@ namespace mini_projekt
                 while (reader.Read())
                 {
                     ImeKrajaConboBox.Items.Add(reader.GetString(0));
+                    comboBox1.Items.Add(reader.GetString(0));
                 }
                 con.Close();
             }
@@ -72,6 +74,7 @@ namespace mini_projekt
                 con.Close();
             }
         }
+        
 
         private void NazajButton_Click(object sender, EventArgs e)
         {
@@ -84,7 +87,7 @@ namespace mini_projekt
         private void DodadLokacijoButton_Click(object sender, EventArgs e)
         {
             groupBox1.Visible = true;
-            Kraji();
+            //Kraji();
         }
 
         private void ImeKrajaConboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,10 +104,14 @@ namespace mini_projekt
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    PostnaStevilkaGroupBox.Items.Add(reader.GetString(0));
                 }
                 con.Close();
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

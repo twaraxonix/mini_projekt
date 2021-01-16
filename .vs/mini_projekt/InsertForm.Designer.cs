@@ -50,6 +50,8 @@
             this.ImeKrajaConboBox = new System.Windows.Forms.ComboBox();
             this.DodajLokacijo2 = new System.Windows.Forms.Button();
             this.NazajButton2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -261,11 +263,31 @@
             this.NazajButton2.Text = "Nazaj";
             this.NazajButton2.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(61, 265);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 17);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Kraj";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(28, 293);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 17;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // InsertForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 450);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DodadLokacijoButton);
             this.Controls.Add(this.NazajButton);
@@ -310,5 +332,7 @@
         private System.Windows.Forms.Label PostnaStevilkaLabel;
         private System.Windows.Forms.Label ImeKrajaLabel;
         private System.Windows.Forms.Label DodajLokacijoLabel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
