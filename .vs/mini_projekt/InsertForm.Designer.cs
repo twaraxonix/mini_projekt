@@ -143,6 +143,7 @@
             this.DodadLokacijoButton.TabIndex = 9;
             this.DodadLokacijoButton.Text = "Dodaj Lokacijo";
             this.DodadLokacijoButton.UseVisualStyleBackColor = true;
+            this.DodadLokacijoButton.Click += new System.EventHandler(this.DodadLokacijoButton_Click);
             // 
             // groupBox1
             // 

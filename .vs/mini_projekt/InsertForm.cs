@@ -17,6 +17,7 @@ namespace mini_projekt
         {
             InitializeComponent();
             Lokacije();
+            LokacijaComboBox.Visible = false;
         }
 
         private void DodajButton_Click(object sender, EventArgs e)
@@ -42,12 +43,33 @@ namespace mini_projekt
             }
         }
 
+        private void Kraji()
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vsi_kraji()", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    ImeKrajaConboBox.Items.Add(reader.GetString(0));
+                }
+                con.Close();
+            }
+        }
+
         private void NazajButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             var MainForm = new MainForm();
             MainForm.Closed += (s, args) => this.Close();
             MainForm.Show();
+        }
+
+        private void DodadLokacijoButton_Click(object sender, EventArgs e)
+        {
+            LokacijaComboBox.Visible = true;
+
         }
     }
 }
