@@ -15,6 +15,7 @@ namespace mini_projekt
         public MainForm()
         {
             InitializeComponent();
+           // MessageBox.Show(Convert.ToString(Public.id));
         }
 
         private void DodajButton_Click(object sender, EventArgs e)

@@ -51,67 +51,14 @@ namespace mini_projekt
 
         private void RegistracijaButton_Click(object sender, EventArgs e)
         {
-
-            string MD5 = CreateMD5(Geslo2textBox.Text);
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-            {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT add_uporabnik1('" + ImeTextBox.Text + "','" + PriimekTextBox.Text + "','" + Email2TextBox.Text + "','" + MD5 + "')", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    Public.Change(reader.GetInt32(0));
-                    //comboBox1.Items.Add(ime);
-                    //comboBox1.Items.Add(a);
-                }
-                con.Close();
-            }
-            if (Public.id != 0) {
-                this.Hide();
-                var MainForm = new MainForm();
-                MainForm.Closed += (s, args) => this.Close();
-                MainForm.Show();
-            }
-            else
-            {
-                MessageBox.Show("Registracija ni uspela");
-            }
+            Ena.Registracija(ImeTextBox.Text, PriimekTextBox.Text, Email2TextBox.Text, Geslo2textBox.Text);
         }
-        public static string CreateMD5(string input)
-        {
-            // Use input string to calculate MD5 hash
-            using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
-            {
-                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-                byte[] hashBytes = md5.ComputeHash(inputBytes);
-
-                // Convert the byte array to hexadecimal string
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < hashBytes.Length; i++)
-                {
-                    sb.Append(hashBytes[i].ToString("X2"));
-                }
-                return sb.ToString();
-            }
-        }
+        
 
         private void PrijavaButton_Click(object sender, EventArgs e)
         {
-            string MD5 = CreateMD5(GesloTextBox.Text);
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-            {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT prijava1('" + EmailTextBox.Text + "','" + MD5 + "')", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read()) 
-                {
-                    Public.Change(reader.GetInt32(0));
-                    //comboBox1.Items.Add(ime);
-                    //comboBox1.Items.Add(a);
-                }
-                con.Close();
-            }
-            if (Public.id != 0)
+            bool x = Ena.Prijava(EmailTextBox.Text, GesloTextBox.Text);
+            if (x == true) 
             {
                 this.Hide();
                 var MainForm = new MainForm();
