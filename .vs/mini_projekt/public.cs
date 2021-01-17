@@ -9,9 +9,20 @@ namespace mini_projekt
     class Public
     {
         public static int id = 0;
+
+        public static string datum;
+        public static string lokacija;
+        public static double znesek;
         public static void Change(int a)
         {
             id = a; 
+        }
+
+        public static void Change2(string a, string b, double c)
+        {
+            datum = a;
+            lokacija = b;
+            znesek = c;
         }
     }
 }
