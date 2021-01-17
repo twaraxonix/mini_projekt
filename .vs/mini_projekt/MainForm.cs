@@ -30,15 +30,19 @@ namespace mini_projekt
         private void Porabe_denarja()
         {
             int a = 1;
+            DateTime dt = DateTime.Now;
+            string datumZ = dt.Year + "-" + dt.Month + "-01";
+            int days = DateTime.DaysInMonth(dt.Year, dt.Month);
+            string datumK = dt.Year + "-" + dt.Month + "-" + days;
             listView1.Items.Clear();
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vse_porabe_denarja(" + Public.id + ")", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vse_porabe_denarja(" + Public.id + ",'"+datumZ+",'"+datumK+"')", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    var row = new string[] {Convert.ToString(a), Convert.ToString(reader.GetTimeStamp(0)), reader.GetString(1), Convert.ToString(reader.GetInt32(2)) };
+                    var row = new string[] {Convert.ToString(a), Convert.ToString(reader.GetTimeStamp(0)), reader.GetString(1), Convert.ToString(reader.GetDouble(2)) };
                     var lvl = new ListViewItem(row);
                     listView1.Items.Add(lvl);
                     a++;

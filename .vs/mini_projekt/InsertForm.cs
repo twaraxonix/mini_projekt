@@ -134,5 +134,10 @@ namespace mini_projekt
             LokacijaComboBox.Items.Clear();
             Lokacije();
         }
+
+        private void NazajButton2_Click(object sender, EventArgs e)
+        {
+            groupBox1.Visible = false;
+        }
     }
 }

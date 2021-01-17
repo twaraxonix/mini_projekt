@@ -262,6 +262,7 @@
             this.NazajButton2.TabIndex = 15;
             this.NazajButton2.Text = "Nazaj";
             this.NazajButton2.UseVisualStyleBackColor = true;
+            this.NazajButton2.Click += new System.EventHandler(this.NazajButton2_Click);
             // 
             // label2
             // 
