@@ -42,7 +42,7 @@ namespace mini_projekt
 
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
-                int a = 0;
+                int a = 1;
                 con.Open();
                 NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_arhiv_dolocen_datum('"+dtOd+"','"+dtDo+"'," + Public.id + ")", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
@@ -84,6 +84,11 @@ namespace mini_projekt
         private void SpremeniDatumButton_Click(object sender, EventArgs e)
         {
             PrikazDolecenegaDelaArhiva();
+        }
+
+        private void PonastaviButton_Click(object sender, EventArgs e)
+        {
+            PrikazCelotnegaArhiva();
         }
     }
 }

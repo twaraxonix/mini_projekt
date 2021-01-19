@@ -128,6 +128,7 @@
             this.PonastaviButton.TabIndex = 8;
             this.PonastaviButton.Text = "Ponastavi";
             this.PonastaviButton.UseVisualStyleBackColor = true;
+            this.PonastaviButton.Click += new System.EventHandler(this.PonastaviButton_Click);
             // 
             // IdColumnHeader
             // 
