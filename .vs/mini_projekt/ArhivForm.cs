@@ -72,7 +72,7 @@ namespace mini_projekt
                 {
                     DateTime x = reader.GetDateTime(0);
                     
-                    var row = new string[] {Convert.ToString(a), x.ToString("dd-MM-yyyy"), Convert.ToString(reader.GetDouble(1)) };
+                    var row = new string[] {Convert.ToString(a), x.ToString("yyyy-MM-dd"), Convert.ToString(reader.GetDouble(1)) };
                     var lvl = new ListViewItem(row);
                     listView1.Items.Add(lvl);
                     a++;
@@ -89,6 +89,11 @@ namespace mini_projekt
         private void PonastaviButton_Click(object sender, EventArgs e)
         {
             PrikazCelotnegaArhiva();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
