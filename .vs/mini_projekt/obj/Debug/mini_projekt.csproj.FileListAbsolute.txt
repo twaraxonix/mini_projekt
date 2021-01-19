@@ -66,3 +66,4 @@ C:\Users\rokze\source\repos\twaraxonix\mini_projekt\.vs\mini_projekt\obj\Debug\m
 C:\Users\rokze\source\repos\twaraxonix\mini_projekt\.vs\mini_projekt\obj\Debug\mini_projekt.pdb
 C:\Users\rokze\Source\Repos\twaraxonix\mini_projekt\.vs\mini_projekt\obj\Debug\mini_projekt.InsertForm.resources
 C:\Users\rokze\Source\Repos\twaraxonix\mini_projekt\.vs\mini_projekt\obj\Debug\mini_projekt.MainForm.resources
+C:\Users\rokze\source\repos\twaraxonix\mini_projekt\.vs\mini_projekt\obj\Debug\mini_projekt.UpdateForm.resources

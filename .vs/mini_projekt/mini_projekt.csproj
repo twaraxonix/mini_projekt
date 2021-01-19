@@ -89,6 +89,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArhivForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArhivForm.Designer.cs">
+      <DependentUpon>ArhivForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

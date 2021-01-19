@@ -32,8 +32,8 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.StevilkaColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DatumColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ZnesekColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LokacijaColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ZnesekColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.UpdateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.DodajButton = new System.Windows.Forms.Button();
@@ -73,17 +73,17 @@
             this.DatumColumnHeader.Text = "Datum";
             this.DatumColumnHeader.Width = 144;
             // 
-            // ZnesekColumnHeader
-            // 
-            this.ZnesekColumnHeader.DisplayIndex = 2;
-            this.ZnesekColumnHeader.Text = "Znesek";
-            this.ZnesekColumnHeader.Width = 103;
-            // 
             // LokacijaColumnHeader
             // 
             this.LokacijaColumnHeader.DisplayIndex = 3;
             this.LokacijaColumnHeader.Text = "Lokacija";
             this.LokacijaColumnHeader.Width = 172;
+            // 
+            // ZnesekColumnHeader
+            // 
+            this.ZnesekColumnHeader.DisplayIndex = 2;
+            this.ZnesekColumnHeader.Text = "Znesek";
+            this.ZnesekColumnHeader.Width = 103;
             // 
             // UpdateColumnHeader
             // 
@@ -118,6 +118,7 @@
             this.ArhivButton.TabIndex = 3;
             this.ArhivButton.Text = "Arhiv";
             this.ArhivButton.UseVisualStyleBackColor = true;
+            this.ArhivButton.Click += new System.EventHandler(this.ArhivButton_Click);
             // 
             // UpdateButton
             // 
