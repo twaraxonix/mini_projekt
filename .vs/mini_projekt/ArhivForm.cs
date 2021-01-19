@@ -38,8 +38,8 @@ namespace mini_projekt
                 while (reader.Read())
                 {
                     DateTime x = Convert.ToDateTime(reader.GetTimeStamp(0));
-                    x.ToString("dd/MM/yyyy");
-                    var row = new string[] {Convert.ToString(a), x, Convert.ToString(reader.GetDouble(1)) };
+                    
+                    var row = new string[] {Convert.ToString(a), x.ToString("dd/MM/yyyy"), Convert.ToString(reader.GetDouble(1)) };
                     var lvl = new ListViewItem(row);
                     listView1.Items.Add(lvl);
                     a++;
