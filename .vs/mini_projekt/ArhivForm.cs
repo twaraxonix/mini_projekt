@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace mini_projekt
 {
@@ -15,6 +16,7 @@ namespace mini_projekt
         public ArhivForm()
         {
             InitializeComponent();
+            PrikazCelotnegaArhiva();
         }
 
         private void NazajButton_Click(object sender, EventArgs e)
@@ -23,6 +25,25 @@ namespace mini_projekt
             var MainForm = new MainForm();
             MainForm.Closed += (s, args) => this.Close();
             MainForm.Show();
+        }
+
+        private void PrikazCelotnegaArhiva()
+        {
+            int a = 1;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_arhiv(" + Public.id + "')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    var row = new string[] {Convert.ToString(reader.GetTimeStamp(0)), Convert.ToString(reader.GetDouble(1)) };
+                    var lvl = new ListViewItem(row);
+                    listView1.Items.Add(lvl);
+                    a++;
+                }
+                con.Close();
+            }
         }
     }
 }
