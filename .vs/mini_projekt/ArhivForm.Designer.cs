@@ -88,6 +88,7 @@
             this.SpremeniDatumButton.TabIndex = 4;
             this.SpremeniDatumButton.Text = "Spremeni datum";
             this.SpremeniDatumButton.UseVisualStyleBackColor = true;
+            this.SpremeniDatumButton.Click += new System.EventHandler(this.SpremeniDatumButton_Click);
             // 
             // IzbiraDatumaLabel
             // 
