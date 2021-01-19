@@ -33,11 +33,11 @@ namespace mini_projekt
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_arhiv(" + Public.id + "')", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_arhiv(" + Public.id + ")", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    var row = new string[] {Convert.ToString(reader.GetTimeStamp(0)), Convert.ToString(reader.GetDouble(1)) };
+                    var row = new string[] {Convert.ToString(a), Convert.ToString(reader.GetTimeStamp(0)), Convert.ToString(reader.GetDouble(1)) };
                     var lvl = new ListViewItem(row);
                     listView1.Items.Add(lvl);
                     a++;
