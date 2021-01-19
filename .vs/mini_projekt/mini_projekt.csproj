@@ -124,6 +124,9 @@
     <Compile Include="UpdateForm.Designer.cs">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ArhivForm.resx">
+      <DependentUpon>ArhivForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace mini_projekt
+{
+    public partial class ArhivForm : Form
+    {
+        public ArhivForm()
+        {
+            InitializeComponent();
+        }
+
+        private void NazajButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var MainForm = new MainForm();
+            MainForm.Closed += (s, args) => this.Close();
+            MainForm.Show();
+        }
+    }
+}

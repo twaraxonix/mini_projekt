@@ -39,7 +39,10 @@ namespace mini_projekt
                 while (reader.Read())
                 {
                     Public.Change(reader.GetInt32(0));
-                    x = true;
+                    if (Public.id != 0)
+                    {
+                        x = true;
+                    }
                     //comboBox1.Items.Add(ime);
                     //comboBox1.Items.Add(a);
                 }
