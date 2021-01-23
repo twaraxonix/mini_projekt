@@ -98,6 +98,20 @@ namespace mini_projekt
             //textBoxID.Text = item.Text;
             string a = item.SubItems[0].Text;
             double b = Convert.ToDouble(item.SubItems[1]);
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_podrobno_arhiv(" + Public.id + ",'"+a+"',"+b+")", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    //DateTime x = reader.GetDateTime(0);
+                    ZnesekTextBox.Text = Convert.ToString(reader.GetDouble(1));
+                    LokacijaTextBox.Text = reader.GetString(2);
+                    KrajTextBox.Text = reader.GetString(3);
+                }
+                con.Close();
+            }
         }
     }
 }
