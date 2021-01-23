@@ -53,7 +53,7 @@ namespace mini_projekt
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Public.Change2(Convert.ToString(listView1.SelectedItems[1]), Convert.ToString(listView1.SelectedItems[2]), Convert.ToDouble(listView1.SelectedItems[3]));
+            //Public.Change2(Convert.ToString(listView1.SelectedItems[1]), Convert.ToString(listView1.SelectedItems[2]), Convert.ToDouble(listView1.SelectedItems[3]));
         }
 
         private void ArhivButton_Click(object sender, EventArgs e)

@@ -93,15 +93,20 @@ namespace mini_projekt
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void PodrobnoButton_Click(object sender, EventArgs e)
+        {
             //ListViewItem item = listView1.SelectedItems[0];
             //fill the text boxes
             //textBoxID.Text = item.Text;
             string a = listView1.SelectedItems[0].SubItems[1].Text;
-            string b = ilistView1.SelectedItems[0].SubItems[2].Text;
+            string b = listView1.SelectedItems[0].SubItems[2].Text;
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_podrobno_arhiv(" + Public.id + ",'"+a+"',"+b+")", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_podrobno_arhiv(" + Public.id + ",'" + a + "'," + b + ")", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
