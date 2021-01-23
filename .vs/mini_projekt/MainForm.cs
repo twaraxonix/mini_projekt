@@ -43,7 +43,7 @@ namespace mini_projekt
                 while (reader.Read())
                 {
                     DateTime x = reader.GetDateTime(0);
-                    var row = new string[] {Convert.ToString(a), x.ToString("dd-MM-yyyy"), reader.GetString(1), Convert.ToString(reader.GetDouble(2)) };
+                    var row = new string[] {Convert.ToString(a), x.ToString("yyyy-MM-dd"), reader.GetString(1), Convert.ToString(reader.GetDouble(2)) };
                     var lvl = new ListViewItem(row);
                     listView1.Items.Add(lvl);
                     a++;
@@ -52,17 +52,19 @@ namespace mini_projekt
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Public.Change2(Convert.ToString(listView1.SelectedItems[1]), Convert.ToString(listView1.SelectedItems[2]), Convert.ToDouble(listView1.SelectedItems[3]));
-        }
-
         private void ArhivButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             var ArhivForm = new ArhivForm();
             ArhivForm.Closed += (s, args) => this.Close();
             ArhivForm.Show();
+        }
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            Public.Change2(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text,
+            Convert.ToDouble(listView1.SelectedItems[0].SubItems[2].Text));
+            MessageBox.Show(Convert.ToString(Public.lokacija));
         }
     }
 }
