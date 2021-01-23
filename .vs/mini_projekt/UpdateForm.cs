@@ -16,6 +16,11 @@ namespace mini_projekt
         public UpdateForm()
         {
             InitializeComponent();
+            groupBox1.Visible = false;
+            Kraji();
+            DatumDateTimePicker.Value = Convert.ToDateTime(Public.datum);
+            ZnesekTextBox.Text = Convert.ToString(Public.znesek);
+            LokacijaComboBox.Text = Public.lokacija;
         }
 
         private void DodajButton_Click(object sender, EventArgs e)
