@@ -13,6 +13,7 @@ namespace mini_projekt
         public static string datum;
         public static string lokacija;
         public static double znesek;
+        public static int idP;
         public static void Change(int a)
         {
             id = a; 
