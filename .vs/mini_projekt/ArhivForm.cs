@@ -17,6 +17,7 @@ namespace mini_projekt
         {
             InitializeComponent();
             PrikazCelotnegaArhiva();
+            groupBox1.Visible = false;
         }
 
         private void NazajButton_Click(object sender, EventArgs e)
@@ -61,6 +62,7 @@ namespace mini_projekt
 
         private void PrikazCelotnegaArhiva()
         {
+            groupBox1.Visible = true;
             listView1.Items.Clear();
             int a = 1;
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
@@ -110,13 +112,18 @@ namespace mini_projekt
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    //DateTime x = reader.GetDateTime(0);
+                    DatumDateTimePicker.Value = reader.GetDateTime(0);
                     ZnesekTextBox.Text = Convert.ToString(reader.GetDouble(1));
                     LokacijaTextBox.Text = reader.GetString(2);
                     KrajTextBox.Text = reader.GetString(3);
                 }
                 con.Close();
             }
+        }
+
+        private void SkrijButton_Click(object sender, EventArgs e)
+        {
+            groupBox1.Visible = false;
         }
     }
 }

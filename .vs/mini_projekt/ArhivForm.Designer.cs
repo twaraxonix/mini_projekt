@@ -62,6 +62,7 @@
             this.IdColumnHeader,
             this.DatumColumnHeader,
             this.ZnesekColumnHeader});
+            this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(455, 46);
             this.listView1.MultiSelect = false;
@@ -263,6 +264,7 @@
             this.SkrijButton.TabIndex = 20;
             this.SkrijButton.Text = "Skrij";
             this.SkrijButton.UseVisualStyleBackColor = true;
+            this.SkrijButton.Click += new System.EventHandler(this.SkrijButton_Click);
             // 
             // groupBox1
             // 
