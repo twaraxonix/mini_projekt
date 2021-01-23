@@ -26,10 +26,14 @@ namespace mini_projekt
 
         private void spremeni()
         {
+            DatumDateTimePicker.Format = DateTimePickerFormat.Custom;
+            DatumDateTimePicker.CustomFormat = "yyyy-MM-dd";
+            DatumDateTimePicker.ShowUpDown = true;
+            string dt = DatumDateTimePicker.Value.ToString("yyyy-MM-dd");
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT FROM update_porabe_denarja(" + Public.idP + "," + Public.znesek + ",'" + Public.datum + "')", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT update_porabe_denarja(" + Public.idP + "," + Convert.ToDouble(ZnesekTextBox.Text) + ",'" + dt+"')", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
@@ -148,7 +152,7 @@ namespace mini_projekt
 
         private void SpremeniButton_Click(object sender, EventArgs e)
         {
-
+            spremeni();
         }
     }
 }
