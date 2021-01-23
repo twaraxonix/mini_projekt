@@ -42,7 +42,8 @@ namespace mini_projekt
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    var row = new string[] {Convert.ToString(a), Convert.ToString(reader.GetTimeStamp(0)), reader.GetString(1), Convert.ToString(reader.GetDouble(2)) };
+                    DateTime x = reader.GetDateTime(0);
+                    var row = new string[] {Convert.ToString(a), x.ToString("dd-MM-yyyy"), reader.GetString(1), Convert.ToString(reader.GetDouble(2)) };
                     var lvl = new ListViewItem(row);
                     listView1.Items.Add(lvl);
                     a++;
