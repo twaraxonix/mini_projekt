@@ -63,8 +63,11 @@ namespace mini_projekt
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             Public.Change2(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text,
-            Convert.ToDouble(listView1.SelectedItems[0].SubItems[2].Text));
-            MessageBox.Show(Convert.ToString(Public.lokacija));
+            Convert.ToDouble(listView1.SelectedItems[0].SubItems[3].Text));
+            this.Hide();
+            var UpdateForm = new UpdateForm();
+            UpdateForm.Closed += (s, args) => this.Close();
+            UpdateForm.Show();
         }
     }
 }
