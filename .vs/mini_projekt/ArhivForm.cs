@@ -96,8 +96,8 @@ namespace mini_projekt
             ListViewItem item = listView1.SelectedItems[0];
             //fill the text boxes
             //textBoxID.Text = item.Text;
-            string a = item.SubItems[0].Text;
-            double b = Convert.ToDouble(item.SubItems[1]);
+            string a = item.SubItems[1].Text;
+            string b = item.SubItems[2].Text;
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
