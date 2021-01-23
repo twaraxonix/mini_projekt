@@ -36,7 +36,7 @@
             this.DatumLabel = new System.Windows.Forms.Label();
             this.SpremeniLabel = new System.Windows.Forms.Label();
             this.NazajButton = new System.Windows.Forms.Button();
-            this.DodajButton = new System.Windows.Forms.Button();
+            this.SpremeniButton = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -127,15 +127,15 @@
             this.NazajButton.UseVisualStyleBackColor = true;
             this.NazajButton.Click += new System.EventHandler(this.NazajButton_Click);
             // 
-            // DodajButton
+            // SpremeniButton
             // 
-            this.DodajButton.Location = new System.Drawing.Point(345, 369);
-            this.DodajButton.Name = "DodajButton";
-            this.DodajButton.Size = new System.Drawing.Size(94, 31);
-            this.DodajButton.TabIndex = 14;
-            this.DodajButton.Text = "Dodaj";
-            this.DodajButton.UseVisualStyleBackColor = true;
-            this.DodajButton.Click += new System.EventHandler(this.DodajButton_Click);
+            this.SpremeniButton.Location = new System.Drawing.Point(345, 369);
+            this.SpremeniButton.Name = "SpremeniButton";
+            this.SpremeniButton.Size = new System.Drawing.Size(94, 31);
+            this.SpremeniButton.TabIndex = 14;
+            this.SpremeniButton.Text = "Spremeni";
+            this.SpremeniButton.UseVisualStyleBackColor = true;
+            this.SpremeniButton.Click += new System.EventHandler(this.SpremeniButton_Click);
             // 
             // comboBox1
             // 
@@ -292,7 +292,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NazajButton);
-            this.Controls.Add(this.DodajButton);
+            this.Controls.Add(this.SpremeniButton);
             this.Controls.Add(this.SpremeniLabel);
             this.Controls.Add(this.ZnesekTextBox);
             this.Controls.Add(this.LokacijaComboBox);
@@ -319,7 +319,7 @@
         private System.Windows.Forms.Label DatumLabel;
         private System.Windows.Forms.Label SpremeniLabel;
         private System.Windows.Forms.Button NazajButton;
-        private System.Windows.Forms.Button DodajButton;
+        private System.Windows.Forms.Button SpremeniButton;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;

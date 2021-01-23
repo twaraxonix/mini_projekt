@@ -18,16 +18,25 @@ namespace mini_projekt
             InitializeComponent();
             groupBox1.Visible = false;
             Kraji();
+            id();
             DatumDateTimePicker.Value = Convert.ToDateTime(Public.datum);
             ZnesekTextBox.Text = Convert.ToString(Public.znesek);
             LokacijaComboBox.Text = Public.lokacija;
         }
 
-        private void DodajButton_Click(object sender, EventArgs e)
+        private void spremeni()
         {
-
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT FROM update_porabe_denarja(" + Public.idP + "," + Public.znesek + ",'" + Public.datum + "')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                }
+                con.Close();
+            }
         }
-
         private void id()
         {
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
@@ -135,6 +144,11 @@ namespace mini_projekt
         private void NazajButton2_Click(object sender, EventArgs e)
         {
             groupBox1.Visible = false;
+        }
+
+        private void SpremeniButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
