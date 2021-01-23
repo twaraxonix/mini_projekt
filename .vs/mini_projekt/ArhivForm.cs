@@ -93,7 +93,11 @@ namespace mini_projekt
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            ListViewItem item = listView1.SelectedItems[0];
+            //fill the text boxes
+            //textBoxID.Text = item.Text;
+            string a = item.SubItems[0].Text;
+            double b = Convert.ToDouble(item.SubItems[1]);
         }
     }
 }
