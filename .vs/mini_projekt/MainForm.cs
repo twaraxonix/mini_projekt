@@ -69,5 +69,33 @@ namespace mini_projekt
             UpdateForm.Closed += (s, args) => this.Close();
             UpdateForm.Show();
         }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            Public.Change2(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text,
+            Convert.ToDouble(listView1.SelectedItems[0].SubItems[3].Text));
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT return_id_porabe_denarja(" + Public.id + "," + Public.znesek + ",'" + Public.datum + "','" + Public.lokacija + "')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    Public.idP = reader.GetInt32(0);
+                }
+                con.Close();
+            }
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT delete_poraba_denarja(" + Public.id + ")", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    Public.idP = reader.GetInt32(0);
+                }
+                con.Close();
+            }
+        }
     }
 }
