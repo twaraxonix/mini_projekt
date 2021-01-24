@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
 using Npgsql;
 
 namespace mini_projekt
@@ -92,10 +93,38 @@ namespace mini_projekt
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    Public.idP = reader.GetInt32(0);
                 }
                 con.Close();
             }
+            Public.Change2("","",0);
+        }
+
+        private void IzvoziButton_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xls", ValidateNames = true })
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                    Workbook wb = app.Workbooks.Add(XlSheetType.xlWorksheet);
+                    Worksheet ws = (Worksheet)app.ActiveSheet;
+                    app.Visible = false;
+                    ws.Cells[1, 1] = "Stevilka";
+                    ws.Cells[1, 2] = "Datum";
+                    ws.Cells[1, 3] = "Znesek";
+                    ws.Cells[1, 4] = "Lokacija";
+                    int i = 2;
+                    foreach(ListViewItem item in listView1.Items)
+                    {
+                        ws.Cells[i, 1] = item.SubItems[0].Text;
+                        ws.Cells[i, 2] = item.SubItems[1].Text;
+                        ws.Cells[i, 3] = item.SubItems[2].Text;
+                        ws.Cells[i, 4] = item.SubItems[3].Text;
+                        i++;
+                    }
+                    wb.SaveAs(sfd.FileName, XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+                    app.Quit();
+                    MessageBox.Show("Vaši podatki so bili izvoženi v excel tabelo");
+                }
         }
     }
 }
