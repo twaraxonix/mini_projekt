@@ -41,6 +41,7 @@
             this.UpdateButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.IzvoziButton = new System.Windows.Forms.Button();
+            this.OsebniPodatkiButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -150,11 +151,22 @@
             this.IzvoziButton.UseVisualStyleBackColor = true;
             this.IzvoziButton.Click += new System.EventHandler(this.IzvoziButton_Click);
             // 
+            // OsebniPodatkiButton
+            // 
+            this.OsebniPodatkiButton.Location = new System.Drawing.Point(476, 372);
+            this.OsebniPodatkiButton.Name = "OsebniPodatkiButton";
+            this.OsebniPodatkiButton.Size = new System.Drawing.Size(115, 41);
+            this.OsebniPodatkiButton.TabIndex = 7;
+            this.OsebniPodatkiButton.Text = "Osebni Podatki";
+            this.OsebniPodatkiButton.UseVisualStyleBackColor = true;
+            this.OsebniPodatkiButton.Click += new System.EventHandler(this.OsebniPodatkiButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1191, 450);
+            this.Controls.Add(this.OsebniPodatkiButton);
             this.Controls.Add(this.IzvoziButton);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.UpdateButton);
@@ -183,5 +195,6 @@
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button IzvoziButton;
+        private System.Windows.Forms.Button OsebniPodatkiButton;
     }
 }

@@ -110,8 +110,8 @@ namespace mini_projekt
                     app.Visible = false;
                     ws.Cells[1, 1] = "Stevilka";
                     ws.Cells[1, 2] = "Datum";
-                    ws.Cells[1, 3] = "Znesek";
-                    ws.Cells[1, 4] = "Lokacija";
+                    ws.Cells[1, 3] = "Lokacija";
+                    ws.Cells[1, 4] = "Znesek";
                     int i = 2;
                     foreach(ListViewItem item in listView1.Items)
                     {
@@ -125,6 +125,14 @@ namespace mini_projekt
                     app.Quit();
                     MessageBox.Show("Vaši podatki so bili izvoženi v excel tabelo");
                 }
+        }
+
+        private void OsebniPodatkiButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var OsebniPodatkiForm = new OsebniPodatkiForm();
+            OsebniPodatkiForm.Closed += (s, args) => this.Close();
+            OsebniPodatkiForm.Show();
         }
     }
 }
