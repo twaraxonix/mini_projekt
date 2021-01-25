@@ -34,15 +34,22 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Geslolabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.GesloTextBox = new System.Windows.Forms.TextBox();
+            this.PriimekTextBox = new System.Windows.Forms.TextBox();
+            this.ImeTextBox = new System.Windows.Forms.TextBox();
+            this.NaslovTextBox = new System.Windows.Forms.TextBox();
+            this.NaslovLabel = new System.Windows.Forms.Label();
+            this.DatumRojstvaLabel = new System.Windows.Forms.Label();
+            this.DatumRojstvaDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.SpremeniPodatkeButton = new System.Windows.Forms.Button();
+            this.Spremeni2Button = new System.Windows.Forms.Button();
+            this.SpremeniButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EmailLabel
             // 
             this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Location = new System.Drawing.Point(336, 220);
+            this.EmailLabel.Location = new System.Drawing.Point(598, 78);
             this.EmailLabel.Name = "EmailLabel";
             this.EmailLabel.Size = new System.Drawing.Size(42, 17);
             this.EmailLabel.TabIndex = 0;
@@ -51,7 +58,7 @@
             // priimekLabel
             // 
             this.priimekLabel.AutoSize = true;
-            this.priimekLabel.Location = new System.Drawing.Point(328, 151);
+            this.priimekLabel.Location = new System.Drawing.Point(174, 144);
             this.priimekLabel.Name = "priimekLabel";
             this.priimekLabel.Size = new System.Drawing.Size(54, 17);
             this.priimekLabel.TabIndex = 1;
@@ -60,7 +67,7 @@
             // ImeLabel
             // 
             this.ImeLabel.AutoSize = true;
-            this.ImeLabel.Location = new System.Drawing.Point(339, 83);
+            this.ImeLabel.Location = new System.Drawing.Point(188, 67);
             this.ImeLabel.Name = "ImeLabel";
             this.ImeLabel.Size = new System.Drawing.Size(30, 17);
             this.ImeLabel.TabIndex = 2;
@@ -70,7 +77,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(237, 16);
+            this.label4.Location = new System.Drawing.Point(79, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(258, 39);
             this.label4.TabIndex = 3;
@@ -79,7 +86,7 @@
             // Geslolabel
             // 
             this.Geslolabel.AutoSize = true;
-            this.Geslolabel.Location = new System.Drawing.Point(336, 285);
+            this.Geslolabel.Location = new System.Drawing.Point(598, 169);
             this.Geslolabel.Name = "Geslolabel";
             this.Geslolabel.Size = new System.Drawing.Size(45, 17);
             this.Geslolabel.TabIndex = 4;
@@ -87,40 +94,106 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(344, 293);
+            this.textBox1.Location = new System.Drawing.Point(510, 98);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.Size = new System.Drawing.Size(220, 22);
             this.textBox1.TabIndex = 5;
             // 
-            // textBox2
+            // GesloTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(352, 301);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 6;
+            this.GesloTextBox.Location = new System.Drawing.Point(510, 205);
+            this.GesloTextBox.Name = "GesloTextBox";
+            this.GesloTextBox.Size = new System.Drawing.Size(220, 22);
+            this.GesloTextBox.TabIndex = 6;
             // 
-            // textBox3
+            // PriimekTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(360, 309);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 7;
+            this.PriimekTextBox.Location = new System.Drawing.Point(134, 164);
+            this.PriimekTextBox.Name = "PriimekTextBox";
+            this.PriimekTextBox.Size = new System.Drawing.Size(153, 22);
+            this.PriimekTextBox.TabIndex = 7;
             // 
-            // textBox4
+            // ImeTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(368, 317);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 8;
+            this.ImeTextBox.Location = new System.Drawing.Point(134, 94);
+            this.ImeTextBox.Name = "ImeTextBox";
+            this.ImeTextBox.Size = new System.Drawing.Size(153, 22);
+            this.ImeTextBox.TabIndex = 8;
+            // 
+            // NaslovTextBox
+            // 
+            this.NaslovTextBox.Location = new System.Drawing.Point(128, 252);
+            this.NaslovTextBox.Name = "NaslovTextBox";
+            this.NaslovTextBox.Size = new System.Drawing.Size(166, 22);
+            this.NaslovTextBox.TabIndex = 9;
+            // 
+            // NaslovLabel
+            // 
+            this.NaslovLabel.AutoSize = true;
+            this.NaslovLabel.Location = new System.Drawing.Point(182, 219);
+            this.NaslovLabel.Name = "NaslovLabel";
+            this.NaslovLabel.Size = new System.Drawing.Size(51, 17);
+            this.NaslovLabel.TabIndex = 10;
+            this.NaslovLabel.Text = "Naslov";
+            // 
+            // DatumRojstvaLabel
+            // 
+            this.DatumRojstvaLabel.AutoSize = true;
+            this.DatumRojstvaLabel.Location = new System.Drawing.Point(163, 290);
+            this.DatumRojstvaLabel.Name = "DatumRojstvaLabel";
+            this.DatumRojstvaLabel.Size = new System.Drawing.Size(95, 17);
+            this.DatumRojstvaLabel.TabIndex = 11;
+            this.DatumRojstvaLabel.Text = "Datum rojstva";
+            // 
+            // DatumRojstvaDateTimePicker
+            // 
+            this.DatumRojstvaDateTimePicker.Location = new System.Drawing.Point(111, 326);
+            this.DatumRojstvaDateTimePicker.Name = "DatumRojstvaDateTimePicker";
+            this.DatumRojstvaDateTimePicker.Size = new System.Drawing.Size(200, 22);
+            this.DatumRojstvaDateTimePicker.TabIndex = 12;
+            // 
+            // SpremeniPodatkeButton
+            // 
+            this.SpremeniPodatkeButton.Location = new System.Drawing.Point(361, 126);
+            this.SpremeniPodatkeButton.Name = "SpremeniPodatkeButton";
+            this.SpremeniPodatkeButton.Size = new System.Drawing.Size(96, 60);
+            this.SpremeniPodatkeButton.TabIndex = 13;
+            this.SpremeniPodatkeButton.Text = "Spremeni podatke";
+            this.SpremeniPodatkeButton.UseVisualStyleBackColor = true;
+            // 
+            // Spremeni2Button
+            // 
+            this.Spremeni2Button.Location = new System.Drawing.Point(580, 284);
+            this.Spremeni2Button.Name = "Spremeni2Button";
+            this.Spremeni2Button.Size = new System.Drawing.Size(97, 33);
+            this.Spremeni2Button.TabIndex = 14;
+            this.Spremeni2Button.Text = "Spremeni";
+            this.Spremeni2Button.UseVisualStyleBackColor = true;
+            // 
+            // SpremeniButton
+            // 
+            this.SpremeniButton.Location = new System.Drawing.Point(166, 378);
+            this.SpremeniButton.Name = "SpremeniButton";
+            this.SpremeniButton.Size = new System.Drawing.Size(92, 30);
+            this.SpremeniButton.TabIndex = 15;
+            this.SpremeniButton.Text = "Spremeni";
+            this.SpremeniButton.UseVisualStyleBackColor = true;
             // 
             // OsebniPodatkiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.SpremeniButton);
+            this.Controls.Add(this.Spremeni2Button);
+            this.Controls.Add(this.SpremeniPodatkeButton);
+            this.Controls.Add(this.DatumRojstvaDateTimePicker);
+            this.Controls.Add(this.DatumRojstvaLabel);
+            this.Controls.Add(this.NaslovLabel);
+            this.Controls.Add(this.NaslovTextBox);
+            this.Controls.Add(this.ImeTextBox);
+            this.Controls.Add(this.PriimekTextBox);
+            this.Controls.Add(this.GesloTextBox);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Geslolabel);
             this.Controls.Add(this.label4);
@@ -142,8 +215,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Geslolabel;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox GesloTextBox;
+        private System.Windows.Forms.TextBox PriimekTextBox;
+        private System.Windows.Forms.TextBox ImeTextBox;
+        private System.Windows.Forms.TextBox NaslovTextBox;
+        private System.Windows.Forms.Label NaslovLabel;
+        private System.Windows.Forms.Label DatumRojstvaLabel;
+        private System.Windows.Forms.DateTimePicker DatumRojstvaDateTimePicker;
+        private System.Windows.Forms.Button SpremeniPodatkeButton;
+        private System.Windows.Forms.Button Spremeni2Button;
+        private System.Windows.Forms.Button SpremeniButton;
     }
 }
