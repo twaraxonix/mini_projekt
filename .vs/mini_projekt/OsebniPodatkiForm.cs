@@ -47,13 +47,15 @@ namespace mini_projekt
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT return_podatke_uporabnika(" + Public.id + ")", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_podatke_uporabnika(" + Public.id + ")", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
                     ImeTextBox.Text = reader.GetString(0);
                     PriimekTextBox.Text = reader.GetString(1);
-                    NaslovTextBox.Text = reader.GetString(2);
+                    if(reader.GetString(2) != null){
+                        NaslovTextBox.Text = reader.GetString(2);
+                    }
                     EmailTextBox.Text = reader.GetString(4);
                     //DatumRojstvaDateTimePicker.Value = reader
                 }
