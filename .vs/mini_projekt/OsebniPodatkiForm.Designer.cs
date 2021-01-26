@@ -44,6 +44,7 @@
             this.SpremeniPodatkeButton = new System.Windows.Forms.Button();
             this.Spremeni2Button = new System.Windows.Forms.Button();
             this.SpremeniButton = new System.Windows.Forms.Button();
+            this.NazajButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EmailLabel
@@ -180,11 +181,22 @@
             this.SpremeniButton.Text = "Spremeni";
             this.SpremeniButton.UseVisualStyleBackColor = true;
             // 
+            // NazajButton
+            // 
+            this.NazajButton.Location = new System.Drawing.Point(-2, 12);
+            this.NazajButton.Name = "NazajButton";
+            this.NazajButton.Size = new System.Drawing.Size(75, 23);
+            this.NazajButton.TabIndex = 16;
+            this.NazajButton.Text = "Nazaj";
+            this.NazajButton.UseVisualStyleBackColor = true;
+            this.NazajButton.Click += new System.EventHandler(this.NazajButton_Click);
+            // 
             // OsebniPodatkiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.NazajButton);
             this.Controls.Add(this.SpremeniButton);
             this.Controls.Add(this.Spremeni2Button);
             this.Controls.Add(this.SpremeniPodatkeButton);
@@ -226,5 +238,6 @@
         private System.Windows.Forms.Button SpremeniPodatkeButton;
         private System.Windows.Forms.Button Spremeni2Button;
         private System.Windows.Forms.Button SpremeniButton;
+        private System.Windows.Forms.Button NazajButton;
     }
 }

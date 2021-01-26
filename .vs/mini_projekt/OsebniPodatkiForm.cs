@@ -28,5 +28,13 @@ namespace mini_projekt
             NaslovTextBox.Enabled = true;
             DatumRojstvaDateTimePicker.Enabled = true;
         }
+
+        private void NazajButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var MainForm = new MainForm();
+            MainForm.Closed += (s, args) => this.Close();
+            MainForm.Show();
+        }
     }
 }
