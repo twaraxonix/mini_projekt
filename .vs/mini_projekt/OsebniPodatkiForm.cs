@@ -102,5 +102,24 @@ namespace mini_projekt
                 con.Close();
             }
         }
+
+        private void SpremeniGesloUporabnika()
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT update_geslo_uporabnika(" + Public.id + ",'" + GesloTextBox.Text + "')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                }
+                con.Close();
+            }
+        }
+
+        private void Spremeni2Button_Click(object sender, EventArgs e)
+        {
+            SpremeniGesloUporabnika();
+        }
     }
 }

@@ -172,6 +172,7 @@
             this.Spremeni2Button.TabIndex = 14;
             this.Spremeni2Button.Text = "Spremeni";
             this.Spremeni2Button.UseVisualStyleBackColor = true;
+            this.Spremeni2Button.Click += new System.EventHandler(this.Spremeni2Button_Click);
             // 
             // SpremeniButton
             // 
