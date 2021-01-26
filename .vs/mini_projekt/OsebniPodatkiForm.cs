@@ -15,6 +15,18 @@ namespace mini_projekt
         public OsebniPodatkiForm()
         {
             InitializeComponent();
+            ImeTextBox.Enabled = false;
+            PriimekTextBox.Enabled = false;
+            NaslovTextBox.Enabled = false;
+            DatumRojstvaDateTimePicker.Enabled = false;
+        }
+
+        private void SpremeniPodatkeButton_Click(object sender, EventArgs e)
+        {
+            ImeTextBox.Enabled = true;
+            PriimekTextBox.Enabled = true;
+            NaslovTextBox.Enabled = true;
+            DatumRojstvaDateTimePicker.Enabled = true;
         }
     }
 }

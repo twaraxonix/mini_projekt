@@ -160,6 +160,7 @@
             this.SpremeniPodatkeButton.TabIndex = 13;
             this.SpremeniPodatkeButton.Text = "Spremeni podatke";
             this.SpremeniPodatkeButton.UseVisualStyleBackColor = true;
+            this.SpremeniPodatkeButton.Click += new System.EventHandler(this.SpremeniPodatkeButton_Click);
             // 
             // Spremeni2Button
             // 
