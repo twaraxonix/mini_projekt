@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace mini_projekt
 {
@@ -19,6 +20,8 @@ namespace mini_projekt
             PriimekTextBox.Enabled = false;
             NaslovTextBox.Enabled = false;
             DatumRojstvaDateTimePicker.Enabled = false;
+            SpremeniButton.Visible = false;
+            IzpisiPodatke();
         }
 
         private void SpremeniPodatkeButton_Click(object sender, EventArgs e)
@@ -27,6 +30,7 @@ namespace mini_projekt
             PriimekTextBox.Enabled = true;
             NaslovTextBox.Enabled = true;
             DatumRojstvaDateTimePicker.Enabled = true;
+            SpremeniButton.Visible = true;
         }
 
         private void NazajButton_Click(object sender, EventArgs e)
@@ -35,6 +39,26 @@ namespace mini_projekt
             var MainForm = new MainForm();
             MainForm.Closed += (s, args) => this.Close();
             MainForm.Show();
+        }
+
+        
+        private void IzpisiPodatke()
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT return_podatke_uporabnika(" + Public.id + ")", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    ImeTextBox.Text = reader.GetString(0);
+                    PriimekTextBox.Text = reader.GetString(1);
+                    NaslovTextBox.Text = reader.GetString(2);
+                    EmailTextBox.Text = reader.GetString(4);
+                    //DatumRojstvaDateTimePicker.Value = reader
+                }
+                con.Close();
+            }
         }
     }
 }

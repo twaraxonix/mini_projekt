@@ -33,7 +33,7 @@
             this.ImeLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Geslolabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.GesloTextBox = new System.Windows.Forms.TextBox();
             this.PriimekTextBox = new System.Windows.Forms.TextBox();
             this.ImeTextBox = new System.Windows.Forms.TextBox();
@@ -93,12 +93,12 @@
             this.Geslolabel.TabIndex = 4;
             this.Geslolabel.Text = "Geslo";
             // 
-            // textBox1
+            // EmailTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(510, 98);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(220, 22);
-            this.textBox1.TabIndex = 5;
+            this.EmailTextBox.Location = new System.Drawing.Point(510, 98);
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.Size = new System.Drawing.Size(220, 22);
+            this.EmailTextBox.TabIndex = 5;
             // 
             // GesloTextBox
             // 
@@ -207,7 +207,7 @@
             this.Controls.Add(this.ImeTextBox);
             this.Controls.Add(this.PriimekTextBox);
             this.Controls.Add(this.GesloTextBox);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.Geslolabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ImeLabel);
@@ -227,7 +227,7 @@
         private System.Windows.Forms.Label ImeLabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Geslolabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.TextBox GesloTextBox;
         private System.Windows.Forms.TextBox PriimekTextBox;
         private System.Windows.Forms.TextBox ImeTextBox;
