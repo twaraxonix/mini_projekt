@@ -53,11 +53,9 @@ namespace mini_projekt
                 {
                     ImeTextBox.Text = reader.GetString(0);
                     PriimekTextBox.Text = reader.GetString(1);
-                    if(reader.GetString(2) != null){
-                        NaslovTextBox.Text = reader.GetString(2);
-                    }
+                    NaslovTextBox.Text = reader.GetString(2);
                     EmailTextBox.Text = reader.GetString(4);
-                    //DatumRojstvaDateTimePicker.Value = reader
+                    DatumRojstvaDateTimePicker.Value = reader.GetDateTime(3);
                 }
                 con.Close();
             }
