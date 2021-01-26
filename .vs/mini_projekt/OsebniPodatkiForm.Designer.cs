@@ -180,6 +180,7 @@
             this.SpremeniButton.TabIndex = 15;
             this.SpremeniButton.Text = "Spremeni";
             this.SpremeniButton.UseVisualStyleBackColor = true;
+            this.SpremeniButton.Click += new System.EventHandler(this.SpremeniButton_Click);
             // 
             // NazajButton
             // 

@@ -56,9 +56,35 @@ namespace mini_projekt
                     NaslovTextBox.Text = reader.GetString(2);
                     EmailTextBox.Text = reader.GetString(4);
                     DatumRojstvaDateTimePicker.Value = reader.GetDateTime(3);
+                    DatumRojstvaDateTimePicker.Format = DateTimePickerFormat.Custom;
+                    DatumRojstvaDateTimePicker.CustomFormat = "yyyy-MM-dd";
+                    DatumRojstvaDateTimePicker.ShowUpDown = true;
                 }
                 con.Close();
             }
+        }
+
+        private void SpremeniPodatke()
+        {
+            DatumRojstvaDateTimePicker.Format = DateTimePickerFormat.Custom;
+            DatumRojstvaDateTimePicker.CustomFormat = "yyyy-MM-dd";
+            DatumRojstvaDateTimePicker.ShowUpDown = true;
+            string dt = DatumRojstvaDateTimePicker.Value.ToString("yyyy-MM-dd");
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT FROM update_podatke_uporabnika(" + Public.id + ",'" + ImeTextBox.Text + "','" + PriimekTextBox.Text + "','" + dt + "','"+ NaslovTextBox.Text +"')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                }
+                con.Close();
+            }
+        }
+
+        private void SpremeniButton_Click(object sender, EventArgs e)
+        {
+            SpremeniPodatke();
         }
     }
 }
