@@ -45,6 +45,7 @@
             this.Spremeni2Button = new System.Windows.Forms.Button();
             this.SpremeniButton = new System.Windows.Forms.Button();
             this.NazajButton = new System.Windows.Forms.Button();
+            this.SpremeniEmailButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EmailLabel
@@ -87,7 +88,7 @@
             // Geslolabel
             // 
             this.Geslolabel.AutoSize = true;
-            this.Geslolabel.Location = new System.Drawing.Point(598, 169);
+            this.Geslolabel.Location = new System.Drawing.Point(598, 198);
             this.Geslolabel.Name = "Geslolabel";
             this.Geslolabel.Size = new System.Drawing.Size(45, 17);
             this.Geslolabel.TabIndex = 4;
@@ -102,7 +103,7 @@
             // 
             // GesloTextBox
             // 
-            this.GesloTextBox.Location = new System.Drawing.Point(510, 205);
+            this.GesloTextBox.Location = new System.Drawing.Point(510, 228);
             this.GesloTextBox.Name = "GesloTextBox";
             this.GesloTextBox.Size = new System.Drawing.Size(220, 22);
             this.GesloTextBox.TabIndex = 6;
@@ -192,11 +193,22 @@
             this.NazajButton.UseVisualStyleBackColor = true;
             this.NazajButton.Click += new System.EventHandler(this.NazajButton_Click);
             // 
+            // SpremeniEmailButton
+            // 
+            this.SpremeniEmailButton.Location = new System.Drawing.Point(580, 143);
+            this.SpremeniEmailButton.Name = "SpremeniEmailButton";
+            this.SpremeniEmailButton.Size = new System.Drawing.Size(82, 23);
+            this.SpremeniEmailButton.TabIndex = 17;
+            this.SpremeniEmailButton.Text = "Spremeni";
+            this.SpremeniEmailButton.UseVisualStyleBackColor = true;
+            this.SpremeniEmailButton.Click += new System.EventHandler(this.SpremeniEmailButton_Click);
+            // 
             // OsebniPodatkiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SpremeniEmailButton);
             this.Controls.Add(this.NazajButton);
             this.Controls.Add(this.SpremeniButton);
             this.Controls.Add(this.Spremeni2Button);
@@ -240,5 +252,6 @@
         private System.Windows.Forms.Button Spremeni2Button;
         private System.Windows.Forms.Button SpremeniButton;
         private System.Windows.Forms.Button NazajButton;
+        private System.Windows.Forms.Button SpremeniEmailButton;
     }
 }

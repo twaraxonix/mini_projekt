@@ -20,6 +20,7 @@ namespace mini_projekt
             PriimekTextBox.Enabled = false;
             NaslovTextBox.Enabled = false;
             DatumRojstvaDateTimePicker.Enabled = false;
+            EmailTextBox.Enabled = false;
             SpremeniButton.Visible = false;
             IzpisiPodatke();
         }
@@ -30,6 +31,7 @@ namespace mini_projekt
             PriimekTextBox.Enabled = true;
             NaslovTextBox.Enabled = true;
             DatumRojstvaDateTimePicker.Enabled = true;
+            EmailTextBox.Enabled = true;
             SpremeniButton.Visible = true;
         }
 
@@ -85,6 +87,20 @@ namespace mini_projekt
         private void SpremeniButton_Click(object sender, EventArgs e)
         {
             SpremeniPodatke();
+        }
+
+        private void SpremeniEmailButton_Click(object sender, EventArgs e)
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT update_email_uporabnika(" + Public.id + ",'" + EmailTextBox.Text + "')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                }
+                con.Close();
+            }
         }
     }
 }
