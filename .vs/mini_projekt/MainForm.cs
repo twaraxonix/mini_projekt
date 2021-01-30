@@ -48,6 +48,7 @@ namespace mini_projekt
                     var lvl = new ListViewItem(row);
                     listView1.Items.Add(lvl);
                     a++;
+                    SkupajTextBox.Text = Convert.ToString(reader.GetDouble(3));
                 }
                 con.Close();
             }
@@ -89,7 +90,7 @@ namespace mini_projekt
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT delete_poraba_denarja(" + Public.id + ")", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT delete_poraba_denarja(" + Public.idP + ")", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
