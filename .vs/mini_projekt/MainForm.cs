@@ -39,21 +39,29 @@ namespace mini_projekt
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vse_porabe_denarja(" + Public.id + ",'"+datumZ+"','"+datumK+"')", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vse_porabe_denarja(" + Public.id + ",'" + datumZ + "','" + datumK + "')", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
                     DateTime x = reader.GetDateTime(0);
-                    var row = new string[] {Convert.ToString(a), x.ToString("yyyy-MM-dd"), reader.GetString(1), Convert.ToString(reader.GetDouble(2)) };
+                    var row = new string[] { Convert.ToString(a), x.ToString("yyyy-MM-dd"), reader.GetString(1), Convert.ToString(reader.GetDouble(2)) };
                     var lvl = new ListViewItem(row);
                     listView1.Items.Add(lvl);
                     a++;
-                    SkupajTextBox.Text = Convert.ToString(reader.GetDouble(3));
                 }
                 con.Close();
             }
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_sum(" + Public.id + ",'" + datumZ + "','" + datumK + "')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    SkupajTextBox.Text = Convert.ToString(reader.GetDouble(3));
+                }
+            }
         }
-
         private void ArhivButton_Click(object sender, EventArgs e)
         {
             this.Hide();

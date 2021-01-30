@@ -34,7 +34,6 @@
             this.DatumColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LokacijaColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ZnesekColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.UpdateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.DodajButton = new System.Windows.Forms.Button();
             this.ArhivButton = new System.Windows.Forms.Button();
@@ -42,6 +41,8 @@
             this.DeleteButton = new System.Windows.Forms.Button();
             this.IzvoziButton = new System.Windows.Forms.Button();
             this.OsebniPodatkiButton = new System.Windows.Forms.Button();
+            this.SkupajTextBox = new System.Windows.Forms.TextBox();
+            this.SkupajLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listView1
@@ -50,15 +51,14 @@
             this.StevilkaColumnHeader,
             this.DatumColumnHeader,
             this.LokacijaColumnHeader,
-            this.ZnesekColumnHeader,
-            this.UpdateColumnHeader});
+            this.ZnesekColumnHeader});
             this.listView1.FullRowSelect = true;
             listViewGroup1.Header = "ListViewGroup";
             listViewGroup1.Name = "StevilkaListViewGroup1";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(36, 75);
+            this.listView1.Location = new System.Drawing.Point(57, 75);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(788, 245);
             this.listView1.TabIndex = 0;
@@ -72,7 +72,7 @@
             // DatumColumnHeader
             // 
             this.DatumColumnHeader.Text = "Datum";
-            this.DatumColumnHeader.Width = 144;
+            this.DatumColumnHeader.Width = 178;
             // 
             // LokacijaColumnHeader
             // 
@@ -84,12 +84,7 @@
             // 
             this.ZnesekColumnHeader.DisplayIndex = 2;
             this.ZnesekColumnHeader.Text = "Znesek";
-            this.ZnesekColumnHeader.Width = 103;
-            // 
-            // UpdateColumnHeader
-            // 
-            this.UpdateColumnHeader.Text = "Update";
-            this.UpdateColumnHeader.Width = 142;
+            this.ZnesekColumnHeader.Width = 168;
             // 
             // label1
             // 
@@ -161,11 +156,30 @@
             this.OsebniPodatkiButton.UseVisualStyleBackColor = true;
             this.OsebniPodatkiButton.Click += new System.EventHandler(this.OsebniPodatkiButton_Click);
             // 
+            // SkupajTextBox
+            // 
+            this.SkupajTextBox.Location = new System.Drawing.Point(861, 137);
+            this.SkupajTextBox.Name = "SkupajTextBox";
+            this.SkupajTextBox.Size = new System.Drawing.Size(100, 22);
+            this.SkupajTextBox.TabIndex = 8;
+            // 
+            // SkupajLabel
+            // 
+            this.SkupajLabel.AutoSize = true;
+            this.SkupajLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SkupajLabel.Location = new System.Drawing.Point(874, 91);
+            this.SkupajLabel.Name = "SkupajLabel";
+            this.SkupajLabel.Size = new System.Drawing.Size(73, 24);
+            this.SkupajLabel.TabIndex = 9;
+            this.SkupajLabel.Text = "Skupaj";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1191, 450);
+            this.Controls.Add(this.SkupajLabel);
+            this.Controls.Add(this.SkupajTextBox);
             this.Controls.Add(this.OsebniPodatkiButton);
             this.Controls.Add(this.IzvoziButton);
             this.Controls.Add(this.DeleteButton);
@@ -188,7 +202,6 @@
         private System.Windows.Forms.ColumnHeader DatumColumnHeader;
         private System.Windows.Forms.ColumnHeader ZnesekColumnHeader;
         private System.Windows.Forms.ColumnHeader LokacijaColumnHeader;
-        private System.Windows.Forms.ColumnHeader UpdateColumnHeader;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button DodajButton;
         private System.Windows.Forms.Button ArhivButton;
@@ -196,5 +209,7 @@
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button IzvoziButton;
         private System.Windows.Forms.Button OsebniPodatkiButton;
+        private System.Windows.Forms.TextBox SkupajTextBox;
+        private System.Windows.Forms.Label SkupajLabel;
     }
 }

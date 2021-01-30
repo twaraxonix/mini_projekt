@@ -103,6 +103,7 @@ namespace mini_projekt
             //ListViewItem item = listView1.SelectedItems[0];
             //fill the text boxes
             //textBoxID.Text = item.Text;
+            groupBox1.Visible = true;
             string a = listView1.SelectedItems[0].SubItems[1].Text;
             string b = listView1.SelectedItems[0].SubItems[2].Text;
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
