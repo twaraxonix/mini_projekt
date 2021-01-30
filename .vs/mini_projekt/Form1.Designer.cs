@@ -48,8 +48,19 @@
             this.Email2Label = new System.Windows.Forms.Label();
             this.Geslo2textBox = new System.Windows.Forms.TextBox();
             this.Email2TextBox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Geslo3Label = new System.Windows.Forms.Label();
+            this.Email3label = new System.Windows.Forms.Label();
+            this.Geslo3TextBox = new System.Windows.Forms.TextBox();
+            this.Email3TextBox = new System.Windows.Forms.TextBox();
+            this.Geslo4Label = new System.Windows.Forms.Label();
+            this.Geslo4TextBox = new System.Windows.Forms.TextBox();
+            this.SpremenitevGeslaButton = new System.Windows.Forms.Button();
             this.PrijavaGroupBox.SuspendLayout();
             this.RegistracijaGroupBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -72,6 +83,7 @@
             // 
             // PrijavaGroupBox
             // 
+            this.PrijavaGroupBox.Controls.Add(this.button3);
             this.PrijavaGroupBox.Controls.Add(this.PrijavaButton);
             this.PrijavaGroupBox.Controls.Add(this.Registracija1Button);
             this.PrijavaGroupBox.Controls.Add(this.GesloLabel);
@@ -80,7 +92,7 @@
             this.PrijavaGroupBox.Controls.Add(this.EmailTextBox);
             this.PrijavaGroupBox.Location = new System.Drawing.Point(12, 69);
             this.PrijavaGroupBox.Name = "PrijavaGroupBox";
-            this.PrijavaGroupBox.Size = new System.Drawing.Size(309, 265);
+            this.PrijavaGroupBox.Size = new System.Drawing.Size(309, 303);
             this.PrijavaGroupBox.TabIndex = 2;
             this.PrijavaGroupBox.TabStop = false;
             this.PrijavaGroupBox.Text = "Prijava";
@@ -242,11 +254,107 @@
             this.Email2TextBox.Size = new System.Drawing.Size(228, 22);
             this.Email2TextBox.TabIndex = 4;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(210, 242);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(93, 43);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "pozabljeno geslo";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.SpremenitevGeslaButton);
+            this.groupBox1.Controls.Add(this.Geslo4Label);
+            this.groupBox1.Controls.Add(this.Geslo4TextBox);
+            this.groupBox1.Controls.Add(this.Geslo3Label);
+            this.groupBox1.Controls.Add(this.Email3label);
+            this.groupBox1.Controls.Add(this.Geslo3TextBox);
+            this.groupBox1.Controls.Add(this.Email3TextBox);
+            this.groupBox1.Location = new System.Drawing.Point(785, 82);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(271, 272);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // Geslo3Label
+            // 
+            this.Geslo3Label.AutoSize = true;
+            this.Geslo3Label.Location = new System.Drawing.Point(93, 93);
+            this.Geslo3Label.Name = "Geslo3Label";
+            this.Geslo3Label.Size = new System.Drawing.Size(45, 17);
+            this.Geslo3Label.TabIndex = 15;
+            this.Geslo3Label.Text = "Geslo";
+            // 
+            // Email3label
+            // 
+            this.Email3label.AutoSize = true;
+            this.Email3label.Location = new System.Drawing.Point(100, 19);
+            this.Email3label.Name = "Email3label";
+            this.Email3label.Size = new System.Drawing.Size(42, 17);
+            this.Email3label.TabIndex = 14;
+            this.Email3label.Text = "Email";
+            // 
+            // Geslo3TextBox
+            // 
+            this.Geslo3TextBox.Location = new System.Drawing.Point(21, 113);
+            this.Geslo3TextBox.Name = "Geslo3TextBox";
+            this.Geslo3TextBox.PasswordChar = '*';
+            this.Geslo3TextBox.Size = new System.Drawing.Size(228, 22);
+            this.Geslo3TextBox.TabIndex = 13;
+            // 
+            // Email3TextBox
+            // 
+            this.Email3TextBox.Location = new System.Drawing.Point(21, 45);
+            this.Email3TextBox.Name = "Email3TextBox";
+            this.Email3TextBox.Size = new System.Drawing.Size(228, 22);
+            this.Email3TextBox.TabIndex = 12;
+            // 
+            // Geslo4Label
+            // 
+            this.Geslo4Label.AutoSize = true;
+            this.Geslo4Label.Location = new System.Drawing.Point(72, 147);
+            this.Geslo4Label.Name = "Geslo4Label";
+            this.Geslo4Label.Size = new System.Drawing.Size(101, 17);
+            this.Geslo4Label.TabIndex = 17;
+            this.Geslo4Label.Text = "Ponovite geslo";
+            // 
+            // Geslo4TextBox
+            // 
+            this.Geslo4TextBox.Location = new System.Drawing.Point(21, 180);
+            this.Geslo4TextBox.Name = "Geslo4TextBox";
+            this.Geslo4TextBox.PasswordChar = '*';
+            this.Geslo4TextBox.Size = new System.Drawing.Size(228, 22);
+            this.Geslo4TextBox.TabIndex = 16;
+            // 
+            // SpremenitevGeslaButton
+            // 
+            this.SpremenitevGeslaButton.Location = new System.Drawing.Point(75, 229);
+            this.SpremenitevGeslaButton.Name = "SpremenitevGeslaButton";
+            this.SpremenitevGeslaButton.Size = new System.Drawing.Size(107, 37);
+            this.SpremenitevGeslaButton.TabIndex = 18;
+            this.SpremenitevGeslaButton.Text = "Spremenite";
+            this.SpremenitevGeslaButton.UseVisualStyleBackColor = true;
+            this.SpremenitevGeslaButton.Click += new System.EventHandler(this.SpremenitevGeslaButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1068, 450);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.RegistracijaGroupBox);
             this.Controls.Add(this.PrijavaGroupBox);
             this.Controls.Add(this.comboBox1);
@@ -257,6 +365,8 @@
             this.PrijavaGroupBox.PerformLayout();
             this.RegistracijaGroupBox.ResumeLayout(false);
             this.RegistracijaGroupBox.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -283,6 +393,16 @@
         private System.Windows.Forms.Button Registracija1Button;
         private System.Windows.Forms.Button NazajButton;
         private System.Windows.Forms.Button RegistracijaButton;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button SpremenitevGeslaButton;
+        private System.Windows.Forms.Label Geslo4Label;
+        private System.Windows.Forms.TextBox Geslo4TextBox;
+        private System.Windows.Forms.Label Geslo3Label;
+        private System.Windows.Forms.Label Email3label;
+        private System.Windows.Forms.TextBox Geslo3TextBox;
+        private System.Windows.Forms.TextBox Email3TextBox;
     }
 }
 

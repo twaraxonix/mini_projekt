@@ -58,7 +58,7 @@ namespace mini_projekt
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    SkupajTextBox.Text = Convert.ToString(reader.GetDouble(3));
+                    SkupajTextBox.Text = Convert.ToString(reader.GetDouble(0));
                 }
             }
         }

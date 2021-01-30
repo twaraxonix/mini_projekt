@@ -51,6 +51,21 @@ namespace mini_projekt
             }
             
         }
+
+        public static void PozabljenoGeslo(string a, string b)
+        {
+            bool x = false;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT update_pozabljneo_geslo_uporabnika('" + a + "','" + CreateMD5(b) + "')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                }
+                con.Close();
+            }
+        }
         public static string CreateMD5(string input)
         {
             // Use input string to calculate MD5 hash

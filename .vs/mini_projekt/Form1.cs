@@ -70,6 +70,18 @@ namespace mini_projekt
                 MessageBox.Show("Email ali geslo ni pravilno");
             }
         }
+
+        private void SpremenitevGeslaButton_Click(object sender, EventArgs e)
+        {
+            if ((GesloTextBox.Text == Geslo3TextBox.Text) && (GesloTextBox.Text != ""))
+            {
+                Ena.PozabljenoGeslo(Email3TextBox.Text, Geslo3TextBox.Text);
+            }
+            else
+            {
+                MessageBox.Show("Gesli se ne ujemata");
+            }
+        }
     }
     
 }

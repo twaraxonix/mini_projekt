@@ -46,6 +46,9 @@
             this.SpremeniButton = new System.Windows.Forms.Button();
             this.NazajButton = new System.Windows.Forms.Button();
             this.SpremeniEmailButton = new System.Windows.Forms.Button();
+            this.SpremeniGesloButton = new System.Windows.Forms.Button();
+            this.Geslo3TextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // EmailLabel
@@ -88,11 +91,11 @@
             // Geslolabel
             // 
             this.Geslolabel.AutoSize = true;
-            this.Geslolabel.Location = new System.Drawing.Point(598, 198);
+            this.Geslolabel.Location = new System.Drawing.Point(577, 236);
             this.Geslolabel.Name = "Geslolabel";
-            this.Geslolabel.Size = new System.Drawing.Size(45, 17);
+            this.Geslolabel.Size = new System.Drawing.Size(93, 17);
             this.Geslolabel.TabIndex = 4;
-            this.Geslolabel.Text = "Geslo";
+            this.Geslolabel.Text = "Vnesite geslo";
             // 
             // EmailTextBox
             // 
@@ -103,7 +106,7 @@
             // 
             // GesloTextBox
             // 
-            this.GesloTextBox.Location = new System.Drawing.Point(510, 228);
+            this.GesloTextBox.Location = new System.Drawing.Point(510, 269);
             this.GesloTextBox.Name = "GesloTextBox";
             this.GesloTextBox.Size = new System.Drawing.Size(220, 22);
             this.GesloTextBox.TabIndex = 6;
@@ -166,7 +169,7 @@
             // 
             // Spremeni2Button
             // 
-            this.Spremeni2Button.Location = new System.Drawing.Point(580, 284);
+            this.Spremeni2Button.Location = new System.Drawing.Point(573, 388);
             this.Spremeni2Button.Name = "Spremeni2Button";
             this.Spremeni2Button.Size = new System.Drawing.Size(97, 33);
             this.Spremeni2Button.TabIndex = 14;
@@ -204,11 +207,39 @@
             this.SpremeniEmailButton.UseVisualStyleBackColor = true;
             this.SpremeniEmailButton.Click += new System.EventHandler(this.SpremeniEmailButton_Click);
             // 
+            // SpremeniGesloButton
+            // 
+            this.SpremeniGesloButton.Location = new System.Drawing.Point(361, 236);
+            this.SpremeniGesloButton.Name = "SpremeniGesloButton";
+            this.SpremeniGesloButton.Size = new System.Drawing.Size(96, 55);
+            this.SpremeniGesloButton.TabIndex = 18;
+            this.SpremeniGesloButton.Text = "Spremeni geslo";
+            this.SpremeniGesloButton.UseVisualStyleBackColor = true;
+            // 
+            // Geslo3TextBox
+            // 
+            this.Geslo3TextBox.Location = new System.Drawing.Point(510, 338);
+            this.Geslo3TextBox.Name = "Geslo3TextBox";
+            this.Geslo3TextBox.Size = new System.Drawing.Size(220, 22);
+            this.Geslo3TextBox.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(549, 303);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 17);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Ponovno Vnesite geslo";
+            // 
             // OsebniPodatkiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Geslo3TextBox);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.SpremeniGesloButton);
             this.Controls.Add(this.SpremeniEmailButton);
             this.Controls.Add(this.NazajButton);
             this.Controls.Add(this.SpremeniButton);
@@ -254,5 +285,8 @@
         private System.Windows.Forms.Button SpremeniButton;
         private System.Windows.Forms.Button NazajButton;
         private System.Windows.Forms.Button SpremeniEmailButton;
+        private System.Windows.Forms.Button SpremeniGesloButton;
+        private System.Windows.Forms.TextBox Geslo3TextBox;
+        private System.Windows.Forms.Label label1;
     }
 }
