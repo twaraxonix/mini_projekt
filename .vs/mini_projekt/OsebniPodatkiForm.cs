@@ -108,7 +108,7 @@ namespace mini_projekt
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT update_geslo_uporabnika(" + Public.id + ",'" + GesloTextBox.Text + "')", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT update_geslo_uporabnika(" + Public.id + ",'" + Ena.CreateMD5(GesloTextBox.Text) + "')", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
@@ -119,7 +119,14 @@ namespace mini_projekt
 
         private void Spremeni2Button_Click(object sender, EventArgs e)
         {
-            SpremeniGesloUporabnika();
+            if ((GesloTextBox.Text == Geslo3TextBox.Text) && (GesloTextBox.Text != ""))
+            {
+                SpremeniGesloUporabnika();
+            }
+            else
+            {
+                MessageBox.Show("Gesli se ne ujemata");
+            }
         }
     }
 }
