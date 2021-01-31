@@ -19,22 +19,12 @@ namespace mini_projekt
             InitializeComponent();
             PrijavaGroupBox.Visible = true;
             RegistracijaGroupBox.Visible = false;
+            groupBox1.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-            {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vsi_kraji()", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    string ime = reader.GetString(0);
-                    comboBox1.Items.Add(ime);
-                }
-                con.Close();
-            }
+
         }
 
         private void Registracija1Button_Click(object sender, EventArgs e)
@@ -73,7 +63,7 @@ namespace mini_projekt
 
         private void SpremenitevGeslaButton_Click(object sender, EventArgs e)
         {
-            if ((GesloTextBox.Text == Geslo3TextBox.Text) && (GesloTextBox.Text != ""))
+            if ((Geslo3TextBox.Text == Geslo4TextBox.Text) && (Geslo3TextBox.Text != ""))
             {
                 Ena.PozabljenoGeslo(Email3TextBox.Text, Geslo3TextBox.Text);
             }
@@ -81,6 +71,11 @@ namespace mini_projekt
             {
                 MessageBox.Show("Gesli se ne ujemata");
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            groupBox1.Visible = true;
         }
     }
     

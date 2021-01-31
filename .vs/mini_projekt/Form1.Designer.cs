@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.PrijavaGroupBox = new System.Windows.Forms.GroupBox();
             this.PrijavaButton = new System.Windows.Forms.Button();
             this.Registracija1Button = new System.Windows.Forms.Button();
@@ -48,7 +46,6 @@
             this.Email2Label = new System.Windows.Forms.Label();
             this.Geslo2textBox = new System.Windows.Forms.TextBox();
             this.Email2TextBox = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Geslo3Label = new System.Windows.Forms.Label();
@@ -58,31 +55,17 @@
             this.Geslo4Label = new System.Windows.Forms.Label();
             this.Geslo4TextBox = new System.Windows.Forms.TextBox();
             this.SpremenitevGeslaButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.PrijavaGroupBox.SuspendLayout();
             this.RegistracijaGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(136, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 1;
             // 
             // PrijavaGroupBox
             // 
+            this.PrijavaGroupBox.Controls.Add(this.label1);
             this.PrijavaGroupBox.Controls.Add(this.button3);
             this.PrijavaGroupBox.Controls.Add(this.PrijavaButton);
             this.PrijavaGroupBox.Controls.Add(this.Registracija1Button);
@@ -90,54 +73,74 @@
             this.PrijavaGroupBox.Controls.Add(this.EmailLabel);
             this.PrijavaGroupBox.Controls.Add(this.GesloTextBox);
             this.PrijavaGroupBox.Controls.Add(this.EmailTextBox);
-            this.PrijavaGroupBox.Location = new System.Drawing.Point(12, 69);
+            this.PrijavaGroupBox.Location = new System.Drawing.Point(66, 12);
             this.PrijavaGroupBox.Name = "PrijavaGroupBox";
-            this.PrijavaGroupBox.Size = new System.Drawing.Size(309, 303);
+            this.PrijavaGroupBox.Size = new System.Drawing.Size(309, 511);
             this.PrijavaGroupBox.TabIndex = 2;
             this.PrijavaGroupBox.TabStop = false;
             this.PrijavaGroupBox.Text = "Prijava";
             // 
             // PrijavaButton
             // 
-            this.PrijavaButton.Location = new System.Drawing.Point(74, 193);
+            this.PrijavaButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.PrijavaButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.PrijavaButton.FlatAppearance.BorderSize = 3;
+            this.PrijavaButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.PrijavaButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.PrijavaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PrijavaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PrijavaButton.ForeColor = System.Drawing.Color.White;
+            this.PrijavaButton.Location = new System.Drawing.Point(29, 296);
             this.PrijavaButton.Name = "PrijavaButton";
-            this.PrijavaButton.Size = new System.Drawing.Size(91, 35);
+            this.PrijavaButton.Size = new System.Drawing.Size(228, 35);
             this.PrijavaButton.TabIndex = 5;
             this.PrijavaButton.Text = "Prijavi se";
-            this.PrijavaButton.UseVisualStyleBackColor = true;
+            this.PrijavaButton.UseVisualStyleBackColor = false;
             this.PrijavaButton.Click += new System.EventHandler(this.PrijavaButton_Click);
             // 
             // Registracija1Button
             // 
-            this.Registracija1Button.Location = new System.Drawing.Point(210, 193);
+            this.Registracija1Button.BackColor = System.Drawing.Color.RoyalBlue;
+            this.Registracija1Button.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.Registracija1Button.FlatAppearance.BorderSize = 3;
+            this.Registracija1Button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.Registracija1Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.Registracija1Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Registracija1Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Registracija1Button.ForeColor = System.Drawing.Color.White;
+            this.Registracija1Button.Location = new System.Drawing.Point(36, 470);
             this.Registracija1Button.Name = "Registracija1Button";
-            this.Registracija1Button.Size = new System.Drawing.Size(93, 35);
+            this.Registracija1Button.Size = new System.Drawing.Size(221, 35);
             this.Registracija1Button.TabIndex = 4;
             this.Registracija1Button.Text = "Registracija";
-            this.Registracija1Button.UseVisualStyleBackColor = true;
+            this.Registracija1Button.UseVisualStyleBackColor = false;
             this.Registracija1Button.Click += new System.EventHandler(this.Registracija1Button_Click);
             // 
             // GesloLabel
             // 
             this.GesloLabel.AutoSize = true;
-            this.GesloLabel.Location = new System.Drawing.Point(108, 114);
+            this.GesloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GesloLabel.ForeColor = System.Drawing.Color.White;
+            this.GesloLabel.Location = new System.Drawing.Point(104, 190);
             this.GesloLabel.Name = "GesloLabel";
-            this.GesloLabel.Size = new System.Drawing.Size(45, 17);
+            this.GesloLabel.Size = new System.Drawing.Size(58, 20);
             this.GesloLabel.TabIndex = 3;
             this.GesloLabel.Text = "Geslo";
             // 
             // EmailLabel
             // 
             this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Location = new System.Drawing.Point(107, 28);
+            this.EmailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EmailLabel.ForeColor = System.Drawing.Color.White;
+            this.EmailLabel.Location = new System.Drawing.Point(104, 97);
             this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(42, 17);
+            this.EmailLabel.Size = new System.Drawing.Size(62, 24);
             this.EmailLabel.TabIndex = 2;
             this.EmailLabel.Text = "Email";
             // 
             // GesloTextBox
             // 
-            this.GesloTextBox.Location = new System.Drawing.Point(32, 145);
+            this.GesloTextBox.Location = new System.Drawing.Point(29, 225);
             this.GesloTextBox.Name = "GesloTextBox";
             this.GesloTextBox.PasswordChar = '*';
             this.GesloTextBox.Size = new System.Drawing.Size(228, 22);
@@ -145,7 +148,7 @@
             // 
             // EmailTextBox
             // 
-            this.EmailTextBox.Location = new System.Drawing.Point(32, 57);
+            this.EmailTextBox.Location = new System.Drawing.Point(29, 142);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(228, 22);
             this.EmailTextBox.TabIndex = 0;
@@ -162,7 +165,7 @@
             this.RegistracijaGroupBox.Controls.Add(this.Email2Label);
             this.RegistracijaGroupBox.Controls.Add(this.Geslo2textBox);
             this.RegistracijaGroupBox.Controls.Add(this.Email2TextBox);
-            this.RegistracijaGroupBox.Location = new System.Drawing.Point(342, 82);
+            this.RegistracijaGroupBox.Location = new System.Drawing.Point(421, 53);
             this.RegistracijaGroupBox.Name = "RegistracijaGroupBox";
             this.RegistracijaGroupBox.Size = new System.Drawing.Size(405, 362);
             this.RegistracijaGroupBox.TabIndex = 4;
@@ -254,23 +257,23 @@
             this.Email2TextBox.Size = new System.Drawing.Size(228, 22);
             this.Email2TextBox.TabIndex = 4;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(210, 242);
+            this.button3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button3.FlatAppearance.BorderSize = 3;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(36, 411);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 43);
+            this.button3.Size = new System.Drawing.Size(221, 36);
             this.button3.TabIndex = 6;
-            this.button3.Text = "pozabljeno geslo";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Text = "Pozabljeno geslo";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox1
             // 
@@ -281,7 +284,7 @@
             this.groupBox1.Controls.Add(this.Email3label);
             this.groupBox1.Controls.Add(this.Geslo3TextBox);
             this.groupBox1.Controls.Add(this.Email3TextBox);
-            this.groupBox1.Location = new System.Drawing.Point(785, 82);
+            this.groupBox1.Location = new System.Drawing.Point(896, 109);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(271, 272);
             this.groupBox1.TabIndex = 7;
@@ -348,17 +351,35 @@
             this.SpremenitevGeslaButton.UseVisualStyleBackColor = true;
             this.SpremenitevGeslaButton.Click += new System.EventHandler(this.SpremenitevGeslaButton_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.RegistracijaGroupBox);
+            this.panel1.Controls.Add(this.PrijavaGroupBox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1308, 535);
+            this.panel1.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(83, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 36);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Prijava";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 450);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.RegistracijaGroupBox);
-            this.Controls.Add(this.PrijavaGroupBox);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1308, 535);
+            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.PrijavaGroupBox.ResumeLayout(false);
@@ -367,14 +388,12 @@
             this.RegistracijaGroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox PrijavaGroupBox;
         private System.Windows.Forms.Label GesloLabel;
         private System.Windows.Forms.Label EmailLabel;
@@ -394,7 +413,6 @@
         private System.Windows.Forms.Button NazajButton;
         private System.Windows.Forms.Button RegistracijaButton;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button SpremenitevGeslaButton;
         private System.Windows.Forms.Label Geslo4Label;
@@ -403,6 +421,8 @@
         private System.Windows.Forms.Label Email3label;
         private System.Windows.Forms.TextBox Geslo3TextBox;
         private System.Windows.Forms.TextBox Email3TextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
