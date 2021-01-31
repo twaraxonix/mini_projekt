@@ -78,7 +78,7 @@
             this.PrijavaGroupBox.Controls.Add(this.EmailTextBox);
             this.PrijavaGroupBox.Location = new System.Drawing.Point(66, 12);
             this.PrijavaGroupBox.Name = "PrijavaGroupBox";
-            this.PrijavaGroupBox.Size = new System.Drawing.Size(309, 511);
+            this.PrijavaGroupBox.Size = new System.Drawing.Size(309, 523);
             this.PrijavaGroupBox.TabIndex = 2;
             this.PrijavaGroupBox.TabStop = false;
             this.PrijavaGroupBox.Text = "Prijava";
@@ -113,7 +113,7 @@
             this.Registracija1Button.ForeColor = System.Drawing.Color.White;
             this.Registracija1Button.Location = new System.Drawing.Point(36, 470);
             this.Registracija1Button.Name = "Registracija1Button";
-            this.Registracija1Button.Size = new System.Drawing.Size(221, 35);
+            this.Registracija1Button.Size = new System.Drawing.Size(221, 41);
             this.Registracija1Button.TabIndex = 4;
             this.Registracija1Button.Text = "Registracija";
             this.Registracija1Button.UseVisualStyleBackColor = false;
@@ -171,7 +171,7 @@
             this.RegistracijaGroupBox.Controls.Add(this.Email2TextBox);
             this.RegistracijaGroupBox.Location = new System.Drawing.Point(421, 12);
             this.RegistracijaGroupBox.Name = "RegistracijaGroupBox";
-            this.RegistracijaGroupBox.Size = new System.Drawing.Size(405, 511);
+            this.RegistracijaGroupBox.Size = new System.Drawing.Size(405, 523);
             this.RegistracijaGroupBox.TabIndex = 4;
             this.RegistracijaGroupBox.TabStop = false;
             this.RegistracijaGroupBox.Text = "Registracija";
@@ -188,7 +188,7 @@
             this.NazajButton.ForeColor = System.Drawing.SystemColors.Control;
             this.NazajButton.Location = new System.Drawing.Point(74, 470);
             this.NazajButton.Name = "NazajButton";
-            this.NazajButton.Size = new System.Drawing.Size(250, 35);
+            this.NazajButton.Size = new System.Drawing.Size(250, 41);
             this.NazajButton.TabIndex = 6;
             this.NazajButton.Text = "Nazaj";
             this.NazajButton.UseVisualStyleBackColor = false;
@@ -206,7 +206,7 @@
             this.RegistracijaButton.ForeColor = System.Drawing.SystemColors.Control;
             this.RegistracijaButton.Location = new System.Drawing.Point(74, 416);
             this.RegistracijaButton.Name = "RegistracijaButton";
-            this.RegistracijaButton.Size = new System.Drawing.Size(250, 37);
+            this.RegistracijaButton.Size = new System.Drawing.Size(250, 48);
             this.RegistracijaButton.TabIndex = 12;
             this.RegistracijaButton.Text = "Registriraj se";
             this.RegistracijaButton.UseVisualStyleBackColor = false;
@@ -297,7 +297,7 @@
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(36, 411);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(221, 36);
+            this.button3.Size = new System.Drawing.Size(221, 42);
             this.button3.TabIndex = 6;
             this.button3.Text = "Pozabljeno geslo";
             this.button3.UseVisualStyleBackColor = false;
@@ -361,11 +361,11 @@
             // Geslo4Label
             // 
             this.Geslo4Label.AutoSize = true;
-            this.Geslo4Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Geslo4Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Geslo4Label.ForeColor = System.Drawing.SystemColors.Control;
             this.Geslo4Label.Location = new System.Drawing.Point(103, 268);
             this.Geslo4Label.Name = "Geslo4Label";
-            this.Geslo4Label.Size = new System.Drawing.Size(118, 20);
+            this.Geslo4Label.Size = new System.Drawing.Size(132, 20);
             this.Geslo4Label.TabIndex = 17;
             this.Geslo4Label.Text = "Ponovite geslo";
             // 
@@ -389,7 +389,7 @@
             this.SpremenitevGeslaButton.ForeColor = System.Drawing.SystemColors.Control;
             this.SpremenitevGeslaButton.Location = new System.Drawing.Point(35, 357);
             this.SpremenitevGeslaButton.Name = "SpremenitevGeslaButton";
-            this.SpremenitevGeslaButton.Size = new System.Drawing.Size(250, 36);
+            this.SpremenitevGeslaButton.Size = new System.Drawing.Size(250, 48);
             this.SpremenitevGeslaButton.TabIndex = 18;
             this.SpremenitevGeslaButton.Text = "Spremenite geslo";
             this.SpremenitevGeslaButton.UseVisualStyleBackColor = false;
@@ -452,7 +452,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
             this.button1.Location = new System.Drawing.Point(35, 411);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(250, 35);
+            this.button1.Size = new System.Drawing.Size(250, 42);
             this.button1.TabIndex = 20;
             this.button1.Text = "Nazaj";
             this.button1.UseVisualStyleBackColor = false;
