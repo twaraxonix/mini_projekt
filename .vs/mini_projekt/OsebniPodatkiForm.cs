@@ -128,5 +128,10 @@ namespace mini_projekt
                 MessageBox.Show("Gesli se ne ujemata");
             }
         }
+
+        private void SpremeniGesloButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

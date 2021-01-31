@@ -215,6 +215,7 @@
             this.SpremeniGesloButton.TabIndex = 18;
             this.SpremeniGesloButton.Text = "Spremeni geslo";
             this.SpremeniGesloButton.UseVisualStyleBackColor = true;
+            this.SpremeniGesloButton.Click += new System.EventHandler(this.SpremeniGesloButton_Click);
             // 
             // Geslo3TextBox
             // 
