@@ -21,8 +21,8 @@ namespace mini_projekt
         }
 
         private void DodajButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
+        {  
+            this.Hide(); 
             var InsertForm = new InsertForm();
             InsertForm.Closed += (s, args) => this.Close();
             InsertForm.Show();
