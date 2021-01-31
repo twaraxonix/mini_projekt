@@ -76,6 +76,13 @@ namespace mini_projekt
         private void button3_Click(object sender, EventArgs e)
         {
             groupBox1.Visible = true;
+            PrijavaGroupBox.Visible = false;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            groupBox1.Visible = false;
+            PrijavaGroupBox.Visible = true;
         }
     }
     

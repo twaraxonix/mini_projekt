@@ -58,6 +58,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.PrijavaGroupBox.SuspendLayout();
             this.RegistracijaGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -303,6 +305,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.SpremenitevGeslaButton);
             this.groupBox1.Controls.Add(this.Geslo4Label);
             this.groupBox1.Controls.Add(this.Geslo4TextBox);
@@ -310,9 +314,9 @@
             this.groupBox1.Controls.Add(this.Email3label);
             this.groupBox1.Controls.Add(this.Geslo3TextBox);
             this.groupBox1.Controls.Add(this.Email3TextBox);
-            this.groupBox1.Location = new System.Drawing.Point(896, 109);
+            this.groupBox1.Location = new System.Drawing.Point(881, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(271, 272);
+            this.groupBox1.Size = new System.Drawing.Size(308, 511);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -320,61 +324,75 @@
             // Geslo3Label
             // 
             this.Geslo3Label.AutoSize = true;
-            this.Geslo3Label.Location = new System.Drawing.Point(93, 93);
+            this.Geslo3Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Geslo3Label.ForeColor = System.Drawing.SystemColors.Control;
+            this.Geslo3Label.Location = new System.Drawing.Point(123, 190);
             this.Geslo3Label.Name = "Geslo3Label";
-            this.Geslo3Label.Size = new System.Drawing.Size(45, 17);
+            this.Geslo3Label.Size = new System.Drawing.Size(58, 20);
             this.Geslo3Label.TabIndex = 15;
             this.Geslo3Label.Text = "Geslo";
             // 
             // Email3label
             // 
             this.Email3label.AutoSize = true;
-            this.Email3label.Location = new System.Drawing.Point(100, 19);
+            this.Email3label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Email3label.ForeColor = System.Drawing.SystemColors.Control;
+            this.Email3label.Location = new System.Drawing.Point(123, 101);
             this.Email3label.Name = "Email3label";
-            this.Email3label.Size = new System.Drawing.Size(42, 17);
+            this.Email3label.Size = new System.Drawing.Size(56, 20);
             this.Email3label.TabIndex = 14;
             this.Email3label.Text = "Email";
             // 
             // Geslo3TextBox
             // 
-            this.Geslo3TextBox.Location = new System.Drawing.Point(21, 113);
+            this.Geslo3TextBox.Location = new System.Drawing.Point(35, 225);
             this.Geslo3TextBox.Name = "Geslo3TextBox";
             this.Geslo3TextBox.PasswordChar = '*';
-            this.Geslo3TextBox.Size = new System.Drawing.Size(228, 22);
+            this.Geslo3TextBox.Size = new System.Drawing.Size(245, 22);
             this.Geslo3TextBox.TabIndex = 13;
             // 
             // Email3TextBox
             // 
-            this.Email3TextBox.Location = new System.Drawing.Point(21, 45);
+            this.Email3TextBox.Location = new System.Drawing.Point(35, 142);
             this.Email3TextBox.Name = "Email3TextBox";
-            this.Email3TextBox.Size = new System.Drawing.Size(228, 22);
+            this.Email3TextBox.Size = new System.Drawing.Size(245, 22);
             this.Email3TextBox.TabIndex = 12;
             // 
             // Geslo4Label
             // 
             this.Geslo4Label.AutoSize = true;
-            this.Geslo4Label.Location = new System.Drawing.Point(72, 147);
+            this.Geslo4Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Geslo4Label.ForeColor = System.Drawing.SystemColors.Control;
+            this.Geslo4Label.Location = new System.Drawing.Point(103, 268);
             this.Geslo4Label.Name = "Geslo4Label";
-            this.Geslo4Label.Size = new System.Drawing.Size(101, 17);
+            this.Geslo4Label.Size = new System.Drawing.Size(118, 20);
             this.Geslo4Label.TabIndex = 17;
             this.Geslo4Label.Text = "Ponovite geslo";
             // 
             // Geslo4TextBox
             // 
-            this.Geslo4TextBox.Location = new System.Drawing.Point(21, 180);
+            this.Geslo4TextBox.Location = new System.Drawing.Point(35, 303);
             this.Geslo4TextBox.Name = "Geslo4TextBox";
             this.Geslo4TextBox.PasswordChar = '*';
-            this.Geslo4TextBox.Size = new System.Drawing.Size(228, 22);
+            this.Geslo4TextBox.Size = new System.Drawing.Size(245, 22);
             this.Geslo4TextBox.TabIndex = 16;
             // 
             // SpremenitevGeslaButton
             // 
-            this.SpremenitevGeslaButton.Location = new System.Drawing.Point(75, 229);
+            this.SpremenitevGeslaButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.SpremenitevGeslaButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.SpremenitevGeslaButton.FlatAppearance.BorderSize = 3;
+            this.SpremenitevGeslaButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.SpremenitevGeslaButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.SpremenitevGeslaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SpremenitevGeslaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SpremenitevGeslaButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.SpremenitevGeslaButton.Location = new System.Drawing.Point(35, 357);
             this.SpremenitevGeslaButton.Name = "SpremenitevGeslaButton";
-            this.SpremenitevGeslaButton.Size = new System.Drawing.Size(107, 37);
+            this.SpremenitevGeslaButton.Size = new System.Drawing.Size(250, 36);
             this.SpremenitevGeslaButton.TabIndex = 18;
-            this.SpremenitevGeslaButton.Text = "Spremenite";
-            this.SpremenitevGeslaButton.UseVisualStyleBackColor = true;
+            this.SpremenitevGeslaButton.Text = "Spremenite geslo";
+            this.SpremenitevGeslaButton.UseVisualStyleBackColor = false;
             this.SpremenitevGeslaButton.Click += new System.EventHandler(this.SpremenitevGeslaButton_Click);
             // 
             // panel1
@@ -386,7 +404,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1308, 535);
+            this.panel1.Size = new System.Drawing.Size(1260, 547);
             this.panel1.TabIndex = 8;
             // 
             // label1
@@ -411,11 +429,40 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Registracija";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(29, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(260, 36);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Pozabljeno geslo";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.BorderSize = 3;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(35, 411);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(250, 35);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Nazaj";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1308, 535);
+            this.ClientSize = new System.Drawing.Size(1260, 547);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -461,6 +508,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
     }
 }
 
