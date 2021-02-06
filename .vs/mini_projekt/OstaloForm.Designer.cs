@@ -60,7 +60,7 @@
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Ime";
+            this.columnHeader2.Text = "";
             this.columnHeader2.Width = 147;
             // 
             // columnHeader3
@@ -75,9 +75,9 @@
             // 
             // NazajButton
             // 
-            this.NazajButton.Location = new System.Drawing.Point(37, 484);
+            this.NazajButton.Location = new System.Drawing.Point(37, 476);
             this.NazajButton.Name = "NazajButton";
-            this.NazajButton.Size = new System.Drawing.Size(75, 23);
+            this.NazajButton.Size = new System.Drawing.Size(81, 31);
             this.NazajButton.TabIndex = 1;
             this.NazajButton.Text = "Nazaj";
             this.NazajButton.UseVisualStyleBackColor = true;
@@ -85,7 +85,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(45, 492);
+            this.button1.Location = new System.Drawing.Point(380, 358);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -110,6 +110,7 @@
             this.LokacijeButton.TabIndex = 4;
             this.LokacijeButton.Text = "Lokacije";
             this.LokacijeButton.UseVisualStyleBackColor = true;
+            this.LokacijeButton.Click += new System.EventHandler(this.LokacijeButton_Click);
             // 
             // OstaloForm
             // 
