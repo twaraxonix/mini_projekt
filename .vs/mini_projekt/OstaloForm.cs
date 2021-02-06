@@ -13,6 +13,7 @@ namespace mini_projekt
 {
     public partial class OstaloForm : Form
     {
+        bool x = true;
         public OstaloForm()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace mini_projekt
 
         private void KrajiButton_Click(object sender, EventArgs e)
         {
+            x = true;
             int a = 1;
             listView1.Items.Clear();
             var title = new string[] { "Številka", "Ime", "Poštna številka", "" };
@@ -52,6 +54,7 @@ namespace mini_projekt
 
         private void LokacijeButton_Click(object sender, EventArgs e)
         {
+            x = false;
             int a = 1;
             listView1.Items.Clear();
             var title = new string[] { "Številka", "Ime", "Naslov", "Kraj" };
@@ -70,6 +73,22 @@ namespace mini_projekt
                     a++;
                 }
                 con.Close();
+            }
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (x) {
+                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+                {
+                    con.Open();
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM delete_kraj('"+ listView1.SelectedItems[0].SubItems[1].Text + "','"+ listView1.SelectedItems[0].SubItems[2].Text + "')", con);
+                    NpgsqlDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                    }
+                    con.Close();
+                }
             }
         }
     }

@@ -69,3 +69,4 @@ C:\Users\rokze\Source\Repos\twaraxonix\mini_projekt\.vs\mini_projekt\obj\Debug\m
 C:\Users\rokze\source\repos\twaraxonix\mini_projekt\.vs\mini_projekt\obj\Debug\mini_projekt.UpdateForm.resources
 C:\Users\rokze\source\repos\twaraxonix\mini_projekt\.vs\mini_projekt\obj\Debug\mini_projekt.ArhivForm.resources
 C:\Users\rokze\source\repos\twaraxonix\mini_projekt\.vs\mini_projekt\obj\Debug\mini_projekt.OsebniPodatkiForm.resources
+C:\Users\rokze\source\repos\twaraxonix\mini_projekt\.vs\mini_projekt\obj\Debug\mini_projekt.OstaloForm.resources

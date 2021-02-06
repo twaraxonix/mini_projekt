@@ -51,16 +51,25 @@ namespace mini_projekt
                 }
                 con.Close();
             }
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            try
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_sum(" + Public.id + ",'" + datumZ + "','" + datumK + "')", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
+                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
                 {
-                    SkupajTextBox.Text = Convert.ToString(reader.GetDouble(0));
+                    con.Open();
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_sum(" + Public.id + ",'" + datumZ + "','" + datumK + "')", con);
+                    NpgsqlDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        SkupajTextBox.Text = Convert.ToString(reader.GetDouble(0));
+                    }
                 }
             }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Vsota je nič");
+            }
+            
         }
         private void ArhivButton_Click(object sender, EventArgs e)
         {

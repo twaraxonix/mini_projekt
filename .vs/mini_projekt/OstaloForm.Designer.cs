@@ -34,9 +34,10 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NazajButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.KrajiButton = new System.Windows.Forms.Button();
             this.LokacijeButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -83,14 +84,15 @@
             this.NazajButton.UseVisualStyleBackColor = true;
             this.NazajButton.Click += new System.EventHandler(this.NazajButton_Click);
             // 
-            // button1
+            // DeleteButton
             // 
-            this.button1.Location = new System.Drawing.Point(380, 358);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.DeleteButton.Location = new System.Drawing.Point(380, 358);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(101, 54);
+            this.DeleteButton.TabIndex = 2;
+            this.DeleteButton.Text = "Izbriši";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // KrajiButton
             // 
@@ -112,14 +114,24 @@
             this.LokacijeButton.UseVisualStyleBackColor = true;
             this.LokacijeButton.Click += new System.EventHandler(this.LokacijeButton_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(558, 430);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // OstaloForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 519);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.LokacijeButton);
             this.Controls.Add(this.KrajiButton);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.NazajButton);
             this.Controls.Add(this.listView1);
             this.Name = "OstaloForm";
@@ -136,8 +148,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button NazajButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button KrajiButton;
         private System.Windows.Forms.Button LokacijeButton;
+        private System.Windows.Forms.Button button2;
     }
 }
