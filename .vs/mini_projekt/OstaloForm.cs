@@ -100,16 +100,59 @@ namespace mini_projekt
             label1.Text = "Vnesi ime";
             label2.Text = "Vnesi poštno številko";
             label3.Text = "";
-            button1.Text = "Vnesi";
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            button1.Text = "Vnesi kraj";
+        }
+
+        private void VnesiLokacijoButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            if (x)
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM add_kraj('" + textBox1.Text + "','" + textBox2.Text + "','')", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
+                comboBox1.Visible = true;
+                label4.Text = "Spremeni kraj";
+                label1.Text = "Ime kraja";
+                label2.Text = "Poštna številka kraja";
+                label3.Text = "";
+                button1.Text = "Spremeni kraj";
+                textBox1.Text = listView1.SelectedItems[0].SubItems[1].Text;
+                textBox2.Text = listView1.SelectedItems[0].SubItems[2].Text;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(button1.Text == "Vnesi kraj")
+            {
+                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
                 {
+                    con.Open();
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM add_kraj('" + textBox1.Text + "','" + textBox2.Text + "','')", con);
+                    NpgsqlDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                    }
+                    con.Close();
                 }
-                con.Close();
+            }
+            else if(button1.Text == "Spremeni kraj")
+            {
+                if (button1.Text == "Vnesi kraj")
+                {
+                    using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+                    {
+                        con.Open();
+                        NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM update_kraj('" + textBox1.Text + "','" + textBox2.Text + "','')", con);
+                        NpgsqlDataReader reader = com.ExecuteReader();
+                        while (reader.Read())
+                        {
+                        }
+                        con.Close();
+                    }
+                }
             }
         }
     }
