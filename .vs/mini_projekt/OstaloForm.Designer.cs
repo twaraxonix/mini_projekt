@@ -34,6 +34,9 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NazajButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.KrajiButton = new System.Windows.Forms.Button();
+            this.LokacijeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -44,9 +47,9 @@
             this.columnHeader3,
             this.columnHeader4});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(152, 75);
+            this.listView1.Location = new System.Drawing.Point(12, 53);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(680, 290);
+            this.listView1.Size = new System.Drawing.Size(641, 290);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -58,14 +61,17 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Ime";
+            this.columnHeader2.Width = 147;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "";
+            this.columnHeader3.Width = 162;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "";
+            this.columnHeader4.Width = 191;
             // 
             // NazajButton
             // 
@@ -75,12 +81,44 @@
             this.NazajButton.TabIndex = 1;
             this.NazajButton.Text = "Nazaj";
             this.NazajButton.UseVisualStyleBackColor = true;
+            this.NazajButton.Click += new System.EventHandler(this.NazajButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(45, 492);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // KrajiButton
+            // 
+            this.KrajiButton.Location = new System.Drawing.Point(37, 358);
+            this.KrajiButton.Name = "KrajiButton";
+            this.KrajiButton.Size = new System.Drawing.Size(112, 54);
+            this.KrajiButton.TabIndex = 3;
+            this.KrajiButton.Text = "Kraji";
+            this.KrajiButton.UseVisualStyleBackColor = true;
+            this.KrajiButton.Click += new System.EventHandler(this.KrajiButton_Click);
+            // 
+            // LokacijeButton
+            // 
+            this.LokacijeButton.Location = new System.Drawing.Point(180, 358);
+            this.LokacijeButton.Name = "LokacijeButton";
+            this.LokacijeButton.Size = new System.Drawing.Size(95, 54);
+            this.LokacijeButton.TabIndex = 4;
+            this.LokacijeButton.Text = "Lokacije";
+            this.LokacijeButton.UseVisualStyleBackColor = true;
             // 
             // OstaloForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 519);
+            this.Controls.Add(this.LokacijeButton);
+            this.Controls.Add(this.KrajiButton);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.NazajButton);
             this.Controls.Add(this.listView1);
             this.Name = "OstaloForm";
@@ -97,5 +135,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button NazajButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button KrajiButton;
+        private System.Windows.Forms.Button LokacijeButton;
     }
 }
