@@ -17,6 +17,7 @@ namespace mini_projekt
         public OstaloForm()
         {
             InitializeComponent();
+            comboBox1.Visible = false;
         }
 
         private void NazajButton_Click(object sender, EventArgs e)
@@ -89,6 +90,26 @@ namespace mini_projekt
                     }
                     con.Close();
                 }
+            }
+        }
+
+        private void VnesiKrajButton_Click(object sender, EventArgs e)
+        {
+            comboBox1.Visible = true;
+            label4.Text = "Vnesi kraj";
+            label1.Text = "Vnesi ime";
+            label2.Text = "Vnesi poštno številko";
+            label3.Text = "";
+            button1.Text = "Vnesi";
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM add_kraj('" + textBox1.Text + "','" + textBox2.Text + "','')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                }
+                con.Close();
             }
         }
     }
