@@ -43,6 +43,7 @@
             this.OsebniPodatkiButton = new System.Windows.Forms.Button();
             this.SkupajTextBox = new System.Windows.Forms.TextBox();
             this.SkupajLabel = new System.Windows.Forms.Label();
+            this.OstaloButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -224,12 +225,31 @@
             this.SkupajLabel.TabIndex = 9;
             this.SkupajLabel.Text = "Skupaj";
             // 
+            // OstaloButton
+            // 
+            this.OstaloButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.OstaloButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.OstaloButton.FlatAppearance.BorderSize = 3;
+            this.OstaloButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.OstaloButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.OstaloButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OstaloButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.OstaloButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.OstaloButton.Location = new System.Drawing.Point(1, 398);
+            this.OstaloButton.Name = "OstaloButton";
+            this.OstaloButton.Size = new System.Drawing.Size(148, 40);
+            this.OstaloButton.TabIndex = 10;
+            this.OstaloButton.Text = "Ostalo";
+            this.OstaloButton.UseVisualStyleBackColor = false;
+            this.OstaloButton.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1191, 450);
+            this.Controls.Add(this.OstaloButton);
             this.Controls.Add(this.SkupajLabel);
             this.Controls.Add(this.SkupajTextBox);
             this.Controls.Add(this.OsebniPodatkiButton);
@@ -263,5 +283,6 @@
         private System.Windows.Forms.Button OsebniPodatkiButton;
         private System.Windows.Forms.TextBox SkupajTextBox;
         private System.Windows.Forms.Label SkupajLabel;
+        private System.Windows.Forms.Button OstaloButton;
     }
 }

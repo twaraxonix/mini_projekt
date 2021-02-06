@@ -143,5 +143,13 @@ namespace mini_projekt
             OsebniPodatkiForm.Closed += (s, args) => this.Close();
             OsebniPodatkiForm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var OstaloForm = new OstaloForm();
+            OstaloForm.Closed += (s, args) => this.Close();
+            OstaloForm.Show();
+        }
     }
 }
