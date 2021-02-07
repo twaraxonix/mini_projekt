@@ -105,7 +105,24 @@ namespace mini_projekt
 
         private void VnesiLokacijoButton_Click(object sender, EventArgs e)
         {
-
+            comboBox1.Items.Clear();
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vsi_kraji()", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    comboBox1.Items.Add(reader.GetString(0));
+                }
+                con.Close();
+            }
+            comboBox1.Visible = true;
+            label4.Text = "Vnesi lokacijo";
+            label1.Text = "Vnesi ime";
+            label2.Text = "Vnesi naslov";
+            label3.Text = "Izberi kraj";
+            button1.Text = "Vnesi lokacijo";
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
@@ -152,6 +169,19 @@ namespace mini_projekt
                         }
                         con.Close();
                     }
+                }
+            }
+            else if(button1.Text == "Vnesi lokacijo")
+            {
+                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+                {
+                    con.Open();
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM add_lokacija2('" + textBox1.Text + "','" + textBox2.Text + "','"+comboBox1.SelectedItem.ToString()+"')", con);
+                    NpgsqlDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                    }
+                    con.Close();
                 }
             }
         }
