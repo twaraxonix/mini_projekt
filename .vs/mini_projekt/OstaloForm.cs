@@ -91,6 +91,19 @@ namespace mini_projekt
                     con.Close();
                 }
             }
+            else
+            {
+                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+                {
+                    con.Open();
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM delete_lokacija('" + listView1.SelectedItems[0].SubItems[1].Text + "','" + listView1.SelectedItems[0].SubItems[2].Text + "')", con);
+                    NpgsqlDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                    }
+                    con.Close();
+                }
+            }
         }
 
         private void VnesiKrajButton_Click(object sender, EventArgs e)
@@ -176,7 +189,7 @@ namespace mini_projekt
                 using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
                 {
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM add_lokacija2('" + textBox1.Text + "','" + textBox2.Text + "','"+comboBox1.SelectedItem.ToString()+"')", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM add_lokacija2('" + comboBox1.SelectedItem.ToString() + "','" + textBox1.Text + "','" + textBox2.Text + "')", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
