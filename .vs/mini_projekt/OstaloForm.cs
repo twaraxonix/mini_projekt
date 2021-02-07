@@ -44,7 +44,7 @@ namespace mini_projekt
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    var row = new string[] { Convert.ToString(a), reader.GetString(0), reader.GetString(1),};
+                    var row = new string[] { Convert.ToString(a), reader.GetString(0), reader.GetString(1), };
                     var lvl = new ListViewItem(row);
                     listView1.Items.Add(lvl);
                     a++;
@@ -83,7 +83,7 @@ namespace mini_projekt
                 using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
                 {
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM delete_kraj('"+ listView1.SelectedItems[0].SubItems[1].Text + "','"+ listView1.SelectedItems[0].SubItems[2].Text + "')", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM delete_kraj('" + listView1.SelectedItems[0].SubItems[1].Text + "','" + listView1.SelectedItems[0].SubItems[2].Text + "')", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
@@ -151,8 +151,42 @@ namespace mini_projekt
                 textBox1.Text = listView1.SelectedItems[0].SubItems[1].Text;
                 textBox2.Text = listView1.SelectedItems[0].SubItems[2].Text;
             }
+            else
+            {
+                comboBox1.Visible = true;
+                label4.Text = "Spremeni lokacijo";
+                label1.Text = "Ime lokacije";
+                label2.Text = "Naslov lokacije";
+                label3.Text = "Kraj";
+                button1.Text = "Spremeni lokacijo";
+                comboBox1.Items.Clear();
+                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+                {
+                    con.Open();
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vsi_kraji()", con);
+                    NpgsqlDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        comboBox1.Items.Add(reader.GetString(0));
+                    }
+                    con.Close();
+                }
+                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+                {
+                    con.Open();
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_eno_lokacijo('" + listView1.SelectedItems[0].SubItems[1].Text + "','" + listView1.SelectedItems[0].SubItems[2].Text + "')", con);
+                    NpgsqlDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        textBox1.Text = reader.GetString(0);
+                        textBox2.Text = reader.GetString(1);
+                        comboBox1.Text = reader.GetString(2);
+                    }
+                    con.Close();
+                }
+            }
         }
-
+  
         private void button1_Click(object sender, EventArgs e)
         {
             if(button1.Text == "Vnesi kraj")
@@ -170,18 +204,15 @@ namespace mini_projekt
             }
             else if(button1.Text == "Spremeni kraj")
             {
-                if (button1.Text == "Vnesi kraj")
+                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
                 {
-                    using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-                    {
-                        con.Open();
-                        NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM update_kraj('" + textBox1.Text + "','" + textBox2.Text + "','')", con);
-                        NpgsqlDataReader reader = com.ExecuteReader();
-                        while (reader.Read())
-                        {
-                        }
-                        con.Close();
-                    }
+                     con.Open();
+                     NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM update_kraj('" + textBox1.Text + "','" + textBox2.Text + "','')", con);
+                     NpgsqlDataReader reader = com.ExecuteReader();
+                     while (reader.Read())
+                     {
+                     }
+                     con.Close();
                 }
             }
             else if(button1.Text == "Vnesi lokacijo")
@@ -190,6 +221,19 @@ namespace mini_projekt
                 {
                     con.Open();
                     NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM add_lokacija2('" + comboBox1.SelectedItem.ToString() + "','" + textBox1.Text + "','" + textBox2.Text + "')", con);
+                    NpgsqlDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                    }
+                    con.Close();
+                }
+            }
+            else if(button1.Text == "Spremeni lokacijo")
+            {
+                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+                {
+                    con.Open();
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM update_Lokacijo('" + textBox1.Text + "','" + textBox2.Text + "','" + comboBox1.SelectedItem.ToString() + "')", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
