@@ -13,6 +13,9 @@ namespace mini_projekt
 {
     public partial class OstaloForm : Form
     {
+        string ime;
+        string naslov;
+        string imek;
         bool x = true;
         public OstaloForm()
         {
@@ -150,6 +153,8 @@ namespace mini_projekt
                 button1.Text = "Spremeni kraj";
                 textBox1.Text = listView1.SelectedItems[0].SubItems[1].Text;
                 textBox2.Text = listView1.SelectedItems[0].SubItems[2].Text;
+                ime = textBox1.Text;
+                naslov = textBox2.Text;
             }
             else
             {
@@ -181,6 +186,9 @@ namespace mini_projekt
                         textBox1.Text = reader.GetString(0);
                         textBox2.Text = reader.GetString(1);
                         comboBox1.Text = reader.GetString(2);
+                        ime = textBox1.Text;
+                        naslov = textBox2.Text;
+                        imek = comboBox1.Text;
                     }
                     con.Close();
                 }
@@ -207,7 +215,7 @@ namespace mini_projekt
                 using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
                 {
                      con.Open();
-                     NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM update_kraj('" + textBox1.Text + "','" + textBox2.Text + "','')", con);
+                     NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM update_kraj('" + textBox1.Text + "','" + textBox2.Text + "','"+ime+"','"+naslov+"')", con);
                      NpgsqlDataReader reader = com.ExecuteReader();
                      while (reader.Read())
                      {
@@ -233,7 +241,7 @@ namespace mini_projekt
                 using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
                 {
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM update_Lokacijo('" + textBox1.Text + "','" + textBox2.Text + "','" + comboBox1.SelectedItem.ToString() + "')", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM update_lokacijo('" + textBox1.Text + "','" + textBox2.Text + "','" + comboBox1.SelectedItem.ToString() + "','"+ime+"','"+naslov+"')", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
