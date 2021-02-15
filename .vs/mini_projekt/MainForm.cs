@@ -30,6 +30,7 @@ namespace mini_projekt
 
         private void Porabe_denarja()
         {
+            DateTime x;
             int a = 1;
             DateTime dt = DateTime.Now;
             string datumZ = dt.Year + "-" + dt.Month + "-01";
@@ -43,7 +44,14 @@ namespace mini_projekt
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    DateTime x = reader.GetDateTime(0);
+                    if (!reader.IsDBNull(0))
+                    {
+                       x = Convert.ToDateTime(reader.GetString(0));
+                    }
+                    else
+                    {
+                       x = reader.GetDateTime(0);
+                    }
                     var row = new string[] { Convert.ToString(a), x.ToString("yyyy-MM-dd"), reader.GetString(1), Convert.ToString(reader.GetDouble(2)) };
                     var lvl = new ListViewItem(row);
                     listView1.Items.Add(lvl);
@@ -160,5 +168,6 @@ namespace mini_projekt
             OstaloForm.Closed += (s, args) => this.Close();
             OstaloForm.Show();
         }
+
     }
 }
