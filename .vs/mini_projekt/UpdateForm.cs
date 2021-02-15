@@ -18,7 +18,14 @@ namespace mini_projekt
             InitializeComponent();
             groupBox1.Visible = false;
             Kraji();
-            id();
+            if (Public.lokacija == "NULL")
+            {
+                id2();
+            }
+            else
+            {
+                id();
+            }
             DatumDateTimePicker.Value = Convert.ToDateTime(Public.datum);
             ZnesekTextBox.Text = Convert.ToString(Public.znesek);
             LokacijaComboBox.Text = Public.lokacija;
@@ -55,7 +62,20 @@ namespace mini_projekt
                 con.Close();
             }
         }
-
+        private void id2()
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT return_id_porabe_denarja2(" + Public.id + "," + Public.znesek + ",'" + Public.datum + "')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    Public.idP = reader.GetInt32(0);
+                }
+                con.Close();
+            }
+        }
         private void Lokacije()
         {
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
