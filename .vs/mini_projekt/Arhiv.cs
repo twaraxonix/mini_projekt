@@ -12,6 +12,7 @@ namespace mini_projekt
         public string A;
         public string B;
         public string C;
+        public DateTime D;
 
         public ItemA()
         {
@@ -23,6 +24,14 @@ namespace mini_projekt
             B = b;
             C = c;
         }
+        public ItemA(string a, string b, string c, DateTime d)
+        {
+            A = a;
+            B = b;
+            C = c;
+            D = d;
+        }
+
     }
     public class Arhiv
     {
@@ -69,6 +78,23 @@ namespace mini_projekt
                 con.Close();
             }
             return x;
+        }
+
+        public ItemA Podrobno(string a, string b)
+        {
+            ItemA item = new ItemA();
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_podrobno_arhiv(" + Public.id + ",'" + a + "'," + b + ")", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    item = new ItemA(Convert.ToString(reader.GetDouble(1)), reader.GetString(2), reader.GetString(3), reader.GetDateTime(0));
+                }
+                con.Close();
+            }
+            return item;
         }
     }
 

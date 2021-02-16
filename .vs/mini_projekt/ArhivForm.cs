@@ -83,26 +83,14 @@ namespace mini_projekt
 
         private void PodrobnoButton_Click(object sender, EventArgs e)
         {
-            //ListViewItem item = listView1.SelectedItems[0];
-            //fill the text boxes
-            //textBoxID.Text = item.Text;
             groupBox1.Visible = true;
             string a = listView1.SelectedItems[0].SubItems[1].Text;
             string b = listView1.SelectedItems[0].SubItems[2].Text;
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-            {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_podrobno_arhiv(" + Public.id + ",'" + a + "'," + b + ")", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    DatumDateTimePicker.Value = reader.GetDateTime(0);
-                    ZnesekTextBox.Text = Convert.ToString(reader.GetDouble(1));
-                    LokacijaTextBox.Text = reader.GetString(2);
-                    KrajTextBox.Text = reader.GetString(3);
-                }
-                con.Close();
-            }
+            ItemA item = A.Podrobno(a, b);
+            DatumDateTimePicker.Value = item.D;
+            ZnesekTextBox.Text = item.A;
+            LokacijaTextBox.Text = item.B;
+            KrajTextBox.Text = item.C;
         }
 
         private void SkrijButton_Click(object sender, EventArgs e)
