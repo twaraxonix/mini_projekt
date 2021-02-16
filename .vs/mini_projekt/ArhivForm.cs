@@ -42,7 +42,7 @@ namespace mini_projekt
             DatumDoDateTimePicker.ShowUpDown = true;
             string dtDo = DatumDoDateTimePicker.Value.ToString("yyyy-MM-dd");
 
-            List<ItemA> list = new List<ItemA>(A.IzpisArhiva(dtOd, dtDo));
+            List<ItemA> list = new List<ItemA>(A.IzpisArhivaDatum(dtOd, dtDo));
             foreach (ItemA item in list)
             {
                 var row = new string[] { item.A, item.B, item.C };
@@ -56,23 +56,14 @@ namespace mini_projekt
         {
             groupBox1.Visible = true;
             listView1.Items.Clear();
-            int a = 1;
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            List<ItemA> list = new List<ItemA>(A.IzpisArhiva());
+            foreach (ItemA item in list)
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_arhiv(" + Public.id + ")", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    DateTime x = reader.GetDateTime(0);
-                    
-                    var row = new string[] {Convert.ToString(a), x.ToString("yyyy-MM-dd"), Convert.ToString(reader.GetDouble(1)) };
-                    var lvl = new ListViewItem(row);
-                    listView1.Items.Add(lvl);
-                    a++;
-                }
-                con.Close();
+                var row = new string[] { item.A, item.B, item.C };
+                var lvl = new ListViewItem(row);
+                listView1.Items.Add(lvl);
             }
+
         }
 
         private void SpremeniDatumButton_Click(object sender, EventArgs e)
