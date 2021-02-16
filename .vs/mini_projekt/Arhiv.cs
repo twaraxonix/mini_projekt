@@ -7,10 +7,33 @@ using Npgsql;
 
 namespace mini_projekt
 {
-    public static class Arhiv
+    public class ItemA
     {
-        public static string [] IzpisArhiva(string dtOd, string dtDo){
-            string[] row = new string[] { };
+        public string A;
+        public string B;
+        public string C;
+
+        public ItemA()
+        {
+             
+        }
+        public ItemA(string a, string b, string c)
+        {
+            A = a;
+            B = b;
+            C = c;
+        }
+    }
+    public class Arhiv
+    {
+        public Arhiv()
+        {
+                
+        }
+        public ItemA A = new ItemA();
+        public List<ItemA> IzpisArhiva(string dtOd, string dtDo){
+            //string[] row = new string[] { };
+            List<ItemA> x = new List<ItemA>();
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 int a = 1;
@@ -20,12 +43,15 @@ namespace mini_projekt
                 while (reader.Read())
                 {
                     DateTime x1 = reader.GetDateTime(0);
-                    row = new string[] { Convert.ToString(a), x1.ToString("dd-MM-yyyy"), Convert.ToString(reader.GetDouble(1)) };
+                    x.Add(new ItemA (Convert.ToString(a), x1.ToString("dd-MM-yyyy"), Convert.ToString(reader.GetDouble(1))));
                     a++;
                 }
                 con.Close();
             }
-            return row;
+            return x;
         }
     }
+
+
+
 }

@@ -13,6 +13,7 @@ namespace mini_projekt
 {
     public partial class ArhivForm : Form
     {
+        Arhiv A = new Arhiv();
         public ArhivForm()
         {
             InitializeComponent();
@@ -41,9 +42,14 @@ namespace mini_projekt
             DatumDoDateTimePicker.ShowUpDown = true;
             string dtDo = DatumDoDateTimePicker.Value.ToString("yyyy-MM-dd");
 
-            var row = Arhiv.IzpisArhiva(dtOd, dtDo);
-            var lvl = new ListViewItem(row);
-            listView1.Items.Add(lvl);
+            List<ItemA> list = new List<ItemA>(A.IzpisArhiva(dtOd, dtDo));
+            foreach (ItemA item in list)
+            {
+                var row = new string[] { item.A, item.B, item.C };
+                var lvl = new ListViewItem(row);
+                listView1.Items.Add(lvl);
+            }
+            
         }
 
         private void PrikazCelotnegaArhiva()
