@@ -94,6 +94,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arhiv.cs" />
     <Compile Include="ArhivForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -30,6 +30,7 @@ namespace mini_projekt
 
         private void Porabe_denarja()
         {
+            string b;
             DateTime x;
             int a = 1;
             DateTime dt = DateTime.Now;
@@ -44,15 +45,16 @@ namespace mini_projekt
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    if (!reader.IsDBNull(0))
+                    if (reader.IsDBNull(1))
                     {
-                       x = Convert.ToDateTime(reader.GetString(0));
+                       b = "NULL";
                     }
                     else
                     {
-                       x = reader.GetDateTime(0);
+                        b = reader.GetString(1);
                     }
-                    var row = new string[] { Convert.ToString(a), x.ToString("yyyy-MM-dd"), reader.GetString(1), Convert.ToString(reader.GetDouble(2)) };
+                    x = reader.GetDateTime(0);
+                    var row = new string[] { Convert.ToString(a), x.ToString("yyyy-MM-dd"),b, Convert.ToString(reader.GetDouble(2)) };
                     var lvl = new ListViewItem(row);
                     listView1.Items.Add(lvl);
                     a++;
