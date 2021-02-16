@@ -84,11 +84,13 @@ namespace mini_projekt
         private void PodrobnoButton_Click(object sender, EventArgs e)
         {
             groupBox1.Visible = true;
-            string a = listView1.SelectedItems[0].SubItems[1].Text;
+            DatumDateTimePicker.Value = Convert.ToDateTime(listView1.SelectedItems[0].SubItems[1].Text);
+            
             string b = listView1.SelectedItems[0].SubItems[2].Text;
+            string a = DatumDateTimePicker.Value.ToString("yyyy-MM-dd");
             ItemA item = A.Podrobno(a, b);
             DatumDateTimePicker.Value = item.D;
-            ZnesekTextBox.Text = item.A;
+            ZnesekTextBox.Text = item.A; 
             LokacijaTextBox.Text = item.B;
             KrajTextBox.Text = item.C;
         }
