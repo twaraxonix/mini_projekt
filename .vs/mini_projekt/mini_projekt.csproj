@@ -109,6 +109,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="1.cs" />
+    <Compile Include="Insert.cs" />
     <Compile Include="InsertForm.cs">
       <SubType>Form</SubType>
     </Compile>

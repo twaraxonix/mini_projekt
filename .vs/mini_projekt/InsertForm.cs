@@ -14,6 +14,7 @@ namespace mini_projekt
 {
     public partial class InsertForm : Form
     {
+        Insert I = new Insert();
         public InsertForm()
         {
             InitializeComponent();
@@ -33,34 +34,19 @@ namespace mini_projekt
             DatumDateTimePicker.CustomFormat = "yyyy-MM-dd";
             DatumDateTimePicker.ShowUpDown = true;
             string dt = DatumDateTimePicker.Value.ToString("yyyy-MM-dd");
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-            {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT FROM add_poraba_denarja("+Public.id+",'" + LokacijaComboBox.Text + "','" + Convert.ToDouble(ZnesekTextBox.Text) + "','" + dt + "')", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                }
-                con.Close();
-            }
+            I.Dodaj(LokacijaComboBox.Text, Convert.ToDouble(ZnesekTextBox.Text), dt);
+            
         }
 
         private void Lokacije()
         {
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            I.lokacije(comboBox1.Text);
+            List<string> list = new List<string>(I.lokacije(comboBox1.Text));
+            foreach (string item in list)
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vse_lokacije('"+comboBox1.Text+"')", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    string ime = reader.GetString(0);
-                    //string ime_l = reader.GetString(1);
-                    //string skupaj = ime +", "+ ime_l;
-                    LokacijaComboBox.Items.Add(ime);
-                }
-                con.Close();
+                LokacijaComboBox.Items.Add(item);
             }
+               
         }
 
         private void Kraji()
