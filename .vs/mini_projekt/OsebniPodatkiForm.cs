@@ -75,7 +75,7 @@ namespace mini_projekt
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT FROM update_podatke_uporabnika(" + Public.id + ",'" + ImeTextBox.Text + "','" + PriimekTextBox.Text + "','" + dt + "','"+ NaslovTextBox.Text +"')", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT FROM update_podatke_uporabnika(" + Public.id + ",'" + ImeTextBox.Text + "','" + PriimekTextBox.Text + "','" + dt + "','" + NaslovTextBox.Text + "')", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {

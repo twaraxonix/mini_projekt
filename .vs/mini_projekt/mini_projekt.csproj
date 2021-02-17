@@ -116,6 +116,7 @@
     <Compile Include="InsertForm.Designer.cs">
       <DependentUpon>InsertForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

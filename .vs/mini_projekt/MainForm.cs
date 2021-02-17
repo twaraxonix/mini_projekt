@@ -14,6 +14,7 @@ namespace mini_projekt
 {
     public partial class MainForm : Form
     {
+        Main M = new Main();
         public MainForm()
         {
             InitializeComponent();
@@ -30,49 +31,22 @@ namespace mini_projekt
 
         private void Porabe_denarja()
         {
-            string b;
-            DateTime x;
-            int a = 1;
+            
             DateTime dt = DateTime.Now;
             string datumZ = dt.Year + "-" + dt.Month + "-01";
             int days = DateTime.DaysInMonth(dt.Year, dt.Month);
             string datumK = dt.Year + "-" + dt.Month + "-" + days;
             listView1.Items.Clear();
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            List<denar> list = new List<denar>(M.update(datumZ, datumK));
+            foreach (denar item in list)
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vse_porabe_denarja(" + Public.id + ",'" + datumZ + "','" + datumK + "')", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    if (reader.IsDBNull(1))
-                    {
-                       b = "NULL";
-                    }
-                    else
-                    {
-                        b = reader.GetString(1);
-                    }
-                    x = reader.GetDateTime(0);
-                    var row = new string[] { Convert.ToString(a), x.ToString("yyyy-MM-dd"),b, Convert.ToString(reader.GetDouble(2)) };
-                    var lvl = new ListViewItem(row);
-                    listView1.Items.Add(lvl);
-                    a++;
-                }
-                con.Close();
+                var row = new string[] { item.a, item.b, item.c, item.d };
+                var lvl = new ListViewItem(row);
+                listView1.Items.Add(lvl);
             }
             try
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-                {
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_sum(" + Public.id + ",'" + datumZ + "','" + datumK + "')", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        SkupajTextBox.Text = Convert.ToString(reader.GetDouble(0));
-                    }
-                }
+                SkupajTextBox.Text = M.sum(datumZ, datumK);
             }
             catch (Exception)
             {
@@ -103,28 +77,8 @@ namespace mini_projekt
         {
             Public.Change2(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text,
             Convert.ToDouble(listView1.SelectedItems[0].SubItems[3].Text));
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-            {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT return_id_porabe_denarja(" + Public.id + "," + Public.znesek + ",'" + Public.datum + "','" + Public.lokacija + "')", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    Public.idP = reader.GetInt32(0);
-                }
-                con.Close();
-            }
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-            {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT delete_poraba_denarja(" + Public.idP + ")", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                }
-                con.Close();
-            }
-            Public.Change2("","",0);
+            M.ID();
+            M.deleteDenar();
         }
 
         private void IzvoziButton_Click(object sender, EventArgs e)
