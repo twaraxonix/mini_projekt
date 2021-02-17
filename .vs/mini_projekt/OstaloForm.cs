@@ -17,6 +17,7 @@ namespace mini_projekt
         string naslov;
         string imek;
         bool x = true;
+        Ostalo O = new Ostalo();
         public OstaloForm()
         {
             InitializeComponent();
@@ -35,77 +36,52 @@ namespace mini_projekt
         private void KrajiButton_Click(object sender, EventArgs e)
         {
             x = true;
-            int a = 1;
+            
             listView1.Items.Clear();
             var title = new string[] { "Številka", "Ime", "Poštna številka", "" };
             var Title = new ListViewItem(title);
             listView1.Items.Add(Title);
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            List<kraj> list = new List<kraj>(O.Kraji());
+            foreach (kraj item in list)
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vsi_kraji()", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    var row = new string[] { Convert.ToString(a), reader.GetString(0), reader.GetString(1), };
-                    var lvl = new ListViewItem(row);
-                    listView1.Items.Add(lvl);
-                    a++;
-                }
-                con.Close();
+                var row = new string[] {item.st, item.ime, item.posta };
+                var lvl = new ListViewItem(row);
+                listView1.Items.Add(lvl);
             }
+
+
         }
 
         private void LokacijeButton_Click(object sender, EventArgs e)
         {
             x = false;
-            int a = 1;
+            
             listView1.Items.Clear();
             var title = new string[] { "Številka", "Ime", "Naslov", "Kraj" };
             var Title = new ListViewItem(title);
             listView1.Items.Add(Title);
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            List<lokacija> list = new List<lokacija>(O.Lokacije());
+            foreach (lokacija item in list)
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vse_lokacije()", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    var row = new string[] { Convert.ToString(a), reader.GetString(0), reader.GetString(1), reader.GetString(2) };
-                    var lvl = new ListViewItem(row);
-                    listView1.Items.Add(lvl);
-                    a++;
-                }
-                con.Close();
+                var row = new string[] { item.st, item.ime, item.naslov, item.kraj};
+                var lvl = new ListViewItem(row);
+                listView1.Items.Add(lvl);
             }
+
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             if (x) {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-                {
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM delete_kraj('" + listView1.SelectedItems[0].SubItems[1].Text + "','" + listView1.SelectedItems[0].SubItems[2].Text + "')", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
-                    {
-                    }
-                    con.Close();
-                }
+                string a = listView1.SelectedItems[0].SubItems[1].Text;
+                string b = listView1.SelectedItems[0].SubItems[2].Text;
+                O.deleteKraj(a, b);
             }
             else
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-                {
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM delete_lokacija('" + listView1.SelectedItems[0].SubItems[1].Text + "','" + listView1.SelectedItems[0].SubItems[2].Text + "')", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
-                    {
-                    }
-                    con.Close();
-                }
+                string a = listView1.SelectedItems[0].SubItems[1].Text;
+                string b = listView1.SelectedItems[0].SubItems[2].Text;
+                O.deleteLokacija(a, b);
             }
         }
 
@@ -122,16 +98,10 @@ namespace mini_projekt
         private void VnesiLokacijoButton_Click(object sender, EventArgs e)
         {
             comboBox1.Items.Clear();
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            List<string> list = new List<string>(O.VsiKraji());
+            foreach (string item in list)
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vsi_kraji()", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    comboBox1.Items.Add(reader.GetString(0));
-                }
-                con.Close();
+                comboBox1.Items.Add(item);
             }
             comboBox1.Visible = true;
             label4.Text = "Vnesi lokacijo";
@@ -165,32 +135,23 @@ namespace mini_projekt
                 label3.Text = "Kraj";
                 button1.Text = "Spremeni lokacijo";
                 comboBox1.Items.Clear();
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+
+                List<string> list = new List<string>(O.VsiKraji());
+                foreach (string item in list)
                 {
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vsi_kraji()", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        comboBox1.Items.Add(reader.GetString(0));
-                    }
-                    con.Close();
+                    comboBox1.Items.Add(item);
                 }
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+                comboBox1.Visible = true;
+
+                List<kraj> list2 = new List<kraj>(O.en_Kraj(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text));
+                foreach (kraj item in list2)
                 {
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_eno_lokacijo('" + listView1.SelectedItems[0].SubItems[1].Text + "','" + listView1.SelectedItems[0].SubItems[2].Text + "')", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        textBox1.Text = reader.GetString(0);
-                        textBox2.Text = reader.GetString(1);
-                        comboBox1.Text = reader.GetString(2);
-                        ime = textBox1.Text;
-                        naslov = textBox2.Text;
-                        imek = comboBox1.Text;
-                    }
-                    con.Close();
+                    textBox1.Text = item.st;
+                    textBox2.Text = item.ime;
+                    comboBox1.Text = item.posta;
+                    ime = textBox1.Text;
+                    naslov = textBox2.Text;
+                    imek = comboBox1.Text;
                 }
             }
         }
@@ -199,55 +160,19 @@ namespace mini_projekt
         {
             if(button1.Text == "Vnesi kraj")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-                {
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM add_kraj('" + textBox1.Text + "','" + textBox2.Text + "','')", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
-                    {
-                    }
-                    con.Close();
-                }
+                O.vnesi_Kraj(textBox1.Text, textBox2.Text);
             }
             else if(button1.Text == "Spremeni kraj")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-                {
-                     con.Open();
-                     NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM update_kraj('" + textBox1.Text + "','" + textBox2.Text + "','"+ime+"','"+naslov+"')", con);
-                     NpgsqlDataReader reader = com.ExecuteReader();
-                     while (reader.Read())
-                     {
-                     }
-                     con.Close();
-                }
+                O.spremeni_Kraj(textBox1.Text, textBox2.Text, ime, naslov);
             }
             else if(button1.Text == "Vnesi lokacijo")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-                {
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM add_lokacija2('" + comboBox1.SelectedItem.ToString() + "','" + textBox1.Text + "','" + textBox2.Text + "')", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
-                    {
-                    }
-                    con.Close();
-                }
+                O.vnesi_lokacijo(comboBox1.SelectedItem.ToString(), textBox1.Text, textBox2.Text);
             }
             else if(button1.Text == "Spremeni lokacijo")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-                {
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM update_lokacijo('" + textBox1.Text + "','" + textBox2.Text + "','" + comboBox1.SelectedItem.ToString() + "','"+ime+"','"+naslov+"')", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
-                    {
-                    }
-                    con.Close();
-                }
+                O.spremeni_Lokacijo(textBox1.Text, textBox2.Text, comboBox1.SelectedItem.ToString(), ime, naslov);
             }
         }
     }
