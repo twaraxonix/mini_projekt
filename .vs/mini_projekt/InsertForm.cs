@@ -51,32 +51,20 @@ namespace mini_projekt
 
         private void Kraji()
         {
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            List<string> list = new List<string>(I.kraji());
+            foreach (string item in list)
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vsi_kraji()", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    ImeKrajaConboBox.Items.Add(reader.GetString(0));
-                    comboBox1.Items.Add(reader.GetString(0));
-                }
-                con.Close();
+                ImeKrajaConboBox.Items.Add(item);
+                comboBox1.Items.Add(item);
             }
         }
 
        private void Posta()
         {
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            List<string> list = new List<string>(I.posta(ImeKrajaConboBox.Text));
+            foreach (string item in list)
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_posto_krajev('"+ ImeKrajaConboBox.Text +"')", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    PostnaStevilkaGroupBox.Items.Add(reader.GetString(0));
-                }
-                con.Close();
+                PostnaStevilkaGroupBox.Items.Add(item);
             }
         }
         
@@ -103,16 +91,7 @@ namespace mini_projekt
 
         private void DodajLokacijo2_Click(object sender, EventArgs e)
         {
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
-            {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT add_lokacija('" + ImeKrajaConboBox.Text + "','"+ PostnaStevilkaGroupBox.Text+"','"+ImeLokacijeTextBox.Text+"','"+NaslovLokacijeTextBox.Text+"')", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                }
-                con.Close();
-            }
+            I.vnesi_lokacijo(ImeKrajaConboBox.Text, PostnaStevilkaGroupBox.Text, ImeLokacijeTextBox.Text, NaslovLokacijeTextBox.Text);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

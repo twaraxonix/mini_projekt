@@ -38,14 +38,59 @@ namespace mini_projekt
                 while (reader.Read())
                 {
                     string ime = reader.GetString(0);
-                    list.Add(ime);
-                    //string ime_l = reader.GetString(1);
-                    //string skupaj = ime +", "+ ime_l;
-                    
+                    list.Add(ime);       
                 }
                 con.Close();
             }
             return list;
+        }
+
+        public List<string> kraji()
+        {
+            List<string> list = new List<string>();
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_vsi_kraji()", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(reader.GetString(0));
+                }
+                con.Close();
+            }
+            return list;
+        }
+
+        public List<string> posta(string a)
+        {
+            List<string> list = new List<string>();
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_posto_krajev('" + a + "')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(reader.GetString(0));
+                }
+                con.Close();
+            }
+            return list;
+        }
+
+        public void vnesi_lokacijo(string a, string b, string c, string d)
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT add_lokacija('" + a + "','" + b + "','" + c + "','" + d + "')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                }
+                con.Close();
+            }
         }
     }
 }
