@@ -75,12 +75,13 @@ namespace mini_projekt
         {
             try
             {
+                DatumRojstvaDateTimePicker.Format = DateTimePickerFormat.Custom;
+                DatumRojstvaDateTimePicker.CustomFormat = "yyyy-MM-dd";
+                DatumRojstvaDateTimePicker.ShowUpDown = true;
+                string dt = DatumRojstvaDateTimePicker.Value.ToString("yyyy-MM-dd");
                 if ((DatumRojstvaDateTimePicker.Value != null)&&(ImeTextBox.Text != "")&&(PriimekTextBox.Text != ""))//+naslov
                 {
-                    DatumRojstvaDateTimePicker.Format = DateTimePickerFormat.Custom;
-                    DatumRojstvaDateTimePicker.CustomFormat = "yyyy-MM-dd";
-                    DatumRojstvaDateTimePicker.ShowUpDown = true;
-                    string dt = DatumRojstvaDateTimePicker.Value.ToString("yyyy-MM-dd");
+                    
                     U.spremeni_Podatke_Uporabnika(ImeTextBox.Text, PriimekTextBox.Text, dt, NaslovTextBox.Text);
                 }
                 else
