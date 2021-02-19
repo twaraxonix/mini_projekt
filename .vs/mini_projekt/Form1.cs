@@ -41,36 +41,68 @@ namespace mini_projekt
 
         private void RegistracijaButton_Click(object sender, EventArgs e)
         {
-            Ena.Registracija(ImeTextBox.Text, PriimekTextBox.Text, Email2TextBox.Text, Geslo2textBox.Text);
+            try
+            {
+                if ((ImeTextBox.Text != "") && (PriimekTextBox.Text != "") && (Email2TextBox.Text != "") && (Geslo2textBox.Text != ""))
+                {
+                    Ena.Registracija(ImeTextBox.Text, PriimekTextBox.Text, Email2TextBox.Text, Geslo2textBox.Text);
+                }
+                else
+                    MessageBox.Show("Vsi podatki morajo biti izpolnjeni");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
         
 
         private void PrijavaButton_Click(object sender, EventArgs e)
         {
-            bool x = Ena.Prijava(EmailTextBox.Text, GesloTextBox.Text);
-            if (x == true) 
+            try
             {
-                this.Hide();
-                var MainForm = new MainForm();
-                MainForm.Closed += (s, args) => this.Close();
-                MainForm.Show();
+                if ((EmailTextBox.Text != "") && (GesloTextBox.Text != ""))
+                {
+                    bool x = Ena.Prijava(EmailTextBox.Text, GesloTextBox.Text);
+                    if (x == true)
+                    {
+                        this.Hide();
+                        var MainForm = new MainForm();
+                        MainForm.Closed += (s, args) => this.Close();
+                        MainForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Email ali geslo ni pravilno");
+                    }
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Email ali geslo ni pravilno");
+                MessageBox.Show("Napaka, poskusite ponovno");
             }
+            
         }
 
         private void SpremenitevGeslaButton_Click(object sender, EventArgs e)
         {
-            if ((Geslo3TextBox.Text == Geslo4TextBox.Text) && (Geslo3TextBox.Text != ""))
+            try
             {
-                Ena.PozabljenoGeslo(Email3TextBox.Text, Geslo3TextBox.Text);
+                if ((Geslo3TextBox.Text == Geslo4TextBox.Text) && (Geslo3TextBox.Text != ""))
+                {
+                    Ena.PozabljenoGeslo(Email3TextBox.Text, Geslo3TextBox.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Gesli se ne ujemata");
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Gesli se ne ujemata");
+                MessageBox.Show("Napaka, poskusite ponovno");
             }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
