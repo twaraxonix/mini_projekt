@@ -35,38 +35,54 @@ namespace mini_projekt
 
         private void KrajiButton_Click(object sender, EventArgs e)
         {
-            x = true;
-            
-            listView1.Items.Clear();
-            var title = new string[] { "Številka", "Ime", "Poštna številka", "" };
-            var Title = new ListViewItem(title);
-            listView1.Items.Add(Title);
-            List<kraj> list = new List<kraj>(O.Kraji());
-            foreach (kraj item in list)
+            try
             {
-                var row = new string[] {item.st, item.ime, item.posta };
-                var lvl = new ListViewItem(row);
-                listView1.Items.Add(lvl);
+                x = true;
+
+                listView1.Items.Clear();
+                var title = new string[] { "Številka", "Ime", "Poštna številka", "" };
+                var Title = new ListViewItem(title);
+                listView1.Items.Add(Title);
+                List<kraj> list = new List<kraj>(O.Kraji());
+                foreach (kraj item in list)
+                {
+                    var row = new string[] { item.st, item.ime, item.posta };
+                    var lvl = new ListViewItem(row);
+                    listView1.Items.Add(lvl);
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
 
 
         }
 
         private void LokacijeButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                listView1.Items.Clear();
+                var title = new string[] { "Številka", "Ime", "Naslov", "Kraj" };
+                var Title = new ListViewItem(title);
+                listView1.Items.Add(Title);
+                List<lokacija> list = new List<lokacija>(O.Lokacije());
+                foreach (lokacija item in list)
+                {
+                    var row = new string[] { item.st, item.ime, item.naslov, item.kraj };
+                    var lvl = new ListViewItem(row);
+                    listView1.Items.Add(lvl);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
             x = false;
             
-            listView1.Items.Clear();
-            var title = new string[] { "Številka", "Ime", "Naslov", "Kraj" };
-            var Title = new ListViewItem(title);
-            listView1.Items.Add(Title);
-            List<lokacija> list = new List<lokacija>(O.Lokacije());
-            foreach (lokacija item in list)
-            {
-                var row = new string[] { item.st, item.ime, item.naslov, item.kraj};
-                var lvl = new ListViewItem(row);
-                listView1.Items.Add(lvl);
-            }
+            
 
         }
 
@@ -75,13 +91,23 @@ namespace mini_projekt
             if (x) {
                 string a = listView1.SelectedItems[0].SubItems[1].Text;
                 string b = listView1.SelectedItems[0].SubItems[2].Text;
-                O.deleteKraj(a, b);
+                if ((a != null) && (b != null))
+                {
+                    O.deleteKraj(a, b);
+                }
+                else
+                    MessageBox.Show("Prosim, izberite podatke");
             }
             else
             {
                 string a = listView1.SelectedItems[0].SubItems[1].Text;
                 string b = listView1.SelectedItems[0].SubItems[2].Text;
-                O.deleteLokacija(a, b);
+                if ((a != null) && (b != null))
+                {
+                    O.deleteLokacija(a, b);
+                }
+                else
+                    MessageBox.Show("Prosim, izberite podatke");
             }
         }
 
@@ -97,83 +123,132 @@ namespace mini_projekt
 
         private void VnesiLokacijoButton_Click(object sender, EventArgs e)
         {
-            comboBox1.Items.Clear();
-            List<string> list = new List<string>(O.VsiKraji());
-            foreach (string item in list)
+            try
             {
-                comboBox1.Items.Add(item);
-            }
-            comboBox1.Visible = true;
-            label4.Text = "Vnesi lokacijo";
-            label1.Text = "Vnesi ime";
-            label2.Text = "Vnesi naslov";
-            label3.Text = "Izberi kraj";
-            button1.Text = "Vnesi lokacijo";
-        }
-
-        private void UpdateButton_Click(object sender, EventArgs e)
-        {
-            if (x)
-            {
-                comboBox1.Visible = true;
-                label4.Text = "Spremeni kraj";
-                label1.Text = "Ime kraja";
-                label2.Text = "Poštna številka kraja";
-                label3.Text = "";
-                button1.Text = "Spremeni kraj";
-                textBox1.Text = listView1.SelectedItems[0].SubItems[1].Text;
-                textBox2.Text = listView1.SelectedItems[0].SubItems[2].Text;
-                ime = textBox1.Text;
-                naslov = textBox2.Text;
-            }
-            else
-            {
-                comboBox1.Visible = true;
-                label4.Text = "Spremeni lokacijo";
-                label1.Text = "Ime lokacije";
-                label2.Text = "Naslov lokacije";
-                label3.Text = "Kraj";
-                button1.Text = "Spremeni lokacijo";
                 comboBox1.Items.Clear();
-
                 List<string> list = new List<string>(O.VsiKraji());
                 foreach (string item in list)
                 {
                     comboBox1.Items.Add(item);
                 }
                 comboBox1.Visible = true;
+                label4.Text = "Vnesi lokacijo";
+                label1.Text = "Vnesi ime";
+                label2.Text = "Vnesi naslov";
+                label3.Text = "Izberi kraj";
+                button1.Text = "Vnesi lokacijo";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("napaka, poskusite ponovno");
+            }
+            
+        }
 
-                List<kraj> list2 = new List<kraj>(O.en_Kraj(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text));
-                foreach (kraj item in list2)
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (x)
                 {
-                    textBox1.Text = item.st;
-                    textBox2.Text = item.ime;
-                    comboBox1.Text = item.posta;
+                    comboBox1.Visible = true;
+                    label4.Text = "Spremeni kraj";
+                    label1.Text = "Ime kraja";
+                    label2.Text = "Poštna številka kraja";
+                    label3.Text = "";
+                    button1.Text = "Spremeni kraj";
+                    textBox1.Text = listView1.SelectedItems[0].SubItems[1].Text;
+                    textBox2.Text = listView1.SelectedItems[0].SubItems[2].Text;
                     ime = textBox1.Text;
                     naslov = textBox2.Text;
-                    imek = comboBox1.Text;
+                }
+                else
+                {
+                    comboBox1.Visible = true;
+                    label4.Text = "Spremeni lokacijo";
+                    label1.Text = "Ime lokacije";
+                    label2.Text = "Naslov lokacije";
+                    label3.Text = "Kraj";
+                    button1.Text = "Spremeni lokacijo";
+                    comboBox1.Items.Clear();
+
+                    List<string> list = new List<string>(O.VsiKraji());
+                    foreach (string item in list)
+                    {
+                        comboBox1.Items.Add(item);
+                    }
+                    comboBox1.Visible = true;
+
+                    if ((listView1.SelectedItems[0].SubItems[1].Text != null) && (listView1.SelectedItems[0].SubItems[2].Text != null))
+                    {
+                        List<kraj> list2 = new List<kraj>(O.en_Kraj(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text));
+                        foreach (kraj item in list2)
+                        {
+                            textBox1.Text = item.st;
+                            textBox2.Text = item.ime;
+                            comboBox1.Text = item.posta;
+                            ime = textBox1.Text;
+                            naslov = textBox2.Text;
+                            imek = comboBox1.Text;
+                        }
+                    }
+                    else
+                        MessageBox.Show("Vnešena polja ne semjo biti prazna");
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
   
         private void button1_Click(object sender, EventArgs e)
         {
-            if(button1.Text == "Vnesi kraj")
+            try
             {
-                O.vnesi_Kraj(textBox1.Text, textBox2.Text);
+                if (button1.Text == "Vnesi kraj")
+                {
+                    if ((textBox1.Text != null) && (textBox2.Text != null))
+                    {
+                        O.vnesi_Kraj(textBox1.Text, textBox2.Text);
+                    }
+                    else
+                        MessageBox.Show("Vnešena polja ne smejo biti prazna");
+                }
+                else if (button1.Text == "Spremeni kraj")
+                {
+                    if ((textBox1.Text != null) && (textBox2.Text != null) && (ime != null) && (naslov != null))
+                    {
+                        O.spremeni_Kraj(textBox1.Text, textBox2.Text, ime, naslov);
+                    }
+                    else
+                        MessageBox.Show("Vnešena polja ne smejo biti prazna");
+                }
+                else if (button1.Text == "Vnesi lokacijo")
+                {
+                    if ((textBox1.Text != null) && (textBox2.Text != null) && (comboBox1.SelectedItem != null))
+                    {
+                        O.vnesi_lokacijo(comboBox1.SelectedItem.ToString(), textBox1.Text, textBox2.Text);
+                    }
+                    else
+                        MessageBox.Show("Vnešena polja ne smejo biti prazna");
+                }
+                else if (button1.Text == "Spremeni lokacijo")
+                {
+                    if ((textBox1.Text != null) && (textBox2.Text != null) && (comboBox1.SelectedItem != null) && (ime != null) && (naslov != null))
+                    {
+                        O.spremeni_Lokacijo(textBox1.Text, textBox2.Text, comboBox1.SelectedItem.ToString(), ime, naslov);
+                    }
+                    else
+                        MessageBox.Show("Vnešena polja ne smejo biti prazna");
+                }
             }
-            else if(button1.Text == "Spremeni kraj")
+            catch (Exception)
             {
-                O.spremeni_Kraj(textBox1.Text, textBox2.Text, ime, naslov);
+                MessageBox.Show("Napaka, poskusite ponovno");
             }
-            else if(button1.Text == "Vnesi lokacijo")
-            {
-                O.vnesi_lokacijo(comboBox1.SelectedItem.ToString(), textBox1.Text, textBox2.Text);
-            }
-            else if(button1.Text == "Spremeni lokacijo")
-            {
-                O.spremeni_Lokacijo(textBox1.Text, textBox2.Text, comboBox1.SelectedItem.ToString(), ime, naslov);
-            }
+            
         }
     }
 }
