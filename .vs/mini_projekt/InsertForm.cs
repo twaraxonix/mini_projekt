@@ -30,42 +30,89 @@ namespace mini_projekt
 
         private void Dodaj()
         {
-            DatumDateTimePicker.Format = DateTimePickerFormat.Custom;
-            DatumDateTimePicker.CustomFormat = "yyyy-MM-dd";
-            DatumDateTimePicker.ShowUpDown = true;
-            string dt = DatumDateTimePicker.Value.ToString("yyyy-MM-dd");
-            I.Dodaj(LokacijaComboBox.Text, Convert.ToDouble(ZnesekTextBox.Text), dt);
+            try
+            {
+                DatumDateTimePicker.Format = DateTimePickerFormat.Custom;
+                DatumDateTimePicker.CustomFormat = "yyyy-MM-dd";
+                DatumDateTimePicker.ShowUpDown = true;
+                string dt = DatumDateTimePicker.Value.ToString("yyyy-MM-dd");
+                if ((LokacijaComboBox.Text != "") && (ZnesekTextBox.Text != "") && (dt != null))
+                {
+                    I.Dodaj(LokacijaComboBox.Text, Convert.ToDouble(ZnesekTextBox.Text), dt);
+                }
+                else
+                    MessageBox.Show("Vnešeni podatki ne smejo biti prazni");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
             
         }
 
         private void Lokacije()
         {
-            I.lokacije(comboBox1.Text);
-            List<string> list = new List<string>(I.lokacije(comboBox1.Text));
-            foreach (string item in list)
+            try
             {
-                LokacijaComboBox.Items.Add(item);
+                if (comboBox1.Text != "")
+                {
+                    I.lokacije(comboBox1.Text);
+                    List<string> list = new List<string>(I.lokacije(comboBox1.Text));
+                    foreach (string item in list)
+                    {
+                        LokacijaComboBox.Items.Add(item);
+                    }
+                }
+                else
+                    MessageBox.Show("Prosim izberite kraj");
+
             }
-               
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
 
         private void Kraji()
         {
-            List<string> list = new List<string>(I.kraji());
-            foreach (string item in list)
+            try
             {
-                ImeKrajaConboBox.Items.Add(item);
-                comboBox1.Items.Add(item);
+                List<string> list = new List<string>(I.kraji());
+                foreach (string item in list)
+                {
+                    ImeKrajaConboBox.Items.Add(item);
+                    comboBox1.Items.Add(item);
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
 
        private void Posta()
         {
-            List<string> list = new List<string>(I.posta(ImeKrajaConboBox.Text));
-            foreach (string item in list)
+            try
             {
-                PostnaStevilkaGroupBox.Items.Add(item);
+                if (ImeKrajaConboBox.Text != null)
+                {
+                    List<string> list = new List<string>(I.posta(ImeKrajaConboBox.Text));
+                    foreach (string item in list)
+                    {
+                        PostnaStevilkaGroupBox.Items.Add(item);
+                    }
+                }
+                else
+                    MessageBox.Show("Prosim izberite Kraj");
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, pokusite ponovno");
+            }
+            
         }
         
 
@@ -91,7 +138,20 @@ namespace mini_projekt
 
         private void DodajLokacijo2_Click(object sender, EventArgs e)
         {
-            I.vnesi_lokacijo(ImeKrajaConboBox.Text, PostnaStevilkaGroupBox.Text, ImeLokacijeTextBox.Text, NaslovLokacijeTextBox.Text);
+            try
+            {
+                if ((ImeKrajaConboBox.Text != "") && (PostnaStevilkaGroupBox.Text != null) && (ImeLokacijeTextBox.Text != "") && (NaslovLokacijeTextBox.Text != null))
+                {
+                    I.vnesi_lokacijo(ImeKrajaConboBox.Text, PostnaStevilkaGroupBox.Text, ImeLokacijeTextBox.Text, NaslovLokacijeTextBox.Text);
+                }
+                else
+                    MessageBox.Show("Prosim, izpolnite vse podatke");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
