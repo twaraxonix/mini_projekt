@@ -13,6 +13,7 @@ namespace mini_projekt
 {
     public partial class OsebniPodatkiForm : Form
     {
+        Uporabnik U = new Uporabnik();
         public OsebniPodatkiForm()
         {
             InitializeComponent();
@@ -46,42 +47,53 @@ namespace mini_projekt
         
         private void IzpisiPodatke()
         {
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            try
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_podatke_uporabnika(" + Public.id + ")", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
+                List<Podatki> list = new List<Podatki>(U.podatki_Uporabnika());
+                foreach (Podatki item in list)
                 {
-                    ImeTextBox.Text = reader.GetString(0);
-                    PriimekTextBox.Text = reader.GetString(1);
-                    NaslovTextBox.Text = reader.GetString(2);
-                    EmailTextBox.Text = reader.GetString(4);
-                    DatumRojstvaDateTimePicker.Value = reader.GetDateTime(3);
+                    ImeTextBox.Text = item.A;
+                    PriimekTextBox.Text = item.B;
+                    NaslovTextBox.Text = item.C;
+                    EmailTextBox.Text = item.D;
+                    DatumRojstvaDateTimePicker.Value = item.E;
                     DatumRojstvaDateTimePicker.Format = DateTimePickerFormat.Custom;
                     DatumRojstvaDateTimePicker.CustomFormat = "yyyy-MM-dd";
                     DatumRojstvaDateTimePicker.ShowUpDown = true;
                 }
-                con.Close();
             }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
+            
         }
 
         private void SpremeniPodatke()
         {
-            DatumRojstvaDateTimePicker.Format = DateTimePickerFormat.Custom;
-            DatumRojstvaDateTimePicker.CustomFormat = "yyyy-MM-dd";
-            DatumRojstvaDateTimePicker.ShowUpDown = true;
-            string dt = DatumRojstvaDateTimePicker.Value.ToString("yyyy-MM-dd");
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            try
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT FROM update_podatke_uporabnika(" + Public.id + ",'" + ImeTextBox.Text + "','" + PriimekTextBox.Text + "','" + dt + "','" + NaslovTextBox.Text + "')", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
+                if ((DatumRojstvaDateTimePicker.Value != null)&&(ImeTextBox.Text != "")&&(PriimekTextBox.Text != ""))//+naslov
                 {
+                    DatumRojstvaDateTimePicker.Format = DateTimePickerFormat.Custom;
+                    DatumRojstvaDateTimePicker.CustomFormat = "yyyy-MM-dd";
+                    DatumRojstvaDateTimePicker.ShowUpDown = true;
+                    string dt = DatumRojstvaDateTimePicker.Value.ToString("yyyy-MM-dd");
+                    U.spremeni_Podatke_Uporabnika(ImeTextBox.Text, PriimekTextBox.Text, dt, NaslovTextBox.Text);
                 }
-                con.Close();
+                else
+                {
+                    MessageBox.Show("Vnešena polja ne smejo biti prazna");
+                }
             }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
 
         private void SpremeniButton_Click(object sender, EventArgs e)
@@ -91,42 +103,61 @@ namespace mini_projekt
 
         private void SpremeniEmailButton_Click(object sender, EventArgs e)
         {
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            try
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT update_email_uporabnika(" + Public.id + ",'" + EmailTextBox.Text + "')", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
+                if (EmailTextBox.Text != "")
                 {
+                    U.spremeni_Email(EmailTextBox.Text);
                 }
-                con.Close();
+                else
+                    MessageBox.Show("Polje ne sme biti prazno");
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+                throw;
+            }
+            
         }
 
         private void SpremeniGesloUporabnika()
         {
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            try
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT update_geslo_uporabnika(" + Public.id + ",'" + Ena.CreateMD5(GesloTextBox.Text) + "')", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
+                if (GesloTextBox.Text != "")
                 {
+                    U.spremeni_Geslo(GesloTextBox.Text);
                 }
-                con.Close();
+                else
+                    MessageBox.Show("Polje ne sme biti prazno");
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+                throw;
+            }
+            
         }
 
         private void Spremeni2Button_Click(object sender, EventArgs e)
         {
-            if ((GesloTextBox.Text == Geslo3TextBox.Text) && (GesloTextBox.Text != ""))
+            try
             {
-                SpremeniGesloUporabnika();
+                if ((GesloTextBox.Text == Geslo3TextBox.Text) && (GesloTextBox.Text != ""))
+                {
+                    SpremeniGesloUporabnika();
+                }
+                else
+                {
+                    MessageBox.Show("Gesli se ne ujemata");
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Gesli se ne ujemata");
+
+                MessageBox.Show("Napaka, poskusite ponovno");
             }
+            
         }
 
         private void SpremeniGesloButton_Click(object sender, EventArgs e)

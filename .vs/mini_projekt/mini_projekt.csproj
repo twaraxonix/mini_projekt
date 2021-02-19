@@ -139,12 +139,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="public.cs" />
+    <Compile Include="Update.cs" />
     <Compile Include="UpdateForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateForm.Designer.cs">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Uporabnik.cs" />
     <EmbeddedResource Include="ArhivForm.resx">
       <DependentUpon>ArhivForm.cs</DependentUpon>
     </EmbeddedResource>
