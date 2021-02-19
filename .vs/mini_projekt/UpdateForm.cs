@@ -34,46 +34,107 @@ namespace mini_projekt
 
         private void spremeni()
         {
-            DatumDateTimePicker.Format = DateTimePickerFormat.Custom;
-            DatumDateTimePicker.CustomFormat = "yyyy-MM-dd";
-            DatumDateTimePicker.ShowUpDown = true;
-            string dt = DatumDateTimePicker.Value.ToString("yyyy-MM-dd");
-            U.update(Convert.ToDouble(ZnesekTextBox.Text), dt);
+            try
+            {
+                DatumDateTimePicker.Format = DateTimePickerFormat.Custom;
+                DatumDateTimePicker.CustomFormat = "yyyy-MM-dd";
+                DatumDateTimePicker.ShowUpDown = true;
+                string dt = DatumDateTimePicker.Value.ToString("yyyy-MM-dd");
+                if ((ZnesekTextBox.Text != "") && (dt != null))
+                {
+                    U.update(Convert.ToDouble(ZnesekTextBox.Text), dt);
+                }
+                else
+                    MessageBox.Show("Vnešeneno polje e sme biti prazno");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
         private void id()
         {
-            U.ID();
+            try
+            {
+                U.ID();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
         private void id2()
         {
-            U.ID2();
+            try
+            {
+                U.ID2();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
         private void Lokacije()
         {
-            List<string> list = new List<string>(U.lokacije(comboBox1.Text));
-            foreach (string item in list)
+            try
             {
-                LokacijaComboBox.Items.Add(item);
+                if (comboBox1.Text != null)
+                {
+                    List<string> list = new List<string>(U.lokacije(comboBox1.Text));
+                    foreach (string item in list)
+                    {
+                        LokacijaComboBox.Items.Add(item);
+                    }
+                }
+                else
+                    MessageBox.Show("prosim izberite lokacijo");
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
 
         private void Kraji()
         {
-            List<string> list2 = new List<string>(U.kraji());
-            foreach (string item in list2)
+            try
             {
-                ImeKrajaConboBox.Items.Add(item);
-                comboBox1.Items.Add(item);
+                List<string> list2 = new List<string>(U.kraji());
+                foreach (string item in list2)
+                {
+                    ImeKrajaConboBox.Items.Add(item);
+                    comboBox1.Items.Add(item);
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
 
         private void Posta()
         {
-            List<string> list = new List<string>(U.posta(ImeKrajaConboBox.Text));
-            foreach (string item in list)
+            try
             {
-                PostnaStevilkaGroupBox.Items.Add(item);
+                if (ImeKrajaConboBox.Text != null)
+                {
+                    List<string> list = new List<string>(U.posta(ImeKrajaConboBox.Text));
+                    foreach (string item in list)
+                    {
+                        PostnaStevilkaGroupBox.Items.Add(item);
+                    }
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
 
         private void NazajButton_Click(object sender, EventArgs e)
@@ -98,7 +159,20 @@ namespace mini_projekt
 
         private void DodajLokacijo2_Click(object sender, EventArgs e)
         {
-            U.dodaj_Lokacijo(ImeKrajaConboBox.Text, PostnaStevilkaGroupBox.Text, ImeLokacijeTextBox.Text, NaslovLokacijeTextBox.Text);
+            try
+            {
+                if ((ImeKrajaConboBox.Text != null) && (PostnaStevilkaGroupBox.Text != null) && (ImeLokacijeTextBox.Text != null) && (NaslovLokacijeTextBox.Text != null))
+                {
+                    U.dodaj_Lokacijo(ImeKrajaConboBox.Text, PostnaStevilkaGroupBox.Text, ImeLokacijeTextBox.Text, NaslovLokacijeTextBox.Text);
+                }
+                else
+                    MessageBox.Show("Vnešena polja ne smejo biti prazna");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
