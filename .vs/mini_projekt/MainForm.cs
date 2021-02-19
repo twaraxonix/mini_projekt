@@ -31,28 +31,36 @@ namespace mini_projekt
 
         private void Porabe_denarja()
         {
-            
-            DateTime dt = DateTime.Now;
-            string datumZ = dt.Year + "-" + dt.Month + "-01";
-            int days = DateTime.DaysInMonth(dt.Year, dt.Month);
-            string datumK = dt.Year + "-" + dt.Month + "-" + days;
-            listView1.Items.Clear();
-            List<denar> list = new List<denar>(M.update(datumZ, datumK));
-            foreach (denar item in list)
-            {
-                var row = new string[] { item.a, item.b, item.c, item.d };
-                var lvl = new ListViewItem(row);
-                listView1.Items.Add(lvl);
-            }
             try
             {
-                SkupajTextBox.Text = M.sum(datumZ, datumK);
+                DateTime dt = DateTime.Now;
+                string datumZ = dt.Year + "-" + dt.Month + "-01";
+                int days = DateTime.DaysInMonth(dt.Year, dt.Month);
+                string datumK = dt.Year + "-" + dt.Month + "-" + days;
+                listView1.Items.Clear();
+                List<denar> list = new List<denar>(M.update(datumZ, datumK));
+                foreach (denar item in list)
+                {
+                    var row = new string[] { item.a, item.b, item.c, item.d };
+                    var lvl = new ListViewItem(row);
+                    listView1.Items.Add(lvl);
+                }
+                try
+                {
+                    SkupajTextBox.Text = M.sum(datumZ, datumK);
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Vsota je nič");
+                }
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Vsota je nič");
+                MessageBox.Show("napaka, poskusite ponovno");
             }
+            
             
         }
         private void ArhivButton_Click(object sender, EventArgs e)
@@ -65,48 +73,72 @@ namespace mini_projekt
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            Public.Change2(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text,
-            Convert.ToDouble(listView1.SelectedItems[0].SubItems[3].Text));
-            this.Hide();
-            var UpdateForm = new UpdateForm();
-            UpdateForm.Closed += (s, args) => this.Close();
-            UpdateForm.Show();
+            try
+            {
+                Public.Change2(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text,
+                Convert.ToDouble(listView1.SelectedItems[0].SubItems[3].Text));
+                this.Hide();
+                var UpdateForm = new UpdateForm();
+                UpdateForm.Closed += (s, args) => this.Close();
+                UpdateForm.Show();
+            }
+            catch (Exception)
+            {
+            MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            Public.Change2(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text,
-            Convert.ToDouble(listView1.SelectedItems[0].SubItems[3].Text));
-            M.ID();
-            M.deleteDenar();
+            try
+            {
+                Public.Change2(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text,
+                Convert.ToDouble(listView1.SelectedItems[0].SubItems[3].Text));
+                M.ID();
+                M.deleteDenar();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponvno");
+            }
+            
         }
 
         private void IzvoziButton_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xls", ValidateNames = true })
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
-                    Workbook wb = app.Workbooks.Add(XlSheetType.xlWorksheet);
-                    Worksheet ws = (Worksheet)app.ActiveSheet;
-                    app.Visible = false;
-                    ws.Cells[1, 1] = "Stevilka";
-                    ws.Cells[1, 2] = "Datum";
-                    ws.Cells[1, 3] = "Lokacija";
-                    ws.Cells[1, 4] = "Znesek";
-                    int i = 2;
-                    foreach(ListViewItem item in listView1.Items)
+            try
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xls", ValidateNames = true })
+                    if (sfd.ShowDialog() == DialogResult.OK)
                     {
-                        ws.Cells[i, 1] = item.SubItems[0].Text;
-                        ws.Cells[i, 2] = item.SubItems[1].Text;
-                        ws.Cells[i, 3] = item.SubItems[2].Text;
-                        ws.Cells[i, 4] = item.SubItems[3].Text;
-                        i++;
+                        Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                        Workbook wb = app.Workbooks.Add(XlSheetType.xlWorksheet);
+                        Worksheet ws = (Worksheet)app.ActiveSheet;
+                        app.Visible = false;
+                        ws.Cells[1, 1] = "Stevilka";
+                        ws.Cells[1, 2] = "Datum";
+                        ws.Cells[1, 3] = "Lokacija";
+                        ws.Cells[1, 4] = "Znesek";
+                        int i = 2;
+                        foreach (ListViewItem item in listView1.Items)
+                        {
+                            ws.Cells[i, 1] = item.SubItems[0].Text;
+                            ws.Cells[i, 2] = item.SubItems[1].Text;
+                            ws.Cells[i, 3] = item.SubItems[2].Text;
+                            ws.Cells[i, 4] = item.SubItems[3].Text;
+                            i++;
+                        }
+                        wb.SaveAs(sfd.FileName, XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+                        app.Quit();
+                        MessageBox.Show("Vaši podatki so bili izvoženi v excel tabelo");
                     }
-                    wb.SaveAs(sfd.FileName, XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
-                    app.Quit();
-                    MessageBox.Show("Vaši podatki so bili izvoženi v excel tabelo");
-                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
         }
 
         private void OsebniPodatkiButton_Click(object sender, EventArgs e)
