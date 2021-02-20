@@ -27,6 +27,19 @@ namespace mini_projekt
                 con.Close();
             }
         }
+        public void update1(double a, string b, string c, string d)
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT update_porabe_denarja(" + Public.idP + "," + a + ",'" + b + "','"+ c +"','"+ d +"')", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                }
+                con.Close();
+            }
+        }
 
         public void ID()
         {

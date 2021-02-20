@@ -52,6 +52,7 @@
             this.ImeKrajaLabel = new System.Windows.Forms.Label();
             this.DodajLokacijoLabel = new System.Windows.Forms.Label();
             this.DodadLokacijoButton = new System.Windows.Forms.Button();
+            this.SpremeniNatancnoButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -337,12 +338,31 @@
             this.DodadLokacijoButton.UseVisualStyleBackColor = false;
             this.DodadLokacijoButton.Click += new System.EventHandler(this.DodadLokacijoButton_Click);
             // 
+            // SpremeniNatancnoButton
+            // 
+            this.SpremeniNatancnoButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.SpremeniNatancnoButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.SpremeniNatancnoButton.FlatAppearance.BorderSize = 3;
+            this.SpremeniNatancnoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.SpremeniNatancnoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.SpremeniNatancnoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SpremeniNatancnoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SpremeniNatancnoButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.SpremeniNatancnoButton.Location = new System.Drawing.Point(265, 472);
+            this.SpremeniNatancnoButton.Name = "SpremeniNatancnoButton";
+            this.SpremeniNatancnoButton.Size = new System.Drawing.Size(265, 41);
+            this.SpremeniNatancnoButton.TabIndex = 22;
+            this.SpremeniNatancnoButton.Text = "Spremeni natančno";
+            this.SpremeniNatancnoButton.UseVisualStyleBackColor = false;
+            this.SpremeniNatancnoButton.Click += new System.EventHandler(this.SpremeniNatancnoButton_Click);
+            // 
             // UpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1103, 525);
+            this.Controls.Add(this.SpremeniNatancnoButton);
             this.Controls.Add(this.DodadLokacijoButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.comboBox1);
@@ -391,5 +411,6 @@
         private System.Windows.Forms.Label ImeKrajaLabel;
         private System.Windows.Forms.Label DodajLokacijoLabel;
         private System.Windows.Forms.Button DodadLokacijoButton;
+        private System.Windows.Forms.Button SpremeniNatancnoButton;
     }
 }

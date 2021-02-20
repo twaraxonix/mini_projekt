@@ -42,7 +42,12 @@ namespace mini_projekt
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    list.Add(new Podatki(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(4), reader.GetDateTime(3)));
+                    if (reader.IsDBNull(2))
+                    {
+                        list.Add(new Podatki(reader.GetString(0), reader.GetString(1), " ", " ", reader.GetDateTime(3)));
+                    }
+                    else
+                        list.Add(new Podatki(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(4), reader.GetDateTime(3)));
                 }
                 con.Close();
             }

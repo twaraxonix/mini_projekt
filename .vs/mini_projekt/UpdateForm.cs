@@ -17,6 +17,7 @@ namespace mini_projekt
         public UpdateForm()
         {
             InitializeComponent();
+            MessageBox.Show(Public.lokacija);
             groupBox1.Visible = false;
             Kraji();
             if (Public.lokacija == "NULL")
@@ -189,6 +190,27 @@ namespace mini_projekt
         private void SpremeniButton_Click(object sender, EventArgs e)
         {
             spremeni();
+        }
+
+        private void SpremeniNatancnoButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DatumDateTimePicker.Format = DateTimePickerFormat.Custom;
+                DatumDateTimePicker.CustomFormat = "yyyy-MM-dd";
+                DatumDateTimePicker.ShowUpDown = true;
+                string dt = DatumDateTimePicker.Value.ToString("yyyy-MM-dd");
+                if ((ZnesekTextBox.Text != "") && (dt != null) && (comboBox1.Text != null) && (LokacijaComboBox.Text != null))
+                {
+                    U.update1(Convert.ToDouble(ZnesekTextBox.Text), dt, comboBox1.Text, LokacijaComboBox.Text);
+                }
+                else
+                    MessageBox.Show("Vnešeneno polje e sme biti prazno");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
         }
     }
 }
