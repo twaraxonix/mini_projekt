@@ -49,6 +49,7 @@
             this.SpremeniGesloButton = new System.Windows.Forms.Button();
             this.Geslo3TextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.IzbrisiButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EmailLabel
@@ -296,12 +297,31 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Ponovno Vnesite geslo";
             // 
+            // IzbrisiButton
+            // 
+            this.IzbrisiButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.IzbrisiButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.IzbrisiButton.FlatAppearance.BorderSize = 3;
+            this.IzbrisiButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.IzbrisiButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.IzbrisiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IzbrisiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.IzbrisiButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.IzbrisiButton.Location = new System.Drawing.Point(813, 6);
+            this.IzbrisiButton.Name = "IzbrisiButton";
+            this.IzbrisiButton.Size = new System.Drawing.Size(145, 39);
+            this.IzbrisiButton.TabIndex = 21;
+            this.IzbrisiButton.Text = "Izbriši";
+            this.IzbrisiButton.UseVisualStyleBackColor = false;
+            this.IzbrisiButton.Click += new System.EventHandler(this.IzbrisiButton_Click);
+            // 
             // OsebniPodatkiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(960, 450);
+            this.Controls.Add(this.IzbrisiButton);
             this.Controls.Add(this.Geslo3TextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SpremeniGesloButton);
@@ -353,5 +373,6 @@
         private System.Windows.Forms.Button SpremeniGesloButton;
         private System.Windows.Forms.TextBox Geslo3TextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button IzbrisiButton;
     }
 }

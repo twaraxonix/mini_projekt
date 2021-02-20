@@ -165,5 +165,10 @@ namespace mini_projekt
         {
             
         }
+
+        private void IzbrisiButton_Click(object sender, EventArgs e)
+        {
+            U.Izbris();
+        }
     }
 }
