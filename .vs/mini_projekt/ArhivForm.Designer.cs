@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
+            this.IdColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DatumColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ZnesekColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NazajButton = new System.Windows.Forms.Button();
             this.DatumOdDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.DatumDoDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -37,9 +40,6 @@
             this.OdLabel = new System.Windows.Forms.Label();
             this.DoLabel = new System.Windows.Forms.Label();
             this.PonastaviButton = new System.Windows.Forms.Button();
-            this.IdColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.DatumColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ZnesekColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PodrobnoButton = new System.Windows.Forms.Button();
             this.ArhivLabel = new System.Windows.Forms.Label();
             this.PodrbnoLabel = new System.Windows.Forms.Label();
@@ -72,6 +72,21 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // IdColumnHeader
+            // 
+            this.IdColumnHeader.Text = "";
+            this.IdColumnHeader.Width = 75;
+            // 
+            // DatumColumnHeader
+            // 
+            this.DatumColumnHeader.Text = "Datum vnosa";
+            this.DatumColumnHeader.Width = 142;
+            // 
+            // ZnesekColumnHeader
+            // 
+            this.ZnesekColumnHeader.Text = "Znesek";
+            this.ZnesekColumnHeader.Width = 200;
             // 
             // NazajButton
             // 
@@ -174,21 +189,6 @@
             this.PonastaviButton.UseVisualStyleBackColor = false;
             this.PonastaviButton.Click += new System.EventHandler(this.PonastaviButton_Click);
             // 
-            // IdColumnHeader
-            // 
-            this.IdColumnHeader.Text = "";
-            this.IdColumnHeader.Width = 75;
-            // 
-            // DatumColumnHeader
-            // 
-            this.DatumColumnHeader.Text = "Datum vnosa";
-            this.DatumColumnHeader.Width = 142;
-            // 
-            // ZnesekColumnHeader
-            // 
-            this.ZnesekColumnHeader.Text = "Znesek";
-            this.ZnesekColumnHeader.Width = 200;
-            // 
             // PodrobnoButton
             // 
             this.PodrobnoButton.BackColor = System.Drawing.Color.RoyalBlue;
@@ -253,6 +253,7 @@
             // 
             // ZnesekTextBox
             // 
+            this.ZnesekTextBox.Enabled = false;
             this.ZnesekTextBox.Location = new System.Drawing.Point(19, 185);
             this.ZnesekTextBox.Name = "ZnesekTextBox";
             this.ZnesekTextBox.Size = new System.Drawing.Size(238, 22);
@@ -260,6 +261,7 @@
             // 
             // LokacijaTextBox
             // 
+            this.LokacijaTextBox.Enabled = false;
             this.LokacijaTextBox.Location = new System.Drawing.Point(19, 271);
             this.LokacijaTextBox.Name = "LokacijaTextBox";
             this.LokacijaTextBox.Size = new System.Drawing.Size(238, 22);
@@ -267,6 +269,7 @@
             // 
             // DatumDateTimePicker
             // 
+            this.DatumDateTimePicker.Enabled = false;
             this.DatumDateTimePicker.Location = new System.Drawing.Point(19, 105);
             this.DatumDateTimePicker.Name = "DatumDateTimePicker";
             this.DatumDateTimePicker.Size = new System.Drawing.Size(238, 22);
@@ -296,6 +299,7 @@
             // 
             // KrajTextBox
             // 
+            this.KrajTextBox.Enabled = false;
             this.KrajTextBox.Location = new System.Drawing.Point(19, 348);
             this.KrajTextBox.Name = "KrajTextBox";
             this.KrajTextBox.Size = new System.Drawing.Size(238, 22);
