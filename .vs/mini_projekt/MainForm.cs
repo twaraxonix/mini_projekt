@@ -95,8 +95,17 @@ namespace mini_projekt
             {
                 Public.Change2(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text,
                 Convert.ToDouble(listView1.SelectedItems[0].SubItems[3].Text));
-                M.ID();
-                M.deleteDenar();
+                if (listView1.SelectedItems[0].SubItems[2].Text != "NULL")
+                {
+                    M.ID();
+                    M.deleteDenar();
+                }
+                else
+                {
+                    Update U = new Update();
+                    U.ID2();
+                    M.deleteDenar();
+                }
             }
             catch (Exception)
             {
