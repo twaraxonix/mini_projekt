@@ -44,6 +44,7 @@
             this.SkupajTextBox = new System.Windows.Forms.TextBox();
             this.SkupajLabel = new System.Windows.Forms.Label();
             this.OstaloButton = new System.Windows.Forms.Button();
+            this.OdjavaButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -243,12 +244,31 @@
             this.OstaloButton.UseVisualStyleBackColor = false;
             this.OstaloButton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // OdjavaButton
+            // 
+            this.OdjavaButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.OdjavaButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.OdjavaButton.FlatAppearance.BorderSize = 3;
+            this.OdjavaButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.OdjavaButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.OdjavaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OdjavaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.OdjavaButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.OdjavaButton.Location = new System.Drawing.Point(1, 9);
+            this.OdjavaButton.Name = "OdjavaButton";
+            this.OdjavaButton.Size = new System.Drawing.Size(148, 40);
+            this.OdjavaButton.TabIndex = 11;
+            this.OdjavaButton.Text = "Odjava";
+            this.OdjavaButton.UseVisualStyleBackColor = false;
+            this.OdjavaButton.Click += new System.EventHandler(this.OdjavaButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1191, 450);
+            this.Controls.Add(this.OdjavaButton);
             this.Controls.Add(this.OstaloButton);
             this.Controls.Add(this.SkupajLabel);
             this.Controls.Add(this.SkupajTextBox);
@@ -284,5 +304,6 @@
         private System.Windows.Forms.TextBox SkupajTextBox;
         private System.Windows.Forms.Label SkupajLabel;
         private System.Windows.Forms.Button OstaloButton;
+        private System.Windows.Forms.Button OdjavaButton;
     }
 }

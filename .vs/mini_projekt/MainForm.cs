@@ -166,5 +166,12 @@ namespace mini_projekt
             OstaloForm.Show();
         }
 
+        private void OdjavaButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var Form1 = new Form1();
+            Form1.Closed += (s, args) => this.Close();
+            Form1.Show();
+        }
     }
 }
