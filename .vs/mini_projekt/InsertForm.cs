@@ -25,7 +25,11 @@ namespace mini_projekt
 
         private void DodajButton_Click(object sender, EventArgs e)
         {
-            Dodaj();  
+            Dodaj();
+            this.Hide();
+            var MainForm = new MainForm();
+            MainForm.Closed += (s, args) => this.Close();
+            MainForm.Show();
         }
 
         private void Dodaj()

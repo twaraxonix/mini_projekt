@@ -25,6 +25,22 @@ namespace mini_projekt
             E = e;
         }
     }
+
+    public class nastavitve
+    {
+        public string a, b;
+        public int c;
+        public nastavitve()
+        {
+
+        }
+        public nastavitve(string A, string B, int C)
+        {
+            a = A;
+            b = B;
+            c = C;
+        }
+    }
     public class Uporabnik
     {
         public Uporabnik()
@@ -108,6 +124,39 @@ namespace mini_projekt
                 }
                 con.Close();
             }
+        }
+
+        public void Nastavitve_Sprememba(string a, string b, int c)
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT update_nastavitve('"+a+"','"+b+"',"+c+"," + Public.id + ")", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                }
+                con.Close();
+            }
+        }
+        public List<nastavitve> Nastavitve()
+        {
+            List<nastavitve> list = new List<nastavitve>();
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_nastavitve(" + Public.id + ")", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(new nastavitve(reader.GetString(0), reader.GetString(1), reader.GetInt32(2)));
+                    Public.barva = reader.GetString(0);
+                    Public.font = reader.GetString(1);
+                    Public.velikost = reader.GetInt32(2);
+                }
+                con.Close();
+            }
+            return list;
         }
     }
 }

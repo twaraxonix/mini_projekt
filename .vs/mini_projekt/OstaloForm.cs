@@ -21,7 +21,7 @@ namespace mini_projekt
         public OstaloForm()
         {
             InitializeComponent();
-            comboBox1.Visible = false;
+            groupBox1.Visible = false;
         }
 
         private void NazajButton_Click(object sender, EventArgs e)
@@ -34,6 +34,11 @@ namespace mini_projekt
 
 
         private void KrajiButton_Click(object sender, EventArgs e)
+        {
+            kraji();
+        }
+
+        private void kraji()
         {
             try
             {
@@ -55,12 +60,9 @@ namespace mini_projekt
             {
                 MessageBox.Show("Napaka, poskusite ponovno");
             }
-            
-
-
         }
 
-        private void LokacijeButton_Click(object sender, EventArgs e)
+        private void Lokacije()
         {
             try
             {
@@ -81,9 +83,10 @@ namespace mini_projekt
                 MessageBox.Show("Napaka, poskusite ponovno");
             }
             x = false;
-            
-            
-
+        }
+        private void LokacijeButton_Click(object sender, EventArgs e)
+        {
+            Lokacije();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -94,6 +97,7 @@ namespace mini_projekt
                 if ((a != null) && (b != null))
                 {
                     O.deleteKraj(a, b);
+                    kraji();
                 }
                 else
                     MessageBox.Show("Prosim, izberite podatke");
@@ -105,6 +109,7 @@ namespace mini_projekt
                 if ((a != null) && (b != null))
                 {
                     O.deleteLokacija(a, b);
+                    Lokacije();
                 }
                 else
                     MessageBox.Show("Prosim, izberite podatke");
@@ -113,7 +118,7 @@ namespace mini_projekt
 
         private void VnesiKrajButton_Click(object sender, EventArgs e)
         {
-            comboBox1.Visible = true;
+            groupBox1.Visible = true;
             label4.Text = "Vnesi kraj";
             label1.Text = "Vnesi ime";
             label2.Text = "Vnesi poštno številko";
@@ -131,7 +136,7 @@ namespace mini_projekt
                 {
                     comboBox1.Items.Add(item);
                 }
-                comboBox1.Visible = true;
+                groupBox1.Visible = true;
                 label4.Text = "Vnesi lokacijo";
                 label1.Text = "Vnesi ime";
                 label2.Text = "Vnesi naslov";
@@ -212,6 +217,7 @@ namespace mini_projekt
                     if ((textBox1.Text != null) && (textBox2.Text != null))
                     {
                         O.vnesi_Kraj(textBox1.Text, textBox2.Text);
+                        kraji();
                     }
                     else
                         MessageBox.Show("Vnešena polja ne smejo biti prazna");
@@ -221,6 +227,7 @@ namespace mini_projekt
                     if ((textBox1.Text != null) && (textBox2.Text != null) && (ime != null) && (naslov != null))
                     {
                         O.spremeni_Kraj(textBox1.Text, textBox2.Text, ime, naslov);
+                        kraji();
                     }
                     else
                         MessageBox.Show("Vnešena polja ne smejo biti prazna");
@@ -230,6 +237,7 @@ namespace mini_projekt
                     if ((textBox1.Text != null) && (textBox2.Text != null) && (comboBox1.SelectedItem != null))
                     {
                         O.vnesi_lokacijo(comboBox1.SelectedItem.ToString(), textBox1.Text, textBox2.Text);
+                        Lokacije();
                     }
                     else
                         MessageBox.Show("Vnešena polja ne smejo biti prazna");
@@ -239,10 +247,12 @@ namespace mini_projekt
                     if ((textBox1.Text != null) && (textBox2.Text != null) && (comboBox1.SelectedItem != null) && (ime != null) && (naslov != null))
                     {
                         O.spremeni_Lokacijo(textBox1.Text, textBox2.Text, comboBox1.SelectedItem.ToString(), ime, naslov);
+                        Lokacije();
                     }
                     else
                         MessageBox.Show("Vnešena polja ne smejo biti prazna");
                 }
+                groupBox1.Visible = false;
             }
             catch (Exception)
             {

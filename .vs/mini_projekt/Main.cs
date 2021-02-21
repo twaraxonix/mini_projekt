@@ -104,5 +104,22 @@ namespace mini_projekt
             }
             Public.Change2("", "", 0);
         }
+
+        public void Nastavitve()
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=qrallryw;" + "Password=42JSx-SoQO5TfgzavjTAU5Bz2qJli0rN; Database=qrallryw;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM return_nastavitve(" + Public.id + ")", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    Public.barva = reader.GetString(0);
+                    Public.font = reader.GetString(1);
+                    Public.velikost = reader.GetInt32(2);
+                }
+                con.Close();
+            }
+        }
     }
 }

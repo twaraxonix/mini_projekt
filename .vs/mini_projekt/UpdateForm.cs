@@ -44,6 +44,10 @@ namespace mini_projekt
                 if ((ZnesekTextBox.Text != "") && (dt != null))
                 {
                     U.update(Convert.ToDouble(ZnesekTextBox.Text), dt);
+                    this.Hide();
+                    var MainForm = new MainForm();
+                    MainForm.Closed += (s, args) => this.Close();
+                    MainForm.Show();
                 }
                 else
                     MessageBox.Show("Vnešeneno polje e sme biti prazno");

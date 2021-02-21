@@ -14,6 +14,9 @@ namespace mini_projekt
         public static string lokacija;
         public static double znesek;
         public static int idP;
+        public static string barva;
+        public static string font;
+        public static int velikost;
         public static void Change(int a)
         {
             id = a; 

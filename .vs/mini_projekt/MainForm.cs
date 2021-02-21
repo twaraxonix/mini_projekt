@@ -106,6 +106,7 @@ namespace mini_projekt
                     U.ID2();
                     M.deleteDenar();
                 }
+                Porabe_denarja();
             }
             catch (Exception)
             {
