@@ -173,5 +173,40 @@ namespace mini_projekt
             Form1.Closed += (s, args) => this.Close();
             Form1.Show();
         }
+
+
+
+        private List<Control> GetAllControls(Control container, List<Control> list)
+        {
+            foreach (Control c in container.Controls)
+            {
+
+                if (c.Controls.Count > 0)
+                    list = GetAllControls(c, list);
+                else
+                    list.Add(c);
+            }
+
+            return list;
+        }
+        private List<Control> GetAllControls(Control container)
+        {
+            return GetAllControls(container, new List<Control>());
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            M.Nastavitve();
+            if ((Public.font != "x") || (Public.velikost != 1))
+            {
+                List<Control> allControls = GetAllControls(this);
+                allControls.ForEach(k => k.Font = new System.Drawing.Font(Public.font, Public.velikost)); 
+            }
+            if (Public.barva != "x") 
+            {
+                this.BackColor = (Color)new ColorConverter().ConvertFromString(Public.barva);
+            }
+
+        }
     }
 }

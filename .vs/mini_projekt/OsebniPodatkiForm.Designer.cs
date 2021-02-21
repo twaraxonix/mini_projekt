@@ -50,6 +50,15 @@
             this.Geslo3TextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.IzbrisiButton = new System.Windows.Forms.Button();
+            this.VelikostLabel = new System.Windows.Forms.Label();
+            this.BarvaLabel = new System.Windows.Forms.Label();
+            this.FontLabel = new System.Windows.Forms.Label();
+            this.barvaComboBox = new System.Windows.Forms.ComboBox();
+            this.FontComboBox = new System.Windows.Forms.ComboBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.NastavitveButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // EmailLabel
@@ -307,7 +316,7 @@
             this.IzbrisiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IzbrisiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.IzbrisiButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.IzbrisiButton.Location = new System.Drawing.Point(813, 6);
+            this.IzbrisiButton.Location = new System.Drawing.Point(1082, 6);
             this.IzbrisiButton.Name = "IzbrisiButton";
             this.IzbrisiButton.Size = new System.Drawing.Size(145, 39);
             this.IzbrisiButton.TabIndex = 21;
@@ -315,12 +324,130 @@
             this.IzbrisiButton.UseVisualStyleBackColor = false;
             this.IzbrisiButton.Click += new System.EventHandler(this.IzbrisiButton_Click);
             // 
+            // VelikostLabel
+            // 
+            this.VelikostLabel.AutoSize = true;
+            this.VelikostLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.VelikostLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.VelikostLabel.Location = new System.Drawing.Point(1023, 295);
+            this.VelikostLabel.Name = "VelikostLabel";
+            this.VelikostLabel.Size = new System.Drawing.Size(76, 20);
+            this.VelikostLabel.TabIndex = 27;
+            this.VelikostLabel.Text = "Velikost";
+            // 
+            // BarvaLabel
+            // 
+            this.BarvaLabel.AutoSize = true;
+            this.BarvaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BarvaLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.BarvaLabel.Location = new System.Drawing.Point(1037, 144);
+            this.BarvaLabel.Name = "BarvaLabel";
+            this.BarvaLabel.Size = new System.Drawing.Size(58, 20);
+            this.BarvaLabel.TabIndex = 23;
+            this.BarvaLabel.Text = "Barva";
+            // 
+            // FontLabel
+            // 
+            this.FontLabel.AutoSize = true;
+            this.FontLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FontLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.FontLabel.Location = new System.Drawing.Point(1037, 225);
+            this.FontLabel.Name = "FontLabel";
+            this.FontLabel.Size = new System.Drawing.Size(46, 20);
+            this.FontLabel.TabIndex = 22;
+            this.FontLabel.Text = "Font";
+            // 
+            // barvaComboBox
+            // 
+            this.barvaComboBox.FormattingEnabled = true;
+            this.barvaComboBox.Items.AddRange(new object[] {
+            "MidnightBlue",
+            "Black",
+            "Purple",
+            "x"});
+            this.barvaComboBox.Location = new System.Drawing.Point(955, 167);
+            this.barvaComboBox.Name = "barvaComboBox";
+            this.barvaComboBox.Size = new System.Drawing.Size(227, 24);
+            this.barvaComboBox.TabIndex = 28;
+            // 
+            // FontComboBox
+            // 
+            this.FontComboBox.FormattingEnabled = true;
+            this.FontComboBox.Items.AddRange(new object[] {
+            "Microsoft Sans Serif",
+            "Verdana",
+            "Arial",
+            "x"});
+            this.FontComboBox.Location = new System.Drawing.Point(955, 253);
+            this.FontComboBox.Name = "FontComboBox";
+            this.FontComboBox.Size = new System.Drawing.Size(227, 24);
+            this.FontComboBox.TabIndex = 29;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(998, 327);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            13,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1.TabIndex = 30;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // NastavitveButton
+            // 
+            this.NastavitveButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.NastavitveButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.NastavitveButton.FlatAppearance.BorderSize = 3;
+            this.NastavitveButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.NastavitveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.NastavitveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NastavitveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.NastavitveButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.NastavitveButton.Location = new System.Drawing.Point(955, 378);
+            this.NastavitveButton.Name = "NastavitveButton";
+            this.NastavitveButton.Size = new System.Drawing.Size(219, 44);
+            this.NastavitveButton.TabIndex = 31;
+            this.NastavitveButton.Text = "Spremeni";
+            this.NastavitveButton.UseVisualStyleBackColor = false;
+            this.NastavitveButton.Click += new System.EventHandler(this.NastavitveButton_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(983, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(163, 36);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Nastavitve";
+            // 
             // OsebniPodatkiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(960, 450);
+            this.ClientSize = new System.Drawing.Size(1229, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.NastavitveButton);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.FontComboBox);
+            this.Controls.Add(this.barvaComboBox);
+            this.Controls.Add(this.VelikostLabel);
+            this.Controls.Add(this.BarvaLabel);
+            this.Controls.Add(this.FontLabel);
             this.Controls.Add(this.IzbrisiButton);
             this.Controls.Add(this.Geslo3TextBox);
             this.Controls.Add(this.label1);
@@ -345,6 +472,8 @@
             this.Controls.Add(this.EmailLabel);
             this.Name = "OsebniPodatkiForm";
             this.Text = "OsebniPodatkiForm";
+            this.Load += new System.EventHandler(this.OsebniPodatkiForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,5 +503,13 @@
         private System.Windows.Forms.TextBox Geslo3TextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button IzbrisiButton;
+        private System.Windows.Forms.Label VelikostLabel;
+        private System.Windows.Forms.Label BarvaLabel;
+        private System.Windows.Forms.Label FontLabel;
+        private System.Windows.Forms.ComboBox barvaComboBox;
+        private System.Windows.Forms.ComboBox FontComboBox;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button NastavitveButton;
+        private System.Windows.Forms.Label label2;
     }
 }

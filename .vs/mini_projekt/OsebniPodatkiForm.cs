@@ -24,6 +24,7 @@ namespace mini_projekt
             EmailTextBox.Enabled = false;
             SpremeniButton.Visible = false;
             IzpisiPodatke();
+            Nastavitve();
         }
 
         private void SpremeniPodatkeButton_Click(object sender, EventArgs e)
@@ -161,6 +162,26 @@ namespace mini_projekt
             
         }
 
+        private void Nastavitve()
+        {
+            List<nastavitve> list = new List<nastavitve>(U.Nastavitve());
+            foreach (nastavitve item in list)
+            {
+                barvaComboBox.Text = item.a;
+                FontComboBox.Text = item.b;
+                numericUpDown1.Value = item.c;
+            }
+            try
+            {
+                
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Napaka, poskusite ponovno");
+            }
+            
+        }
+
         private void SpremeniGesloButton_Click(object sender, EventArgs e)
         {
             
@@ -169,6 +190,47 @@ namespace mini_projekt
         private void IzbrisiButton_Click(object sender, EventArgs e)
         {
             U.Izbris();
+            this.Hide();
+            var Form1 = new Form1();
+            Form1.Closed += (s, args) => this.Close();
+            Form1.Show();
         }
+
+        private void NastavitveButton_Click(object sender, EventArgs e)
+        {
+            U.Nastavitve_Sprememba(barvaComboBox.Text, FontComboBox.Text, Convert.ToInt32(numericUpDown1.Value));
+            U.Nastavitve();
+        }
+
+        private void OsebniPodatkiForm_Load(object sender, EventArgs e)
+        {
+            if ((Public.font != "x") || (Public.velikost != 1))
+            {
+                List<Control> allControls = GetAllControls(this);
+                allControls.ForEach(k => k.Font = new System.Drawing.Font(Public.font, Public.velikost));
+            }
+            if (Public.barva != "x")
+            {
+                this.BackColor = (Color)new ColorConverter().ConvertFromString(Public.barva);
+            }
+        }
+        private List<Control> GetAllControls(Control container, List<Control> list)
+        {
+            foreach (Control c in container.Controls)
+            {
+
+                if (c.Controls.Count > 0)
+                    list = GetAllControls(c, list);
+                else
+                    list.Add(c);
+            }
+
+            return list;
+        }
+        private List<Control> GetAllControls(Control container)
+        {
+            return GetAllControls(container, new List<Control>());
+        }
+
     }
 }

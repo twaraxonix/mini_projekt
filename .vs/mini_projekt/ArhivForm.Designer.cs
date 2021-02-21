@@ -362,6 +362,7 @@
             this.Controls.Add(this.listView1);
             this.Name = "ArhivForm";
             this.Text = "ArhivForm";
+            this.Load += new System.EventHandler(this.ArhivForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

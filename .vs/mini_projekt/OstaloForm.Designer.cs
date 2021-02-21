@@ -43,10 +43,10 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.VnesiLokacijoButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -236,19 +236,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // textBox1
+            // label4
             // 
-            this.textBox1.Location = new System.Drawing.Point(46, 147);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(201, 22);
-            this.textBox1.TabIndex = 10;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(46, 231);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(201, 22);
-            this.textBox2.TabIndex = 11;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(96, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 36);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "label4";
             // 
             // button1
             // 
@@ -268,16 +265,19 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label4
+            // textBox2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(96, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 36);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "label4";
+            this.textBox2.Location = new System.Drawing.Point(46, 231);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(201, 22);
+            this.textBox2.TabIndex = 11;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(46, 147);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(201, 22);
+            this.textBox1.TabIndex = 10;
             // 
             // VnesiLokacijoButton
             // 
@@ -332,6 +332,7 @@
             this.Controls.Add(this.listView1);
             this.Name = "OstaloForm";
             this.Text = "OstaloForm";
+            this.Load += new System.EventHandler(this.OstaloForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

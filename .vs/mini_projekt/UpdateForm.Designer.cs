@@ -378,6 +378,7 @@
             this.Controls.Add(this.DatumLabel);
             this.Name = "UpdateForm";
             this.Text = "UpdateForm";
+            this.Load += new System.EventHandler(this.UpdateForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
