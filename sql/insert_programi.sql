@@ -8,6 +8,17 @@ BEGIN
 END
 $$LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION add_lokacija2 (imek VARCHAR (100), imel VARCHAR (50), naslovl VARCHAR (50))
+RETURNS void AS
+$$
+DECLARE
+k_id INTEGER;
+BEGIN
+	SELECT INTO k_id id FROM kraji WHERE (ime = imek);
+	INSERT INTO lokacije (ime, naslov, kraj_id) VALUES (imel, naslovl, k_id);
+END
+$$LANGUAGE 'plpgsql';
+
 CREATE OR REPLACE FUNCTION add_lokacija (imek VARCHAR (100), postak VARCHAR (5), imel VARCHAR (50), naslovl VARCHAR (50))
 RETURNS void AS
 $$
@@ -31,9 +42,12 @@ CREATE OR REPLACE FUNCTION add_uporabnik (imeu VARCHAR (100), priimeku VARCHAR (
 RETURNS void AS
 $$
 DECLARE
-
+emailU VARCHAR(100);
 BEGIN
+	SELECT INTO emailU email FROM uporabniki WHERE email = emailu;
+	IF emailU IS NULL THEN
 	INSERT INTO uporabniki (ime, priimek, datum_roj, naslov, email, geslo) VALUES (imeu, priimeku, datum_roju, naslovu, emailu, geslou);
+	END IF;
 END
 $$LANGUAGE 'plpgsql';
 

@@ -10,13 +10,52 @@ BEGIN
 END
 $$LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION return_nastavitve(idU INTEGER)
+RETURNS TABLE (
+   	barva VARCHAR (100),
+	font VARCHAR (100),
+	velikost INTEGER
+) AS $$
+BEGIN
+  RETURN QUERY
+    SELECT n.barva, n.font, n.velikost
+    FROM nastavitve n INNER JOIN uporabniki u ON u.id = n.uporabnik_id WHERE(u.id = idU);
+END
+$$LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION return_vse_lokacije()
+RETURNS TABLE (
+   	ime VARCHAR (100),
+	naslov VARCHAR (100),
+	ime_kraja VARCHAR (100)
+) AS $$
+BEGIN
+  RETURN QUERY
+    SELECT l.ime, l.naslov, k.ime
+    FROM kraji k INNER JOIN lokacije l ON k.id=l.kraj_id;
+END
+$$LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION return_eno_lokacijo(imel VARCHAR(100), naslovl VARCHAR(100))
+RETURNS TABLE (
+   	ime VARCHAR (100),
+	naslov VARCHAR (100),
+	ime_kraja VARCHAR (100)
+) AS $$
+BEGIN
+  RETURN QUERY
+    SELECT l.ime, l.naslov, k.ime
+    FROM kraji k INNER JOIN lokacije l ON k.id=l.kraj_id WHERE (l.ime = imel) AND (l.naslov = naslovl);
+END
+$$LANGUAGE 'plpgsql';
+
 CREATE OR REPLACE FUNCTION return_sum(idU INTEGER, datumz TIMESTAMP, datumk TIMESTAMP)
 RETURNS REAL
 AS $$
 DECLARE
 sumP REAL;
 BEGIN
-	SELECT INTO sumP SUM(p.znesek) FROM lokacije l INNER JOIN porabe_denarja p ON l.id = p.lokacija_id
+	SELECT INTO sumP SUM(p.znesek) FROM porabe_denarja p
 	INNER JOIN uporabniki u ON u.id = p.uporabnik_id WHERE (u.id = idU) AND (p.datum BETWEEN datumz AND datumk);
 	RETURN sumP;
 END
@@ -31,10 +70,12 @@ RETURNS TABLE (
 BEGIN
   RETURN QUERY
     SELECT p.datum, l.ime, p.znesek
-    FROM lokacije l INNER JOIN porabe_denarja p ON l.id = p.lokacija_id
+    FROM lokacije l RIGHT OUTER JOIN porabe_denarja p ON l.id = p.lokacija_id
 	INNER JOIN uporabniki u ON u.id = p.uporabnik_id WHERE (u.id = idU) AND (p.datum BETWEEN datumz AND datumk);
 END
 $$LANGUAGE 'plpgsql';
+
+
 
 CREATE OR REPLACE FUNCTION return_posto_krajev(imek VARCHAR(100))
 RETURNS TABLE (
@@ -68,6 +109,18 @@ BEGIN
 	SELECT INTO idP p.id FROM porabe_denarja p INNER JOIN uporabniki u ON u.id=p.uporabnik_id INNER JOIN lokacije l ON l.id=
 	p.lokacija_id
 	WHERE (u.id = idU) AND (p.znesek = znesekZ) AND (l.ime = lokacijaL) AND (p.datum = TO_DATE(datumZ,'yyyy-MM-dd'));
+	RETURN idP;
+END
+$$LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION return_id_porabe_denarja2(idU INTEGER, znesekZ REAL, datumZ VARCHAR(100))
+RETURNS INTEGER AS
+$$
+DECLARE
+idP INTEGER;
+BEGIN
+	SELECT INTO idP p.id FROM porabe_denarja p INNER JOIN uporabniki u ON u.id=p.uporabnik_id 
+	WHERE (u.id = idU) AND (p.znesek = znesekZ) AND (p.lokacija_id IS NULL) AND (p.datum = TO_DATE(datumZ,'yyyy-MM-dd'));
 	RETURN idP;
 END
 $$LANGUAGE 'plpgsql';

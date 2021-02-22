@@ -26,6 +26,19 @@ BEGIN
 END
 $$LANGUAGE 'plpgsql';
 
+CREATE TRIGGER insert_u
+AFTER INSERT
+ON uporabniki FOR EACH ROW EXECUTE PROCEDURE insert_upo();
+CREATE OR REPLACE FUNCTION insert_upo()
+RETURNS trigger AS
+$$
+DECLARE
+BEGIN
+	UPDATE uporabniki SET datum_nastanka = NOW(), naslov = 'x', datum_roj = ' 01-01-2000' WHERE id=new.id;
+	INSERT INTO nastavitve (barva, font, velikost, uporabnik_id) VALUES ('x','x','1',new.id);
+	RETURN NULL;
+END
+$$LANGUAGE 'plpgsql';
 
 
 
