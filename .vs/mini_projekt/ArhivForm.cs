@@ -125,9 +125,17 @@ namespace mini_projekt
             }
             catch (Exception)
             {
-                DatumDateTimePicker.Value = Convert.ToDateTime(listView1.SelectedItems[0].SubItems[1].Text);
-                ZnesekTextBox.Text = listView1.SelectedItems[0].SubItems[2].Text;
-                MessageBox.Show("Ta podatek nima lokacije"); ;
+                try
+                {
+                    DatumDateTimePicker.Value = Convert.ToDateTime(listView1.SelectedItems[0].SubItems[1].Text);
+                    ZnesekTextBox.Text = listView1.SelectedItems[0].SubItems[2].Text;
+                    MessageBox.Show("Ta podatek nima lokacije"); ;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("napaka");
+                }
+                
             }
         }
 
